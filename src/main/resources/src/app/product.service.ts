@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {AppService} from './app.service';
 import {Product} from './model/product';
@@ -14,7 +13,7 @@ export class ProductService {
   constructor(private _service: AppService) { }
 
   loadProducts(): Observable<Product[]>{
-    return this._service.getProductsResource(this.productUrl)
+    return this._service.getProductsResource(this.productUrl);
 
   }
 
