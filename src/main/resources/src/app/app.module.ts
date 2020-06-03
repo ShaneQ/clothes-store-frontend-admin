@@ -13,6 +13,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { FooterComponent } from './footer/footer.component';
 import { ProductDisplayComponent } from './product-display/product-display.component';
+import { NoPageFoundComponent } from './no-page-found/no-page-found.component';
 
 @NgModule({
   declarations: [
@@ -25,12 +26,14 @@ import { ProductDisplayComponent } from './product-display/product-display.compo
     BaseComponent,
     ProductDetailsComponent,
     FooterComponent,
-    ProductDisplayComponent
+    ProductDisplayComponent,
+    NoPageFoundComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]
