@@ -1,0 +1,4 @@
+<div *ngFor="let product of products$ | async | slice:0:4">
+  <product-card class="card" (productSelected)="onProductSelected($event)" [product]="product"></product-card>
+</div>
+

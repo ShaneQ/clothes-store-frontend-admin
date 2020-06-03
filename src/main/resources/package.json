@@ -1,9 +1,9 @@
 {
-  "name": "clothes-store-frontend",
+  "name": "clothes-store-frontend-three",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --port 8089",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -21,8 +21,10 @@
     "@angular/router": "~9.1.9",
     "bootstrap": "^4.5.0",
     "jquery": "^3.5.1",
+    "ng2-cookies": ">=1.0.12",
     "popper": "^1.0.1",
-    "rxjs": "~6.5.4",
+    "rxjs": "^6.5.4",
+    "rxjs-compat": "^6.5.5",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
   },

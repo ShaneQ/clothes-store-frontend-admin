@@ -1,0 +1,13 @@
+
+<img class="card-img-top" [src]=product.imagePath *ngIf="product.imagePath" alt="ProductImg">
+<img class="card-img-top" [src]=defaultImageUrl *ngIf="!product.imagePath" alt="ProductImg">
+<div class="card-body">
+  <h5 class="card-title">{{product.name}}</h5>
+  <p class="card-subtitle">Short description</p>
+  <p class="card-text">$8.60 weekly price</p>
+
+  <!--
+    <a routerLink="/product/{{product.id}}" class="btn btn-primary">Go somewhere</a>
+  -->
+</div>
+
