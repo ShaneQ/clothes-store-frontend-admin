@@ -3,5 +3,5 @@ export class Product {
     public id: number,
     public name: string,
     public imagePath: string,
-    public type:string) { }
+    public type: string) { }
 }

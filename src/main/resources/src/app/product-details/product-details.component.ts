@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   templateUrl: './product-details.component.html',
@@ -12,7 +12,7 @@ export class ProductDetailsComponent {
   constructor(private router: Router,
               public route: ActivatedRoute) {
 
-    this.id = this.route.snapshot.paramMap.get('id'); //get id parameter
+    this.id = this.route.snapshot.paramMap.get('id');
   }
 
 }

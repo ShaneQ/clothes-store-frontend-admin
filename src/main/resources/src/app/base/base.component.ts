@@ -13,17 +13,17 @@ export class BaseComponent implements OnInit {
   public isLoggedIn = false;
 
   constructor(
-    private _service:AppService){}
+    private _service: AppService){}
 
   logout() {
-    console.log("Logged Out");
+    console.log('Logged Out');
     this._service.logout();
   }
 
   ngOnInit(): void {
-    console.log("Landed on base page");
-    let bool = this._service.checkCredentials();
-    console.log(bool)
+    console.log('Landed on base page');
+    const bool = this._service.checkCredentials();
+    console.log(bool);
   }
 
 }

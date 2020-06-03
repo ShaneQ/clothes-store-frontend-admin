@@ -1,19 +1,19 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Product} from "../model/product";
+import {Product} from '../model/product';
 
 @Component({
-  selector: 'product-card',
+  selector: 'app-product-card',
   templateUrl: './product-card.component.html'
 })
 export class ProductCardComponent implements OnInit {
 
   @Input()
-  product:Product;
+  product: Product;
 
-  @Output("productSelected")
+  @Output('productSelected')
   productEmitter = new EventEmitter<Product>();
 
-  public defaultImageUrl ='https://upload.wikimedia.org/wikipedia/commons/f/f9/Phoenicopterus_ruber_in_S%C3%A3o_Paulo_Zoo.jpg';
+  public defaultImageUrl = 'https://upload.wikimedia.org/wikipedia/commons/f/f9/Phoenicopterus_ruber_in_S%C3%A3o_Paulo_Zoo.jpg';
 
 
 
@@ -23,7 +23,7 @@ export class ProductCardComponent implements OnInit {
   }
 
   onProductSelected(){
-    console.log("Product was selected");
+    console.log('Product was selected');
     this.productEmitter.emit(this.product);
   }
 

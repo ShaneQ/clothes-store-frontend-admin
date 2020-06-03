@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {AppService} from "../app.service";
-import {Cookie} from "ng2-cookies";
+import {AppService} from '../app.service';
+import {Cookie} from 'ng2-cookies';
 
 @Component({
   selector: 'app-logout',
@@ -11,7 +11,7 @@ import {Cookie} from "ng2-cookies";
 export class PreLoginComponent implements OnInit {
 
   constructor(
-    private _service:AppService){}
+    private _service: AppService){}
 
   ngOnInit(): void {
     Cookie.delete('access_token');
