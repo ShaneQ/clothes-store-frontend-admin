@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {Observable} from "rxjs";
-import {AppService} from "./app.service";
-import {Product} from "./model/product";
+import {Observable} from 'rxjs';
+import {AppService} from './app.service';
+import {Product} from './model/product';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +18,7 @@ export class ProductService {
 
   }
 
-  getProduct(productId):Observable<Product> {
-    return this._service.getProductResource(this.productUrl+"/"+productId)
+  getProduct(productId): Observable<Product> {
+    return this._service.getProductResource(this.productUrl + '/' + productId);
   }
 }
