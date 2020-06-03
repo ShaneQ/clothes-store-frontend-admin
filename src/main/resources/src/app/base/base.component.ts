@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {AppService} from "../app.service";
+import {AppService} from '../app.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-base',
@@ -10,20 +11,15 @@ import {AppService} from "../app.service";
 })
 export class BaseComponent implements OnInit {
 
-  public isLoggedIn = false;
-
   constructor(
-    private _service: AppService){}
+    private _service: AppService,
+    private _router: Router
+  ){}
 
-  logout() {
-    console.log('Logged Out');
-    this._service.logout();
-  }
-
-  ngOnInit(): void {
-    console.log('Landed on base page');
-    const bool = this._service.checkCredentials();
-    console.log(bool);
+  ngOnInit(){
+    if (!this._service.checkCredentials()){
+      this._router.navigate(['']);
+    }
   }
 
 }

@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import {Product} from './model/product';
+import {Router} from "@angular/router";
 
 export class Foo {
   constructor(
@@ -15,11 +16,12 @@ export class Foo {
 @Injectable()
 export class AppService {
   public clientId = 'newClient';
-  public redirectUri = 'http://localhost:8089/';
+  public redirectUri = 'http://localhost:8089/loading';
   public baseUri = 'http://localhost:8089/';
 
   constructor(
-    private _http: HttpClient){}
+    private _http: HttpClient,
+    private _router: Router){}
 
   retrieveToken(code){
     const params = new URLSearchParams();
@@ -41,7 +43,7 @@ export class AppService {
     const expireDate = new Date().getTime() + (1000 * token.expires_in);
     Cookie.set('access_token', token.access_token, expireDate);
     console.log('Obtained Access token');
-    window.location.href = 'http://localhost:8089/base';
+    this._router.navigate(['/base/home']);
   }
 
   getResource(resourceUrl): Observable<any>{

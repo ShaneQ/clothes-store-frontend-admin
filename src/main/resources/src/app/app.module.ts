@@ -14,6 +14,9 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { FooterComponent } from './footer/footer.component';
 import { ProductDisplayComponent } from './product-display/product-display.component';
 import { NoPageFoundComponent } from './no-page-found/no-page-found.component';
+import { SomethingComponent } from './something/something.component';
+import { HeaderComponent } from './header/header.component';
+import { LoadingComponent } from './loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,10 @@ import { NoPageFoundComponent } from './no-page-found/no-page-found.component';
     ProductDetailsComponent,
     FooterComponent,
     ProductDisplayComponent,
-    NoPageFoundComponent
+    NoPageFoundComponent,
+    SomethingComponent,
+    HeaderComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,

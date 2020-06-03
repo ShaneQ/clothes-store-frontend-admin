@@ -6,7 +6,6 @@ import {interval} from "rxjs";
 import {takeWhile} from "rxjs/operators";
 
 @Component({
-  selector: 'app-logout',
   templateUrl: './pre-login.component.html',
   styleUrls: ['./pre-login.component.scss'],
   providers: [AppService]
@@ -42,10 +41,11 @@ export class PreLoginComponent implements OnInit {
       });
   }*/
 
+
   ngOnInit(){
     this.isLoggedIn = this._service.checkCredentials();
     const i = window.location.href.indexOf('code');
-    if(!this.isLoggedIn && i != -1){
+    if (!this.isLoggedIn && i !== -1){
       this._service.retrieveToken(window.location.href.substring(i + 5));
     }
   }
