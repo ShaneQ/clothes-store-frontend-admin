@@ -123,6 +123,12 @@
           }
         }
       }
-    }},
-  "defaultProject": "Clothes-Store-Frontend-Three"
+    }
+  },
+  "defaultProject": "Clothes-Store-Frontend-Three",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
+  }
 }

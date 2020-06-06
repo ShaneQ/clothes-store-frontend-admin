@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import {BaseComponent} from './base/base.component';
 import {RouterModule, Routes} from '@angular/router';
-import {PreLoginComponent} from './pre-login/pre-login.component';
+import {LandingComponent} from './pre-login/landing/landing-component';
 import {ProductDetailsComponent} from './product-details/product-details.component';
 import {ProductDisplayComponent} from './product-display/product-display.component';
 import {HomeComponent} from './home/home.component';
 import {LoadingComponent} from './loading/loading.component';
 
 const routes: Routes = [
-  { path: '', component: PreLoginComponent, pathMatch: 'full' },
+  { path: '', component: LandingComponent, pathMatch: 'full' },
   { path: 'base', component: BaseComponent,
     children: [
       {
