@@ -1,46 +1,27 @@
 import { Component, OnInit } from '@angular/core';
 import {AppService} from '../../app.service';
-import {Cookie} from 'ng2-cookies';
 import {Router} from '@angular/router';
-import {interval} from "rxjs";
-import {takeWhile} from "rxjs/operators";
+import {Cookie} from 'ng2-cookies';
 
 @Component({
-  templateUrl: './landing-component.html',
-  styleUrls: ['./landing-component.scss'],
-  providers: [AppService]
+  selector: 'app-navbar-landing',
+  templateUrl: './navbar-landing.component.html',
+  styleUrls: ['./navbar-landing.component.scss']
 })
-export class LandingComponent implements OnInit {
+export class NavbarLandingComponent implements OnInit {
 
   public isLoggedIn = false;
 
   constructor(
     private _service: AppService,
     private _router: Router
-    ){}
-
-
+  ){}
 
   login() {
+    Cookie.delete('access_token');
     window.location.href = 'http://localhost:8083/auth/realms/baeldung/protocol/openid-connect/auth?response_type=code&&scope=write%20read&client_id=' +
       this._service.clientId + '&redirect_uri=' + this._service.redirectUri;
   }
-
-/*  ngOnInit(): void {
-    interval(5000)
-      .subscribe(() => {
-        const bool = this._service.checkCredentials();
-        if (bool){
-          console.log('PRE-LOGIN:logged in');
-
-          this._router.navigate(['/base']);
-        }else{
-          console.log('PRE-LOGIN:not logged in');
-          //Cookie.delete('access_token');
-        }
-      });
-  }*/
-
 
   ngOnInit(){
     this.isLoggedIn = this._service.checkCredentials();
@@ -49,6 +30,4 @@ export class LandingComponent implements OnInit {
       this._service.retrieveToken(window.location.href.substring(i + 5));
     }
   }
-
-
 }

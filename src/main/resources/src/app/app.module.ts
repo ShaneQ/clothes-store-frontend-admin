@@ -7,12 +7,11 @@ import {ProductListComponent} from './product-list/product-list.component';
 import {ProductCardComponent} from './product-card/product-card.component';
 import {HttpClientModule} from '@angular/common/http';
 import {RouterModule} from '@angular/router';
-import { LandingComponent } from './pre-login/landing/landing-component';
+import { LandingComponent } from './pre-login/landing/landing.component';
 import { BaseComponent } from './base/base.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { FooterComponent } from './footer/footer.component';
-import { ProductDisplayComponent } from './product-display/product-display.component';
 import { NoPageFoundComponent } from './no-page-found/no-page-found.component';
 import { HeaderComponent } from './header/header.component';
 import { LoadingComponent } from './loading/loading.component';
@@ -31,9 +30,8 @@ import { SideBarComponent } from './partials/modal/side-bar/side-bar.component';
 import { SizeChartComponent } from './partials/modal/size-chart/size-chart.component';
 import { WaitListComponent } from './partials/modal/wait-list/wait-list.component';
 import { PromoComponent } from './partials/promo/promo.component';
-import { ScriptsComponent } from './partials/scripts/scripts.component';
-import { FooterLandingComponent } from './pre-login/footer-landing/footer-landing.component';
 import { NavbarLandingComponent } from './pre-login/navbar-landing/navbar-landing.component';
+import { ShopTopbarComponent } from './shop-topbar/shop-topbar.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +44,6 @@ import { NavbarLandingComponent } from './pre-login/navbar-landing/navbar-landin
     BaseComponent,
     ProductDetailsComponent,
     FooterComponent,
-    ProductDisplayComponent,
     NoPageFoundComponent,
     HeaderComponent,
     LoadingComponent,
@@ -65,9 +62,8 @@ import { NavbarLandingComponent } from './pre-login/navbar-landing/navbar-landin
     SizeChartComponent,
     WaitListComponent,
     PromoComponent,
-    ScriptsComponent,
-    FooterLandingComponent,
-    NavbarLandingComponent
+    NavbarLandingComponent,
+    ShopTopbarComponent
   ],
   imports: [
     BrowserModule,

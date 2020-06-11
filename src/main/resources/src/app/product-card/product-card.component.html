@@ -1,13 +1,31 @@
+<!-- Card -->
+<div class="card mb-7" >
 
-<img class="card-img-top" [src]=product.imagePath *ngIf="product.imagePath" alt="ProductImg">
-<img class="card-img-top" [src]=defaultImageUrl *ngIf="!product.imagePath" alt="ProductImg">
-<div class="card-body">
-  <h5 class="card-title">{{product.name}}</h5>
-  <p class="card-subtitle">Short description</p>
-  <p class="card-text">$8.60 weekly price</p>
+  <!-- Image -->
+  <div class="card-img" href="" [routerLink]="['/base/product', product.id]" >
 
-  <!--
-    <a routerLink="/product/{{product.id}}" class="btn btn-primary">Go somewhere</a>
-  -->
+    <!-- Action -->
+    <button class="btn btn-xs btn-circle btn-white-primary card-action card-action-right" data-toggle="button">
+      <i class="fe fe-heart"></i>
+    </button>
+
+    <!-- Button -->
+    <button class="btn btn-xs btn-block btn-dark card-btn" data-toggle="modal" data-target="#modalProduct">
+      <i class="fe fe-eye mr-2 mb-1"></i> Quick View
+    </button>
+
+    <!-- Image -->
+    <img class="card-img-top" [src]=product.coverImg.path *ngIf="product.coverImg" alt="Product Image">
+    <img class="card-img-top" [src]=defaultImageUrl *ngIf="!product.coverImg" alt="Product Image Default">
+
+  </div>
+
+  <!-- Body -->
+  <div class="card-body font-weight-bold text-center">
+    <a class="text-body" href="#!">{{product.name}}</a>
+    <div class="text-muted">$40.00</div>
+  </div>
+
 </div>
+
 

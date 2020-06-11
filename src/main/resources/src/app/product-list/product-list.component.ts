@@ -11,8 +11,10 @@ import {Product} from '../model/product';
 })
 export class ProductListComponent implements OnInit {
   public products$: Observable<Product[]>;
+  productCount: number;
 
   constructor(private _service: AppService, private _dataService: ProductService) {
+    this.productCount = 0;
   }
 
   getProducts() {
