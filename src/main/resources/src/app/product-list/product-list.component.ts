@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {AppService} from '../app.service';
 import {ProductService} from '../product.service';
 import {Observable} from 'rxjs';
@@ -13,6 +13,9 @@ export class ProductListComponent implements OnInit {
   public products$: Observable<Product[]>;
   productCount: number;
 
+  @Input()
+  displayAmount: number;
+
   constructor(private _service: AppService, private _dataService: ProductService) {
     this.productCount = 0;
   }
@@ -22,6 +25,7 @@ export class ProductListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log(this.displayAmount);
     this.getProducts();
   }
 

@@ -3,11 +3,10 @@ import {ScriptService} from '../script.service';
 
 @Component({
   selector: 'app-shop-topbar',
-  templateUrl: './shop-topbar.component.html',
-  styleUrls: ['./shop-topbar.component.scss'],
+  templateUrl: './shop-categories.component.html',
   providers: [ScriptService]
 })
-export class ShopTopbarComponent implements OnInit {
+export class ShopCategoriesComponent implements OnInit {
   private loadAPI: Promise<unknown>;
   private url = 'https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js';
 

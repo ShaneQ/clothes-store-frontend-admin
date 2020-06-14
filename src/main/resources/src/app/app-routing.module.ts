@@ -5,7 +5,8 @@ import {LandingComponent} from './pre-login/landing/landing.component';
 import {ProductDetailsComponent} from './product-details/product-details.component';
 import {HomeComponent} from './home/home.component';
 import {LoadingComponent} from './loading/loading.component';
-import {ShopTopbarComponent} from './shop-topbar/shop-topbar.component';
+import {ShopComponent} from './shop/shop.component';
+import {AppAuthGuard} from './app-auth.guard';
 
 const routes: Routes = [
   { path: '', component: LandingComponent, pathMatch: 'full' },
@@ -21,7 +22,7 @@ const routes: Routes = [
       },
       {
         path: 'shop', // child route path
-        component: ShopTopbarComponent // child route component that the router renders
+        component: ShopComponent // child route component that the router renders
       }
     ]},
   { path: 'loading', component: LoadingComponent},
@@ -30,6 +31,7 @@ const routes: Routes = [
 @NgModule({
   declarations: [],
   imports: [RouterModule.forRoot(routes as Routes)],
-  exports: []
+  exports: [],
+  providers: [AppAuthGuard]
 })
 export class AppRoutingModule { }

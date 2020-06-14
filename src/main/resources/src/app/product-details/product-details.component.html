@@ -1,28 +1,4 @@
 
-<!-- BREADCRUMB -->
-<nav class="py-5">
-  <div class="container">
-    <div class="row">
-      <div class="col-12">
-
-        <!-- Breadcrumb -->
-        <ol class="breadcrumb mb-0 font-size-xs text-gray-400">
-          <li class="breadcrumb-item">
-            <a class="text-gray-400" href="index.html">Home</a>
-          </li>
-          <li class="breadcrumb-item">
-            <a class="text-gray-400" href="shop.html">Women's Shoes</a>
-          </li>
-          <li class="breadcrumb-item active">
-            Leather Sneakers
-          </li>
-        </ol>
-
-      </div>
-    </div>
-  </div>
-</nav>
-
 <!-- PRODUCT -->
 <section>
   <div class="container">
@@ -40,19 +16,15 @@
               </div>
 
               <!-- Slider -->
-              <div class="mb-4" data-flickity='{"draggable": false, "fade": true, "pageDots": false}' id="productSlider">
+              <div class="mb-4" data-flickity='{"draggable": false, "fade": true, "pageDots": false, "prevNextButtons": false}' id="productSlider">
 
-                <!-- Item -->
-<!--                <a href="assets/img/products/product-7.jpg" data-fancybox>-->
-<!--                  <img src="assets/img/products/product-7.jpg" alt="..." class="card-img-top">-->
+
+<!--                <a href="{{product.coverImg.path}}" *ngIf="product.coverImg"data-fancybox>-->
+<!--                  <img class="card-img-top" [src]=product.coverImg.path *ngIf="product.coverImg" alt="Product Image">-->
 <!--                </a>-->
-
-                <a href="{{product.coverImg.path}}" *ngIf="product.coverImg"data-fancybox>
-                  <img class="card-img-top" [src]=product.coverImg.path *ngIf="product.coverImg" alt="Product Image">
-                </a>
-                <a href="{{defaultImageUrl}}" *ngIf="!product.coverImg" data-fancybox>
-                  <img class="card-img-top" [src]=defaultImageUrl *ngIf="!product.coverImg" alt="Product Image Default">
-                </a>
+<!--                <a href="{{defaultImageUrl}}" *ngIf="!product.coverImg" data-fancybox>-->
+<!--                  <img class="card-img-top" [src]=defaultImageUrl *ngIf="!product.coverImg" alt="Product Image Default">-->
+<!--                </a>-->
                 <!-- Item -->
                 <a href="assets/img/products/product-122.jpg" data-fancybox>
                   <img src="assets/img/products/product-122.jpg" alt="..." class="card-img-top">
@@ -151,30 +123,6 @@
 
                 <!-- Label -->
                 <p class="mb-5">
-                  Color: <strong id="colorCaption">White</strong>
-                </p>
-
-                <!-- Radio -->
-                <div class="mb-8 ml-n1">
-                  <div class="custom-control custom-control-inline custom-control-img">
-                    <input type="radio" class="custom-control-input" id="imgRadioOne" name="imgRadio" data-toggle="form-caption" data-target="#colorCaption" value="White" checked>
-                    <label class="custom-control-label" for="imgRadioOne">
-                      <span class="embed-responsive embed-responsive-1by1 bg-cover" style="background-image: url(assets/img/products/product-7.jpg);"></span>
-                    </label>
-                  </div>
-                  <div class="custom-control custom-control-inline custom-control-img">
-                    <input type="radio" class="custom-control-input" id="imgRadioTwo" name="imgRadio" data-toggle="form-caption" data-target="#colorCaption" value="Black">
-                    <label class="custom-control-label" for="imgRadioTwo">
-                      <span class="embed-responsive embed-responsive-1by1 bg-cover" style="background-image: url(assets/img/products/product-49.jpg);"></span>
-                    </label>
-                  </div>
-                </div>
-
-              </div>
-              <div class="form-group">
-
-                <!-- Label -->
-                <p class="mb-5">
                   Size: <strong><span id="sizeCaption">7.5</span> US</strong>
                 </p>
 
@@ -182,59 +130,23 @@
                 <div class="mb-2">
                   <div class="custom-control custom-control-inline custom-control-size mb-2">
                     <input type="radio" class="custom-control-input" name="sizeRadio" id="sizeRadioOne" value="6" data-toggle="form-caption" data-target="#sizeCaption">
-                    <label class="custom-control-label" for="sizeRadioOne">6</label>
+                    <label class="custom-control-label" for="sizeRadioOne">XS</label>
                   </div>
                   <div class="custom-control custom-control-inline custom-control-size mb-2">
                     <input type="radio" class="custom-control-input" name="sizeRadio" id="sizeRadioTwo" value="6.5" data-toggle="form-caption" data-target="#sizeCaption" disabled>
-                    <label class="custom-control-label" for="sizeRadioTwo">6.5</label>
+                    <label class="custom-control-label" for="sizeRadioTwo">S</label>
                   </div>
                   <div class="custom-control custom-control-inline custom-control-size mb-2">
                     <input type="radio" class="custom-control-input" name="sizeRadio" id="sizeRadioThree" value="7" data-toggle="form-caption" data-target="#sizeCaption">
-                    <label class="custom-control-label" for="sizeRadioThree">7</label>
+                    <label class="custom-control-label" for="sizeRadioThree">M</label>
                   </div>
                   <div class="custom-control custom-control-inline custom-control-size mb-2">
                     <input type="radio" class="custom-control-input" name="sizeRadio" id="sizeRadioFour" value="7.5" data-toggle="form-caption" data-target="#sizeCaption" checked>
-                    <label class="custom-control-label" for="sizeRadioFour">7.5</label>
+                    <label class="custom-control-label" for="sizeRadioFour">L</label>
                   </div>
                   <div class="custom-control custom-control-inline custom-control-size mb-2">
                     <input type="radio" class="custom-control-input" name="sizeRadio" id="sizeRadioFive" value="8" data-toggle="form-caption" data-target="#sizeCaption">
-                    <label class="custom-control-label" for="sizeRadioFive">8</label>
-                  </div>
-                  <div class="custom-control custom-control-inline custom-control-size mb-2">
-                    <input type="radio" class="custom-control-input" name="sizeRadio" id="sizeRadioSix" value="8.5" data-toggle="form-caption" data-target="#sizeCaption">
-                    <label class="custom-control-label" for="sizeRadioSix">8.5</label>
-                  </div>
-                  <div class="custom-control custom-control-inline custom-control-size mb-2">
-                    <input type="radio" class="custom-control-input" name="sizeRadio" id="sizeRadioSeven" value="9" data-toggle="form-caption" data-target="#sizeCaption" disabled>
-                    <label class="custom-control-label" for="sizeRadioSeven">9</label>
-                  </div>
-                  <div class="custom-control custom-control-inline custom-control-size mb-2">
-                    <input type="radio" class="custom-control-input" name="sizeRadio" id="sizeRadioEight" value="9.5" data-toggle="form-caption" data-target="#sizeCaption" disabled>
-                    <label class="custom-control-label" for="sizeRadioEight">9.5</label>
-                  </div>
-                  <div class="custom-control custom-control-inline custom-control-size mb-2">
-                    <input type="radio" class="custom-control-input" name="sizeRadio" id="sizeRadioNine" value="10" data-toggle="form-caption" data-target="#sizeCaption">
-                    <label class="custom-control-label" for="sizeRadioNine">10</label>
-                  </div>
-                  <div class="custom-control custom-control-inline custom-control-size mb-2">
-                    <input type="radio" class="custom-control-input" name="sizeRadio" id="sizeRadioTen" value="10.5" data-toggle="form-caption" data-target="#sizeCaption">
-                    <label class="custom-control-label" for="sizeRadioTen">10.5</label>
-                  </div>
-                  <div class="custom-control custom-control-inline custom-control-size mb-2">
-                    <input type="radio" class="custom-control-input" name="sizeRadio" id="sizeRadioEleven" value="11" data-toggle="form-caption" data-target="#sizeCaption">
-                    <label class="custom-control-label" for="sizeRadioEleven">11</label>
-                  </div>
-                  <div class="custom-control custom-control-inline custom-control-size mb-2">
-                    <input type="radio" class="custom-control-input" name="sizeRadio" id="sizeRadioTwelve" value="12" data-toggle="form-caption" data-target="#sizeCaption">
-                    <label class="custom-control-label" for="sizeRadioTwelve">12</label>
-                  </div>
-                  <div class="custom-control custom-control-inline custom-control-size mb-2">
-                    <input type="radio" class="custom-control-input" name="sizeRadio" id="sizeRadioThirteen" value="13" data-toggle="form-caption" data-target="#sizeCaption">
-                    <label class="custom-control-label" for="sizeRadioThirteen">13</label>
-                  </div>
-                  <div class="custom-control custom-control-inline custom-control-size mb-2">
-                    <input type="radio" class="custom-control-input" name="sizeRadio" id="sizeRadioFourteen" value="14" data-toggle="form-caption" data-target="#sizeCaption">
-                    <label class="custom-control-label" for="sizeRadioFourteen">14</label>
+                    <label class="custom-control-label" for="sizeRadioFive">XL</label>
                   </div>
                 </div>
 
@@ -243,32 +155,98 @@
                   <img src="assets/img/icons/icon-ruler.svg" alt="..." class="img-fluid"> <a class="text-reset text-decoration-underline ml-3" data-toggle="modal" href="#modalSizeChart">Size chart</a>
                 </p>
 
+
+                  <div class="row">
+                    <div class="radio radio-danger radio-inline">
+                      <input type="radio" name="radio2" id="radio3" value="option1" checked>
+                      <label for="radio3">
+                        €10.00 (7 DAYS)
+                      </label>
+                    </div>
+                    <div class="radio radio-danger radio-inline">
+                      <input type="radio" name="radio2" id="radio4" value="option2" >
+                      <label for="radio4">
+                        €20.00 (14 DAYS)
+                      </label>
+                    </div>
+                  </div>
+                <div class="row" >
+                  <div class="col-6">
+                  <div class=" theme-default">
+                    <div class="row " >
+                      <div class="form-group">
+                        <input
+                          type="text"
+                          placeholder="PICKUP DATE"
+                          class="form-control"
+                          bsDatepicker
+                          [bsConfig]="{ isAnimated: true, containerClass : 'theme-default'}"
+                          [minDate]="minDate"
+                          [maxDate]="maxDate">
+                      </div>
+                    </div>
+                  </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="btn-group dropdown">
+
+                      <!-- Toggle -->
+                      <button class="btn btn-sm btn-block btn-outline-border dropdown-toggle" data-toggle="dropdown" data-display="static">
+                        COLLECTION PLACE
+                      </button>
+
+                      <!-- Menu -->
+                      <form class="dropdown-menu">
+                        <div class="card">
+                          <div class="card-body">
+
+                            <!-- Form group -->
+                            <div class="form-group-overflow">
+                              <div class="custom-control custom-radio mb-3">
+                                <input class="custom-control-input" id="categoryOne" name="category" type="radio">
+                                <label class="custom-control-label" for="categoryOne">SMITHFIELD MARKET</label>
+                              </div>
+                              <div class="custom-control custom-radio mb-3">
+                                <input class="custom-control-input" id="categoryTwo" name="category" type="radio">
+                                <label class="custom-control-label" for="categoryTwo">NEXT CLUB MEETING</label>
+                              </div>
+                              <div class="custom-control custom-radio mb-3">
+                                <input class="custom-control-input" id="categoryThree" name="category" type="radio">
+                                <label class="custom-control-label" for="categoryThree">AN POST</label>
+                              </div>
+                            </div>
+
+                          </div>
+
+                        </div>
+                      </form>
+
+                    </div>
+                  </div>
+                </div>
+
+
+
                 <div class="form-row mb-7">
                   <div class="col-12 col-lg-auto">
 
-                    <!-- Quantity -->
-                    <select class="custom-select mb-2">
-                      <option value="1" selected>1</option>
-                      <option value="2">2</option>
-                      <option value="3">3</option>
-                      <option value="4">4</option>
-                      <option value="5">5</option>
-                    </select>
+
+
+                  </div>
+
+                  <div class="col-12 col-lg-auto">
+
+                    <!-- Wishlist -->
+                    <button class="btn btn-outline-dark btn-block mb-2" data-toggle="button">
+                      Wishlist <i class="fe fe-heart ml-2"></i>
+                    </button>
 
                   </div>
                   <div class="col-12 col-lg">
 
                     <!-- Submit -->
                     <button type="submit" class="btn btn-block btn-dark mb-2">
-                      Add to Cart <i class="fe fe-shopping-cart ml-2"></i>
-                    </button>
-
-                  </div>
-                  <div class="col-12 col-lg-auto">
-
-                    <!-- Wishlist -->
-                    <button class="btn btn-outline-dark btn-block mb-2" data-toggle="button">
-                      Wishlist <i class="fe fe-heart ml-2"></i>
+                      Book it <i class="fe fe-shopping-cart ml-2"></i>
                     </button>
 
                   </div>
@@ -311,9 +289,6 @@
           </a>
           <a class="nav-link" data-toggle="tab" href="#sizeTab">
             Size & Fit
-          </a>
-          <a class="nav-link" data-toggle="tab" href="#shippingTab">
-            Shipping & Return
           </a>
         </div>
 
@@ -489,767 +464,517 @@
         <h4 class="mb-10 text-center">You might also like</h4>
 
         <!-- Items -->
-        <div class="row">
-          <div class="col-6 col-sm-6 col-md-4 col-lg-3">
-
-            <!-- Card -->
-            <div class="card mb-7">
-
-              <!-- Badge -->
-              <div class="badge badge-white card-badge card-badge-left text-uppercase">
-                New
-              </div>
-
-              <!-- Image -->
-              <div class="card-img">
-
-                <!-- Image -->
-                <a class="card-img-hover" href="product.html">
-                  <img class="card-img-top card-img-back" src="assets/img/products/product-120.jpg" alt="...">
-                  <img class="card-img-top card-img-front" src="assets/img/products/product-5.jpg" alt="...">
-                </a>
-
-                <!-- Actions -->
-                <div class="card-actions">
-                      <span class="card-action">
-                        <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="modal" data-target="#modalProduct">
-                          <i class="fe fe-eye"></i>
-                        </button>
-                      </span>
-                  <span class="card-action">
-                        <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
-                          <i class="fe fe-shopping-cart"></i>
-                        </button>
-                      </span>
-                  <span class="card-action">
-                        <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
-                          <i class="fe fe-heart"></i>
-                        </button>
-                      </span>
-                </div>
-
-              </div>
-
-              <!-- Body -->
-              <div class="card-body px-0">
-
-                <!-- Category -->
-                <div class="font-size-xs">
-                  <a class="text-muted" href="shop.html">Shoes</a>
-                </div>
-
-                <!-- Title -->
-                <div class="font-weight-bold">
-                  <a class="text-body" href="product.html">
-                    Leather mid-heel Sandals
-                  </a>
-                </div>
-
-                <!-- Price -->
-                <div class="font-weight-bold text-muted">
-                  $129.00
-                </div>
-
-              </div>
-
-            </div>
-
-          </div>
-          <div class="col-6 col-sm-6 col-md-4 col-lg-3">
-
-            <!-- Card -->
-            <div class="card mb-7">
-
-              <!-- Image -->
-              <div class="card-img">
-
-                <!-- Image -->
-                <a class="card-img-hover" href="product.html">
-                  <img class="card-img-top card-img-back" src="assets/img/products/product-121.jpg" alt="...">
-                  <img class="card-img-top card-img-front" src="assets/img/products/product-6.jpg" alt="...">
-                </a>
-
-                <!-- Actions -->
-                <div class="card-actions">
-                      <span class="card-action">
-                        <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="modal" data-target="#modalProduct">
-                          <i class="fe fe-eye"></i>
-                        </button>
-                      </span>
-                  <span class="card-action">
-                        <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
-                          <i class="fe fe-shopping-cart"></i>
-                        </button>
-                      </span>
-                  <span class="card-action">
-                        <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
-                          <i class="fe fe-heart"></i>
-                        </button>
-                      </span>
-                </div>
-
-              </div>
-
-              <!-- Body -->
-              <div class="card-body px-0">
-
-                <!-- Category -->
-                <div class="font-size-xs">
-                  <a class="text-muted" href="shop.html">Dresses</a>
-                </div>
-
-                <!-- Title -->
-                <div class="font-weight-bold">
-                  <a class="text-body" href="product.html">
-                    Cotton floral print Dress
-                  </a>
-                </div>
-
-                <!-- Price -->
-                <div class="font-weight-bold text-muted">
-                  $40.00
-                </div>
-
-              </div>
-
-            </div>
-
-          </div>
-          <div class="col-6 col-sm-6 col-md-4 col-lg-3">
-
-            <!-- Card -->
-            <div class="card mb-7">
-
-              <!-- Badge -->
-              <div class="badge badge-dark card-badge card-badge-left text-uppercase">
-                Sale
-              </div>
-
-              <!-- Image -->
-              <div class="card-img">
-
-                <!-- Image -->
-                <a class="card-img-hover" href="product.html">
-                  <img class="card-img-top card-img-back" src="assets/img/products/product-122.jpg" alt="...">
-                  <img class="card-img-top card-img-front" src="assets/img/products/product-7.jpg" alt="...">
-                </a>
-
-                <!-- Actions -->
-                <div class="card-actions">
-                      <span class="card-action">
-                        <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="modal" data-target="#modalProduct">
-                          <i class="fe fe-eye"></i>
-                        </button>
-                      </span>
-                  <span class="card-action">
-                        <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
-                          <i class="fe fe-shopping-cart"></i>
-                        </button>
-                      </span>
-                  <span class="card-action">
-                        <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
-                          <i class="fe fe-heart"></i>
-                        </button>
-                      </span>
-                </div>
-
-              </div>
-
-              <!-- Body -->
-              <div class="card-body px-0">
-
-                <!-- Category -->
-                <div class="font-size-xs">
-                  <a class="text-muted" href="shop.html">Shoes</a>
-                </div>
-
-                <!-- Title -->
-                <div class="font-weight-bold">
-                  <a class="text-body" href="product.html">
-                    Leather Sneakers
-                  </a>
-                </div>
-
-                <!-- Price -->
-                <div class="font-weight-bold">
-                  <span class="font-size-xs text-gray-350 text-decoration-line-through">$85.00</span>
-                  <span class="text-primary">$85.00</span>
-                </div>
-
-              </div>
-
-            </div>
-
-          </div>
-          <div class="col-6 col-sm-6 col-md-4 col-lg-3 d-md-none d-lg-block">
-
-            <!-- Card -->
-            <div class="card mb-7">
-
-              <!-- Image -->
-              <div class="card-img">
-
-                <!-- Image -->
-                <a href="#!">
-                  <img class="card-img-top card-img-front" src="assets/img/products/product-8.jpg" alt="...">
-                </a>
-
-                <!-- Actions -->
-                <div class="card-actions">
-                      <span class="card-action">
-                        <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="modal" data-target="#modalProduct">
-                          <i class="fe fe-eye"></i>
-                        </button>
-                      </span>
-                  <span class="card-action">
-                        <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
-                          <i class="fe fe-shopping-cart"></i>
-                        </button>
-                      </span>
-                  <span class="card-action">
-                        <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
-                          <i class="fe fe-heart"></i>
-                        </button>
-                      </span>
-                </div>
-
-              </div>
-
-              <!-- Body -->
-              <div class="card-body px-0">
-
-                <!-- Category -->
-                <div class="font-size-xs">
-                  <a class="text-muted" href="shop.html">Tops</a>
-                </div>
-
-                <!-- Title -->
-                <div class="font-weight-bold">
-                  <a class="text-body" href="product.html">
-                    Cropped cotton Top
-                  </a>
-                </div>
-
-                <!-- Price -->
-                <div class="font-weight-bold text-muted">
-                  $29.00
-                </div>
-
-              </div>
-
-            </div>
-
-          </div>
-        </div>
+        <app-product-list displayAmount="4"></app-product-list>
 
       </div>
     </div>
   </div>
 </section>
 
-<!-- REVIEWS -->
-<!--<section class="pt-9 pb-11" id="reviews">-->
-<!--  <div class="container">-->
-<!--    <div class="row">-->
-<!--      <div class="col-12">-->
-
-<!--        &lt;!&ndash; Heading &ndash;&gt;-->
-<!--        <h4 class="mb-10 text-center">Customer Reviews</h4>-->
-
-<!--        &lt;!&ndash; Header &ndash;&gt;-->
-<!--        <div class="row align-items-center">-->
-<!--          <div class="col-12 col-md-auto">-->
-
-<!--            &lt;!&ndash; Dropdown &ndash;&gt;-->
-<!--            <div class="dropdown mb-4 mb-md-0">-->
-
-<!--              &lt;!&ndash; Toggle &ndash;&gt;-->
-<!--              <a class="dropdown-toggle text-reset" data-toggle="dropdown" href="#">-->
-<!--                <strong>Sort by: Newest</strong>-->
-<!--              </a>-->
-
-<!--              &lt;!&ndash; Menu &ndash;&gt;-->
-<!--              <div class="dropdown-menu mt-3">-->
-<!--                <a class="dropdown-item" href="#!">Newest</a>-->
-<!--                <a class="dropdown-item" href="#!">Oldest</a>-->
-<!--              </div>-->
-
-<!--            </div>-->
-
-<!--          </div>-->
-<!--          <div class="col-12 col-md text-md-center">-->
-
-<!--            &lt;!&ndash; Rating &ndash;&gt;-->
-<!--            <div class="rating text-dark h6 mb-4 mb-md-0" data-value="4">-->
-<!--              <div class="rating-item">-->
-<!--                <i class="fas fa-star"></i>-->
-<!--              </div>-->
-<!--              <div class="rating-item">-->
-<!--                <i class="fas fa-star"></i>-->
-<!--              </div>-->
-<!--              <div class="rating-item">-->
-<!--                <i class="fas fa-star"></i>-->
-<!--              </div>-->
-<!--              <div class="rating-item">-->
-<!--                <i class="fas fa-star"></i>-->
-<!--              </div>-->
-<!--              <div class="rating-item">-->
-<!--                <i class="fas fa-star"></i>-->
-<!--              </div>-->
-<!--            </div>-->
-
-<!--            &lt;!&ndash; Count &ndash;&gt;-->
-<!--            <strong class="font-size-sm ml-2">Reviews (3)</strong>-->
-
-<!--          </div>-->
-<!--          <div class="col-12 col-md-auto">-->
-
-<!--            &lt;!&ndash; Button &ndash;&gt;-->
-<!--            <a class="btn btn-sm btn-dark" data-toggle="collapse" href="#reviewForm">-->
-<!--              Write Review-->
-<!--            </a>-->
-
-<!--          </div>-->
-<!--        </div>-->
-
-<!--        &lt;!&ndash; New Review &ndash;&gt;-->
-<!--        <div class="collapse" id="reviewForm">-->
-
-<!--          &lt;!&ndash; Divider &ndash;&gt;-->
-<!--          <hr class="my-8">-->
-
-<!--          &lt;!&ndash; Form &ndash;&gt;-->
-<!--          <form>-->
-<!--            <div class="row">-->
-<!--              <div class="col-12 mb-6 text-center">-->
-
-<!--                &lt;!&ndash; Text &ndash;&gt;-->
-<!--                <p class="mb-1 font-size-xs">-->
-<!--                  Score:-->
-<!--                </p>-->
-
-<!--                &lt;!&ndash; Rating form &ndash;&gt;-->
-<!--                <div class="rating-form">-->
-
-<!--                  &lt;!&ndash; Input &ndash;&gt;-->
-<!--                  <input class="rating-input" type="range" min="1" max="5" value="5">-->
-
-<!--                  &lt;!&ndash; Rating &ndash;&gt;-->
-<!--                  <div class="rating h5 text-dark" data-value="5">-->
-<!--                    <div class="rating-item">-->
-<!--                      <i class="fas fa-star"></i>-->
-<!--                    </div>-->
-<!--                    <div class="rating-item">-->
-<!--                      <i class="fas fa-star"></i>-->
-<!--                    </div>-->
-<!--                    <div class="rating-item">-->
-<!--                      <i class="fas fa-star"></i>-->
-<!--                    </div>-->
-<!--                    <div class="rating-item">-->
-<!--                      <i class="fas fa-star"></i>-->
-<!--                    </div>-->
-<!--                    <div class="rating-item">-->
-<!--                      <i class="fas fa-star"></i>-->
-<!--                    </div>-->
-<!--                  </div>-->
-
-<!--                </div>-->
-
-<!--              </div>-->
-<!--              <div class="col-12 col-md-6">-->
-
-<!--                &lt;!&ndash; Name &ndash;&gt;-->
-<!--                <div class="form-group">-->
-<!--                  <label class="sr-only" for="reviewName">Your Name:</label>-->
-<!--                  <input class="form-control form-control-sm" id="reviewName" type="text" placeholder="Your Name *" required>-->
-<!--                </div>-->
-
-<!--              </div>-->
-<!--              <div class="col-12 col-md-6">-->
-
-<!--                &lt;!&ndash; Email &ndash;&gt;-->
-<!--                <div class="form-group">-->
-<!--                  <label class="sr-only" for="reviewEmail">Your Email:</label>-->
-<!--                  <input class="form-control form-control-sm" id="reviewEmail" type="email" placeholder="Your Email *" required>-->
-<!--                </div>-->
-
-<!--              </div>-->
-<!--              <div class="col-12">-->
-
-<!--                &lt;!&ndash; Name &ndash;&gt;-->
-<!--                <div class="form-group">-->
-<!--                  <label class="sr-only" for="reviewTitle">Review Title:</label>-->
-<!--                  <input class="form-control form-control-sm" id="reviewTitle" type="text" placeholder="Review Title *" required>-->
-<!--                </div>-->
-
-<!--              </div>-->
-<!--              <div class="col-12">-->
-
-<!--                &lt;!&ndash; Name &ndash;&gt;-->
-<!--                <div class="form-group">-->
-<!--                  <label class="sr-only" for="reviewText">Review:</label>-->
-<!--                  <textarea class="form-control form-control-sm" id="reviewText" rows="5" placeholder="Review *" required></textarea>-->
-<!--                </div>-->
-
-<!--              </div>-->
-<!--              <div class="col-12 text-center">-->
-
-<!--                &lt;!&ndash; Button &ndash;&gt;-->
-<!--                <button class="btn btn-outline-dark" type="submit">-->
-<!--                  Post Review-->
-<!--                </button>-->
-
-<!--              </div>-->
-<!--            </div>-->
-<!--          </form>-->
-
-<!--        </div>-->
-
-<!--        &lt;!&ndash; Reviews &ndash;&gt;-->
-<!--        <div class="mt-8">-->
-
-<!--          &lt;!&ndash; Review &ndash;&gt;-->
-<!--          <div class="review">-->
-<!--            <div class="review-body">-->
-<!--              <div class="row">-->
-<!--                <div class="col-12 col-md-auto">-->
-
-<!--                  &lt;!&ndash; Avatar &ndash;&gt;-->
-<!--                  <div class="avatar avatar-xxl mb-6 mb-md-0">-->
-<!--                        <span class="avatar-title rounded-circle">-->
-<!--                          <i class="fa fa-user"></i>-->
-<!--                        </span>-->
-<!--                  </div>-->
-
-<!--                </div>-->
-<!--                <div class="col-12 col-md">-->
-
-<!--                  &lt;!&ndash; Header &ndash;&gt;-->
-<!--                  <div class="row mb-6">-->
-<!--                    <div class="col-12">-->
-
-<!--                      &lt;!&ndash; Rating &ndash;&gt;-->
-<!--                      <div class="rating font-size-sm text-dark" data-value="5">-->
-<!--                        <div class="rating-item">-->
-<!--                          <i class="fas fa-star"></i>-->
-<!--                        </div>-->
-<!--                        <div class="rating-item">-->
-<!--                          <i class="fas fa-star"></i>-->
-<!--                        </div>-->
-<!--                        <div class="rating-item">-->
-<!--                          <i class="fas fa-star"></i>-->
-<!--                        </div>-->
-<!--                        <div class="rating-item">-->
-<!--                          <i class="fas fa-star"></i>-->
-<!--                        </div>-->
-<!--                        <div class="rating-item">-->
-<!--                          <i class="fas fa-star"></i>-->
-<!--                        </div>-->
-<!--                      </div>-->
-
-<!--                    </div>-->
-<!--                    <div class="col-12">-->
-
-<!--                      &lt;!&ndash; Time &ndash;&gt;-->
-<!--                      <span class="font-size-xs text-muted">-->
-<!--                            Logan Edwards, <time datetime="2019-07-25">25 Jul 2019</time>-->
-<!--                          </span>-->
-
-<!--                    </div>-->
-<!--                  </div>-->
-
-<!--                  &lt;!&ndash; Title &ndash;&gt;-->
-<!--                  <p class="mb-2 font-size-lg font-weight-bold">-->
-<!--                    So cute!-->
-<!--                  </p>-->
-
-<!--                  &lt;!&ndash; Text &ndash;&gt;-->
-<!--                  <p class="text-gray-500">-->
-<!--                    Justo ut diam erat hendrerit. Morbi porttitor, per eu. Sodales curabitur diam sociis. Taciti lobortis nascetur. Ante laoreet odio hendrerit.-->
-<!--                    Dictumst curabitur nascetur lectus potenti dis sollicitudin habitant quis vestibulum.-->
-<!--                  </p>-->
-
-<!--                  &lt;!&ndash; Footer &ndash;&gt;-->
-<!--                  <div class="row align-items-center">-->
-<!--                    <div class="col-auto d-none d-lg-block">-->
-
-<!--                      &lt;!&ndash; Text &ndash;&gt;-->
-<!--                      <p class="mb-0 font-size-sm">Was this review helpful?</p>-->
-
-<!--                    </div>-->
-<!--                    <div class="col-auto mr-auto">-->
-
-<!--                      &lt;!&ndash; Rate &ndash;&gt;-->
-<!--                      <div class="rate">-->
-<!--                        <a class="rate-item" data-toggle="vote" data-count="3" href="#" role="button">-->
-<!--                          <i class="fe fe-thumbs-up"></i>-->
-<!--                        </a>-->
-<!--                        <a class="rate-item" data-toggle="vote" data-count="0" href="#" role="button">-->
-<!--                          <i class="fe fe-thumbs-down"></i>-->
-<!--                        </a>-->
-<!--                      </div>-->
-
-<!--                    </div>-->
-<!--                    <div class="col-auto d-none d-lg-block">-->
-
-<!--                      &lt;!&ndash; Text &ndash;&gt;-->
-<!--                      <p class="mb-0 font-size-sm">Comments (0)</p>-->
-
-<!--                    </div>-->
-<!--                    <div class="col-auto">-->
-
-<!--                      &lt;!&ndash; Button &ndash;&gt;-->
-<!--                      <a class="btn btn-xs btn-outline-border" href="#!">-->
-<!--                        Comment-->
-<!--                      </a>-->
-
-<!--                    </div>-->
-<!--                  </div>-->
-
-<!--                </div>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
-
-<!--          &lt;!&ndash; Review &ndash;&gt;-->
-<!--          <div class="review">-->
-
-<!--            &lt;!&ndash; Body &ndash;&gt;-->
-<!--            <div class="review-body">-->
-<!--              <div class="row">-->
-<!--                <div class="col-12 col-md-auto">-->
-
-<!--                  &lt;!&ndash; Avatar &ndash;&gt;-->
-<!--                  <div class="avatar avatar-xxl mb-6 mb-md-0">-->
-<!--                        <span class="avatar-title rounded-circle">-->
-<!--                          <i class="fa fa-user"></i>-->
-<!--                        </span>-->
-<!--                  </div>-->
-
-<!--                </div>-->
-<!--                <div class="col-12 col-md">-->
-
-<!--                  &lt;!&ndash; Header &ndash;&gt;-->
-<!--                  <div class="row mb-6">-->
-<!--                    <div class="col-12">-->
-
-<!--                      &lt;!&ndash; Rating &ndash;&gt;-->
-<!--                      <div class="rating font-size-sm text-dark" data-value="3">-->
-<!--                        <div class="rating-item">-->
-<!--                          <i class="fas fa-star"></i>-->
-<!--                        </div>-->
-<!--                        <div class="rating-item">-->
-<!--                          <i class="fas fa-star"></i>-->
-<!--                        </div>-->
-<!--                        <div class="rating-item">-->
-<!--                          <i class="fas fa-star"></i>-->
-<!--                        </div>-->
-<!--                        <div class="rating-item">-->
-<!--                          <i class="fas fa-star"></i>-->
-<!--                        </div>-->
-<!--                        <div class="rating-item">-->
-<!--                          <i class="fas fa-star"></i>-->
-<!--                        </div>-->
-<!--                      </div>-->
-
-<!--                    </div>-->
-<!--                    <div class="col-12">-->
-
-<!--                      &lt;!&ndash; Time &ndash;&gt;-->
-<!--                      <span class="font-size-xs text-muted">-->
-<!--                            Sophie Casey, <time datetime="2019-07-07">07 Jul 2019</time>-->
-<!--                          </span>-->
-
-<!--                    </div>-->
-<!--                  </div>-->
-
-<!--                  &lt;!&ndash; Title &ndash;&gt;-->
-<!--                  <p class="mb-2 font-size-lg font-weight-bold">-->
-<!--                    Cute, but too small-->
-<!--                  </p>-->
-
-<!--                  &lt;!&ndash; Text &ndash;&gt;-->
-<!--                  <p class="text-gray-500">-->
-<!--                    Shall good midst can't. Have fill own his multiply the divided. Thing great. Of heaven whose signs.-->
-<!--                  </p>-->
-
-<!--                  &lt;!&ndash; Footer &ndash;&gt;-->
-<!--                  <div class="row align-items-center">-->
-<!--                    <div class="col-auto d-none d-lg-block">-->
-
-<!--                      &lt;!&ndash; Text &ndash;&gt;-->
-<!--                      <p class="mb-0 font-size-sm">Was this review helpful?</p>-->
-
-<!--                    </div>-->
-<!--                    <div class="col-auto mr-auto">-->
-
-<!--                      &lt;!&ndash; Rate &ndash;&gt;-->
-<!--                      <div class="rate">-->
-<!--                        <a class="rate-item" data-toggle="vote" data-count="2" href="#" role="button">-->
-<!--                          <i class="fe fe-thumbs-up"></i>-->
-<!--                        </a>-->
-<!--                        <a class="rate-item" data-toggle="vote" data-count="1" href="#" role="button">-->
-<!--                          <i class="fe fe-thumbs-down"></i>-->
-<!--                        </a>-->
-<!--                      </div>-->
-
-<!--                    </div>-->
-<!--                    <div class="col-auto d-none d-lg-block">-->
-
-<!--                      &lt;!&ndash; Text &ndash;&gt;-->
-<!--                      <p class="mb-0 font-size-sm">Comments (1)</p>-->
-
-<!--                    </div>-->
-<!--                    <div class="col-auto">-->
-
-<!--                      &lt;!&ndash; Button &ndash;&gt;-->
-<!--                      <a class="btn btn-xs btn-outline-border" href="#!">-->
-<!--                        Comment-->
-<!--                      </a>-->
-
-<!--                    </div>-->
-<!--                  </div>-->
-
-<!--                </div>-->
-<!--              </div>-->
-<!--            </div>-->
-
-<!--            &lt;!&ndash; Child review &ndash;&gt;-->
-<!--            <div class="review review-child">-->
-<!--              <div class="review-body">-->
-
-<!--                &lt;!&ndash; Content &ndash;&gt;-->
-<!--                <div class="row">-->
-<!--                  <div class="col-12 col-md-auto">-->
-
-<!--                    &lt;!&ndash; Avatar &ndash;&gt;-->
-<!--                    <div class="avatar avatar-xxl mb-6 mb-md-0">-->
-<!--                          <span class="avatar-title rounded-circle">-->
-<!--                            <i class="fa fa-user"></i>-->
-<!--                          </span>-->
-<!--                    </div>-->
-
-<!--                  </div>-->
-<!--                  <div class="col-12 col-md">-->
-
-<!--                    &lt;!&ndash; Header &ndash;&gt;-->
-<!--                    <div class="row mb-6">-->
-<!--                      <div class="col-12">-->
-
-<!--                        &lt;!&ndash; Rating &ndash;&gt;-->
-<!--                        <div class="rating font-size-sm text-dark" data-value="4">-->
-<!--                          <div class="rating-item">-->
-<!--                            <i class="fas fa-star"></i>-->
-<!--                          </div>-->
-<!--                          <div class="rating-item">-->
-<!--                            <i class="fas fa-star"></i>-->
-<!--                          </div>-->
-<!--                          <div class="rating-item">-->
-<!--                            <i class="fas fa-star"></i>-->
-<!--                          </div>-->
-<!--                          <div class="rating-item">-->
-<!--                            <i class="fas fa-star"></i>-->
-<!--                          </div>-->
-<!--                          <div class="rating-item">-->
-<!--                            <i class="fas fa-star"></i>-->
-<!--                          </div>-->
-<!--                        </div>-->
-
-<!--                      </div>-->
-<!--                      <div class="col-12">-->
-
-<!--                        &lt;!&ndash; Time &ndash;&gt;-->
-<!--                        <span class="font-size-xs text-muted">-->
-<!--                              William Stokes, <time datetime="2019-07-14">14 Jul 2019</time>-->
-<!--                            </span>-->
-
-<!--                      </div>-->
-<!--                    </div>-->
-
-<!--                    &lt;!&ndash; Title &ndash;&gt;-->
-<!--                    <p class="mb-2 font-size-lg font-weight-bold">-->
-<!--                      Very good-->
-<!--                    </p>-->
-
-<!--                    &lt;!&ndash; Text &ndash;&gt;-->
-<!--                    <p class="text-gray-500">-->
-<!--                      Made face lights yielding forth created for image behold blessed seas.-->
-<!--                    </p>-->
-
-<!--                    &lt;!&ndash; Footer &ndash;&gt;-->
-<!--                    <div class="row align-items-center">-->
-<!--                      <div class="col-auto d-none d-lg-block">-->
-
-<!--                        &lt;!&ndash; Text &ndash;&gt;-->
-<!--                        <p class="mb-0 font-size-sm">Was this review helpful?</p>-->
-
-<!--                      </div>-->
-<!--                      <div class="col-auto mr-auto">-->
-
-<!--                        &lt;!&ndash; Rate &ndash;&gt;-->
-<!--                        <div class="rate">-->
-<!--                          <a class="rate-item" data-toggle="vote" data-count="7" href="#" role="button">-->
-<!--                            <i class="fe fe-thumbs-up"></i>-->
-<!--                          </a>-->
-<!--                          <a class="rate-item" data-toggle="vote" data-count="0" href="#" role="button">-->
-<!--                            <i class="fe fe-thumbs-down"></i>-->
-<!--                          </a>-->
-<!--                        </div>-->
-
-<!--                      </div>-->
-<!--                      <div class="col-auto d-none d-lg-block">-->
-
-<!--                        &lt;!&ndash; Text &ndash;&gt;-->
-<!--                        <p class="mb-0 font-size-sm">Comments (0)</p>-->
-
-<!--                      </div>-->
-<!--                      <div class="col-auto">-->
-
-<!--                        &lt;!&ndash; Button &ndash;&gt;-->
-<!--                        <a class="btn btn-xs btn-outline-border" href="#!">-->
-<!--                          Comment-->
-<!--                        </a>-->
-
-<!--                      </div>-->
-<!--                    </div>-->
-
-<!--                  </div>-->
-<!--                </div>-->
-
-<!--              </div>-->
-<!--            </div>-->
-
-<!--          </div>-->
-
-<!--        </div>-->
-
-<!--        &lt;!&ndash; Pagination &ndash;&gt;-->
-<!--        <nav class="d-flex justify-content-center mt-9">-->
-<!--          <ul class="pagination pagination-sm text-gray-400">-->
-<!--            <li class="page-item">-->
-<!--              <a class="page-link page-link-arrow" href="#">-->
-<!--                <i class="fa fa-caret-left"></i>-->
-<!--              </a>-->
-<!--            </li>-->
-<!--            <li class="page-item active">-->
-<!--              <a class="page-link" href="#">1</a>-->
-<!--            </li>-->
-<!--            <li class="page-item">-->
-<!--              <a class="page-link" href="#">2</a>-->
-<!--            </li>-->
-<!--            <li class="page-item">-->
-<!--              <a class="page-link" href="#">3</a>-->
-<!--            </li>-->
-<!--            <li class="page-item">-->
-<!--              <a class="page-link page-link-arrow" href="#">-->
-<!--                <i class="fa fa-caret-right"></i>-->
-<!--              </a>-->
-<!--            </li>-->
-<!--          </ul>-->
-<!--        </nav>-->
-
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</section>-->
+<!--REVIEWS-->
+<section class="pt-9 pb-11" id="reviews">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+
+        <!-- Heading -->
+        <h4 class="mb-10 text-center">Customer Reviews</h4>
+
+        <!-- Header -->
+        <div class="row align-items-center">
+          <div class="col-12 col-md-auto">
+
+            <!-- Dropdown -->
+            <div class="dropdown mb-4 mb-md-0">
+
+              <!-- Toggle -->
+              <a class="dropdown-toggle text-reset" data-toggle="dropdown" href="#">
+                <strong>Sort by: Newest</strong>
+              </a>
+
+              <!-- Menu -->
+              <div class="dropdown-menu mt-3">
+                <a class="dropdown-item" href="#!">Newest</a>
+                <a class="dropdown-item" href="#!">Oldest</a>
+              </div>
+
+            </div>
+
+          </div>
+          <div class="col-12 col-md text-md-center">
+
+            <!-- Rating -->
+            <div class="rating text-dark h6 mb-4 mb-md-0" data-value="4">
+              <div class="rating-item">
+                <i class="fas fa-star"></i>
+              </div>
+              <div class="rating-item">
+                <i class="fas fa-star"></i>
+              </div>
+              <div class="rating-item">
+                <i class="fas fa-star"></i>
+              </div>
+              <div class="rating-item">
+                <i class="fas fa-star"></i>
+              </div>
+              <div class="rating-item">
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+
+            <!-- Count -->
+            <strong class="font-size-sm ml-2">Reviews (3)</strong>
+
+          </div>
+          <div class="col-12 col-md-auto">
+
+            <!-- Button -->
+            <a class="btn btn-sm btn-dark" data-toggle="collapse" href="#reviewForm">
+              Write Review
+            </a>
+
+          </div>
+        </div>
+
+        <!-- New Review -->
+        <div class="collapse" id="reviewForm">
+
+          <!-- Divider -->
+          <hr class="my-8">
+
+          <!-- Form -->
+          <form>
+            <div class="row">
+              <div class="col-12 mb-6 text-center">
+
+                <!-- Text -->
+                <p class="mb-1 font-size-xs">
+                  Score:
+                </p>
+
+                <!-- Rating form -->
+                <div class="rating-form">
+
+                  <!-- Input -->
+                  <input class="rating-input" type="range" min="1" max="5" value="5">
+
+                  <!-- Rating -->
+                  <div class="rating h5 text-dark" data-value="5">
+                    <div class="rating-item">
+                      <i class="fas fa-star"></i>
+                    </div>
+                    <div class="rating-item">
+                      <i class="fas fa-star"></i>
+                    </div>
+                    <div class="rating-item">
+                      <i class="fas fa-star"></i>
+                    </div>
+                    <div class="rating-item">
+                      <i class="fas fa-star"></i>
+                    </div>
+                    <div class="rating-item">
+                      <i class="fas fa-star"></i>
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+              <div class="col-12 col-md-6">
+
+                <!-- Name -->
+                <div class="form-group">
+                  <label class="sr-only" for="reviewName">Your Name:</label>
+                  <input class="form-control form-control-sm" id="reviewName" type="text" placeholder="Your Name *" required>
+                </div>
+
+              </div>
+              <div class="col-12 col-md-6">
+
+                <!-- Email -->
+                <div class="form-group">
+                  <label class="sr-only" for="reviewEmail">Your Email:</label>
+                  <input class="form-control form-control-sm" id="reviewEmail" type="email" placeholder="Your Email *" required>
+                </div>
+
+              </div>
+              <div class="col-12">
+
+                <!-- Name -->
+                <div class="form-group">
+                  <label class="sr-only" for="reviewTitle">Review Title:</label>
+                  <input class="form-control form-control-sm" id="reviewTitle" type="text" placeholder="Review Title *" required>
+                </div>
+
+              </div>
+              <div class="col-12">
+
+                <!-- Name -->
+                <div class="form-group">
+                  <label class="sr-only" for="reviewText">Review:</label>
+                  <textarea class="form-control form-control-sm" id="reviewText" rows="5" placeholder="Review *" required></textarea>
+                </div>
+
+              </div>
+              <div class="col-12 text-center">
+
+                <!-- Button -->
+                <button class="btn btn-outline-dark" type="submit">
+                  Post Review
+                </button>
+
+              </div>
+            </div>
+          </form>
+
+        </div>
+
+        <!-- Reviews -->
+        <div class="mt-8">
+
+          <!-- Review -->
+          <div class="review">
+            <div class="review-body">
+              <div class="row">
+                <div class="col-12 col-md-auto">
+
+                  <!-- Avatar -->
+                  <div class="avatar avatar-xxl mb-6 mb-md-0">
+                        <span class="avatar-title rounded-circle">
+                          <i class="fa fa-user"></i>
+                        </span>
+                  </div>
+
+                </div>
+                <div class="col-12 col-md">
+
+                  <!-- Header -->
+                  <div class="row mb-6">
+                    <div class="col-12">
+
+                      <!-- Rating -->
+                      <div class="rating font-size-sm text-dark" data-value="5">
+                        <div class="rating-item">
+                          <i class="fas fa-star"></i>
+                        </div>
+                        <div class="rating-item">
+                          <i class="fas fa-star"></i>
+                        </div>
+                        <div class="rating-item">
+                          <i class="fas fa-star"></i>
+                        </div>
+                        <div class="rating-item">
+                          <i class="fas fa-star"></i>
+                        </div>
+                        <div class="rating-item">
+                          <i class="fas fa-star"></i>
+                        </div>
+                      </div>
+
+                    </div>
+                    <div class="col-12">
+
+                      <!-- Time -->
+                      <span class="font-size-xs text-muted">
+                            Logan Edwards, <time datetime="2019-07-25">25 Jul 2019</time>
+                          </span>
+
+                    </div>
+                  </div>
+
+                  <!-- Title -->
+                  <p class="mb-2 font-size-lg font-weight-bold">
+                    So cute!
+                  </p>
+
+                  <!-- Text -->
+                  <p class="text-gray-500">
+                    Justo ut diam erat hendrerit. Morbi porttitor, per eu. Sodales curabitur diam sociis. Taciti lobortis nascetur. Ante laoreet odio hendrerit.
+                    Dictumst curabitur nascetur lectus potenti dis sollicitudin habitant quis vestibulum.
+                  </p>
+
+                  <!-- Footer -->
+                  <div class="row align-items-center">
+                    <div class="col-auto d-none d-lg-block">
+
+                      <!-- Text -->
+                      <p class="mb-0 font-size-sm">Was this review helpful?</p>
+
+                    </div>
+                    <div class="col-auto mr-auto">
+
+                      <!-- Rate -->
+                      <div class="rate">
+                        <a class="rate-item" data-toggle="vote" data-count="3" href="#" role="button">
+                          <i class="fe fe-thumbs-up"></i>
+                        </a>
+                        <a class="rate-item" data-toggle="vote" data-count="0" href="#" role="button">
+                          <i class="fe fe-thumbs-down"></i>
+                        </a>
+                      </div>
+
+                    </div>
+                    <div class="col-auto d-none d-lg-block">
+
+                      <!-- Text -->
+                      <p class="mb-0 font-size-sm">Comments (0)</p>
+
+                    </div>
+                    <div class="col-auto">
+
+                      <!-- Button -->
+                      <a class="btn btn-xs btn-outline-border" href="#!">
+                        Comment
+                      </a>
+
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Review -->
+          <div class="review">
+
+            <!-- Body -->
+            <div class="review-body">
+              <div class="row">
+                <div class="col-12 col-md-auto">
+
+                  <!-- Avatar -->
+                  <div class="avatar avatar-xxl mb-6 mb-md-0">
+                        <span class="avatar-title rounded-circle">
+                          <i class="fa fa-user"></i>
+                        </span>
+                  </div>
+
+                </div>
+                <div class="col-12 col-md">
+
+                  <!-- Header -->
+                  <div class="row mb-6">
+                    <div class="col-12">
+
+                      <!-- Rating -->
+                      <div class="rating font-size-sm text-dark" data-value="3">
+                        <div class="rating-item">
+                          <i class="fas fa-star"></i>
+                        </div>
+                        <div class="rating-item">
+                          <i class="fas fa-star"></i>
+                        </div>
+                        <div class="rating-item">
+                          <i class="fas fa-star"></i>
+                        </div>
+                        <div class="rating-item">
+                          <i class="fas fa-star"></i>
+                        </div>
+                        <div class="rating-item">
+                          <i class="fas fa-star"></i>
+                        </div>
+                      </div>
+
+                    </div>
+                    <div class="col-12">
+
+                      <!-- Time -->
+                      <span class="font-size-xs text-muted">
+                            Sophie Casey, <time datetime="2019-07-07">07 Jul 2019</time>
+                          </span>
+
+                    </div>
+                  </div>
+
+                  <!-- Title -->
+                  <p class="mb-2 font-size-lg font-weight-bold">
+                    Cute, but too small
+                  </p>
+
+                  <!-- Text -->
+                  <p class="text-gray-500">
+                    Shall good midst can't. Have fill own his multiply the divided. Thing great. Of heaven whose signs.
+                  </p>
+
+                  <!-- Footer -->
+                  <div class="row align-items-center">
+                    <div class="col-auto d-none d-lg-block">
+
+                      <!-- Text -->
+                      <p class="mb-0 font-size-sm">Was this review helpful?</p>
+
+                    </div>
+                    <div class="col-auto mr-auto">
+
+                      <!-- Rate -->
+                      <div class="rate">
+                        <a class="rate-item" data-toggle="vote" data-count="2" href="#" role="button">
+                          <i class="fe fe-thumbs-up"></i>
+                        </a>
+                        <a class="rate-item" data-toggle="vote" data-count="1" href="#" role="button">
+                          <i class="fe fe-thumbs-down"></i>
+                        </a>
+                      </div>
+
+                    </div>
+                    <div class="col-auto d-none d-lg-block">
+
+                      <!-- Text -->
+                      <p class="mb-0 font-size-sm">Comments (1)</p>
+
+                    </div>
+                    <div class="col-auto">
+
+                      <!-- Button -->
+                      <a class="btn btn-xs btn-outline-border" href="#!">
+                        Comment
+                      </a>
+
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+            <!-- Child review -->
+            <div class="review review-child">
+              <div class="review-body">
+
+                <!-- Content -->
+                <div class="row">
+                  <div class="col-12 col-md-auto">
+
+                    <!-- Avatar -->
+                    <div class="avatar avatar-xxl mb-6 mb-md-0">
+                          <span class="avatar-title rounded-circle">
+                            <i class="fa fa-user"></i>
+                          </span>
+                    </div>
+
+                  </div>
+                  <div class="col-12 col-md">
+
+                    <!-- Header -->
+                    <div class="row mb-6">
+                      <div class="col-12">
+
+                        <!-- Rating -->
+                        <div class="rating font-size-sm text-dark" data-value="4">
+                          <div class="rating-item">
+                            <i class="fas fa-star"></i>
+                          </div>
+                          <div class="rating-item">
+                            <i class="fas fa-star"></i>
+                          </div>
+                          <div class="rating-item">
+                            <i class="fas fa-star"></i>
+                          </div>
+                          <div class="rating-item">
+                            <i class="fas fa-star"></i>
+                          </div>
+                          <div class="rating-item">
+                            <i class="fas fa-star"></i>
+                          </div>
+                        </div>
+
+                      </div>
+                      <div class="col-12">
+
+                        <!-- Time -->
+                        <span class="font-size-xs text-muted">
+                              William Stokes, <time datetime="2019-07-14">14 Jul 2019</time>
+                            </span>
+
+                      </div>
+                    </div>
+
+                    <!-- Title -->
+                    <p class="mb-2 font-size-lg font-weight-bold">
+                      Very good
+                    </p>
+
+                    <!-- Text -->
+                    <p class="text-gray-500">
+                      Made face lights yielding forth created for image behold blessed seas.
+                    </p>
+
+                    <!-- Footer -->
+                    <div class="row align-items-center">
+                      <div class="col-auto d-none d-lg-block">
+
+                        <!-- Text -->
+                        <p class="mb-0 font-size-sm">Was this review helpful?</p>
+
+                      </div>
+                      <div class="col-auto mr-auto">
+
+                        <!-- Rate -->
+                        <div class="rate">
+                          <a class="rate-item" data-toggle="vote" data-count="7" href="#" role="button">
+                            <i class="fe fe-thumbs-up"></i>
+                          </a>
+                          <a class="rate-item" data-toggle="vote" data-count="0" href="#" role="button">
+                            <i class="fe fe-thumbs-down"></i>
+                          </a>
+                        </div>
+
+                      </div>
+                      <div class="col-auto d-none d-lg-block">
+
+                        <!-- Text -->
+                        <p class="mb-0 font-size-sm">Comments (0)</p>
+
+                      </div>
+                      <div class="col-auto">
+
+                        <!-- Button -->
+                        <a class="btn btn-xs btn-outline-border" href="#!">
+                          Comment
+                        </a>
+
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Pagination -->
+        <nav class="d-flex justify-content-center mt-9">
+          <ul class="pagination pagination-sm text-gray-400">
+            <li class="page-item">
+              <a class="page-link page-link-arrow" href="#">
+                <i class="fa fa-caret-left"></i>
+              </a>
+            </li>
+            <li class="page-item active">
+              <a class="page-link" href="#">1</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="#">2</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="#">3</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link page-link-arrow" href="#">
+                <i class="fa fa-caret-right"></i>
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+      </div>
+    </div>
+  </div>
+</section>
+
 

@@ -31,7 +31,13 @@ import { SizeChartComponent } from './partials/modal/size-chart/size-chart.compo
 import { WaitListComponent } from './partials/modal/wait-list/wait-list.component';
 import { PromoComponent } from './partials/promo/promo.component';
 import { NavbarLandingComponent } from './pre-login/navbar-landing/navbar-landing.component';
-import { ShopTopbarComponent } from './shop-topbar/shop-topbar.component';
+import { ShopCategoriesComponent } from './shop-categories/shop-categories.component';
+import { ShopLoadMoreComponent } from './shop-load-more/shop-load-more.component';
+import { ShopComponent } from './shop/shop.component';
+import { ShopFilterComponent } from './shop-filter/shop-filter.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {BsDatepickerModule, DatePickerComponent} from 'ngx-bootstrap/datepicker';
+import {BsDropdownModule} from 'ngx-bootstrap/dropdown';
 
 @NgModule({
   declarations: [
@@ -63,13 +69,20 @@ import { ShopTopbarComponent } from './shop-topbar/shop-topbar.component';
     WaitListComponent,
     PromoComponent,
     NavbarLandingComponent,
-    ShopTopbarComponent
+    ShopCategoriesComponent,
+    ShopLoadMoreComponent,
+    ShopComponent,
+    ShopFilterComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    RouterModule
+    RouterModule,
+    BrowserAnimationsModule,
+    BsDatepickerModule.forRoot(),
+    BsDropdownModule.forRoot()
+
   ],
   providers: [],
   bootstrap: [AppComponent]
