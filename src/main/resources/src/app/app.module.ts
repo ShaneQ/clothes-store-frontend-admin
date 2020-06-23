@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {ApplicationRef, DoBootstrap, NgModule} from '@angular/core';
 
 import { AppComponent } from './app.component';
 import {HomeComponent} from './home/home.component';
@@ -14,7 +14,6 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { FooterComponent } from './footer/footer.component';
 import { NoPageFoundComponent } from './no-page-found/no-page-found.component';
 import { HeaderComponent } from './header/header.component';
-import { LoadingComponent } from './loading/loading.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AccountNavComponent } from './partials/account-nav/account-nav.component';
 import { HeadComponent } from './partials/head/head.component';
@@ -36,8 +35,15 @@ import { ShopLoadMoreComponent } from './shop-load-more/shop-load-more.component
 import { ShopComponent } from './shop/shop.component';
 import { ShopFilterComponent } from './shop-filter/shop-filter.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {BsDatepickerModule, DatePickerComponent} from 'ngx-bootstrap/datepicker';
+import {BsDatepickerModule} from 'ngx-bootstrap/datepicker';
 import {BsDropdownModule} from 'ngx-bootstrap/dropdown';
+import {KeycloakAngularModule, KeycloakService} from 'keycloak-angular';
+import { ProfileComponent } from './profile/profile.component';
+import {environment} from '../environments/environment';
+import { ProductDetailSizesComponent } from './product-detail-sizes/product-detail-sizes.component';
+
+const keycloakService = new KeycloakService();
+
 
 @NgModule({
   declarations: [
@@ -52,7 +58,6 @@ import {BsDropdownModule} from 'ngx-bootstrap/dropdown';
     FooterComponent,
     NoPageFoundComponent,
     HeaderComponent,
-    LoadingComponent,
     NavbarComponent,
     AccountNavComponent,
     HeadComponent,
@@ -72,7 +77,9 @@ import {BsDropdownModule} from 'ngx-bootstrap/dropdown';
     ShopCategoriesComponent,
     ShopLoadMoreComponent,
     ShopComponent,
-    ShopFilterComponent
+    ShopFilterComponent,
+    ProfileComponent,
+    ProductDetailSizesComponent
   ],
   imports: [
     BrowserModule,
@@ -81,10 +88,38 @@ import {BsDropdownModule} from 'ngx-bootstrap/dropdown';
     RouterModule,
     BrowserAnimationsModule,
     BsDatepickerModule.forRoot(),
-    BsDropdownModule.forRoot()
+    BsDropdownModule.forRoot(),
+    KeycloakAngularModule
 
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    {
+      provide: KeycloakService,
+      useValue: keycloakService,
+    },
+  ],
+  entryComponents: [AppComponent],
+
 })
-export class AppModule { }
+export class AppModule  implements DoBootstrap  {
+  ngDoBootstrap(appRef: ApplicationRef) {
+    keycloakService
+      .init(
+        {
+          config: environment.keycloakConfig,
+          initOptions: {
+            enableLogging: true,
+            checkLoginIframe: false,
+          },
+          enableBearerInterceptor: true
+        }
+      )
+      .then(() => {
+
+        appRef.bootstrap(AppComponent);
+      })
+      .catch((error) =>
+        console.error('[ngDoBootstrap] init Keycloak failed', error)
+      );
+  }
+}

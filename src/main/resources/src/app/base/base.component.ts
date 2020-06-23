@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {AppService} from '../app.service';
-import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-base',
@@ -8,17 +7,10 @@ import {Router} from '@angular/router';
   providers: [AppService]
 
 })
-export class BaseComponent implements OnInit {
+export class BaseComponent {
 
-  constructor(
-    private _service: AppService,
-    private _router: Router
-  ){}
+  constructor(){}
 
-  ngOnInit(){
-    if (!this._service.checkCredentials()){
-      this._router.navigate(['']);
-    }
-  }
+
 
 }

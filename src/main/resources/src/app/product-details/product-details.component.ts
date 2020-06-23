@@ -3,7 +3,6 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {ScriptService} from '../script.service';
 import {ProductService} from '../product.service';
 import {Product} from '../model/product';
-import {BsDatepickerConfig} from "ngx-bootstrap/datepicker";
 
 @Component({
   templateUrl: './product-details.component.html',
@@ -27,12 +26,12 @@ export class ProductDetailsComponent implements OnInit{
     this.maxDate.setDate(this.maxDate.getDate() + 180);
   }
 
-  ngOnInit() {
-    const productId = this._route.snapshot.paramMap.get('productId');
-    this._app.getProduct(productId).subscribe(result => this.product = result);
-
+  async ngOnInit(): Promise<void> {
     this._scriptLoader.load('flickity').then(data => {
     }).catch(error => console.log(error));
-  }
 
+    const productId = this._route.snapshot.paramMap.get('productId');
+    this.product = await this._app.getProduct(productId).toPromise();
+
+  }
 }

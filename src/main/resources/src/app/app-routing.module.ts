@@ -4,34 +4,38 @@ import {RouterModule, Routes} from '@angular/router';
 import {LandingComponent} from './pre-login/landing/landing.component';
 import {ProductDetailsComponent} from './product-details/product-details.component';
 import {HomeComponent} from './home/home.component';
-import {LoadingComponent} from './loading/loading.component';
 import {ShopComponent} from './shop/shop.component';
-import {AppAuthGuard} from './app-auth.guard';
+import {CanAuthenticationGuard} from './app-auth.guard';
+import {ProfileComponent} from './profile/profile.component';
 
 const routes: Routes = [
   { path: '', component: LandingComponent, pathMatch: 'full' },
   { path: 'base', component: BaseComponent,
+    canActivate: [CanAuthenticationGuard],
     children: [
       {
-        path: 'product/:productId', // child route path
-        component: ProductDetailsComponent // child route component that the router renders
+        path: 'product/:productId',
+        component: ProductDetailsComponent,
       },
       {
-        path: 'home', // child route path
-        component: HomeComponent // child route component that the router renders
+        path: 'home',
+        component: HomeComponent,
       },
       {
-        path: 'shop', // child route path
-        component: ShopComponent // child route component that the router renders
+        path: 'shop',
+        component: ShopComponent,
+      },
+      {
+        path: 'profile',
+        component: ProfileComponent,
       }
-    ]},
-  { path: 'loading', component: LoadingComponent},
-];
+    ]}
+    ];
 
 @NgModule({
   declarations: [],
   imports: [RouterModule.forRoot(routes as Routes)],
   exports: [],
-  providers: [AppAuthGuard]
+  providers: [CanAuthenticationGuard]
 })
 export class AppRoutingModule { }

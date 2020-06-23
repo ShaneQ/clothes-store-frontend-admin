@@ -33,7 +33,14 @@
               "src/styles.scss",
               "src/assets/css/theme.css"
             ],
-            "scripts": []
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/assets/scss"
+              ]
+            },
+            "scripts": [
+              "./node_modules/flickity/dist/flickity.pkgd.min.js"
+            ]
           },
           "configurations": {
             "production": {

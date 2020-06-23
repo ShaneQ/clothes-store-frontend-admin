@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AppService} from "../app.service";
+import {KeycloakService} from "keycloak-angular";
 
 @Component({
   selector: 'app-navbar',
@@ -12,16 +13,14 @@ export class NavbarComponent implements OnInit {
   public isLoggedIn = false;
 
   constructor(
-    private _service: AppService){}
+    private _service: AppService, private _keycloak: KeycloakService){}
 
   logout() {
     console.log('Logged Out');
-    this._service.logout();
+    this._keycloak.logout('http://localhost:8089/');
   }
 
   ngOnInit(): void {
-    console.log('Landed on base page');
-    const bool = this._service.checkCredentials();
-    console.log(bool);
+   // this._keycloakAppService.getProductResource("http://localhost:8083/auth/realms/baeldung/account/");
   }
 }
