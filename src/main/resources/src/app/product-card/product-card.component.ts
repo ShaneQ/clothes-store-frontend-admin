@@ -21,7 +21,6 @@ export class ProductCardComponent implements OnInit {
   }
 
   onProductSelected(){
-    console.log('Product was selected');
     this.productEmitter.emit(this.product);
   }
 

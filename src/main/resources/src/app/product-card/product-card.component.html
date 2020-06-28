@@ -9,23 +9,30 @@
       <i class="fe fe-heart"></i>
     </button>
 
-    <!-- Button -->
-    <button class="btn btn-xs btn-block btn-dark card-btn" data-toggle="modal" data-target="#modalProduct">
-      <i class="fe fe-eye mr-2 mb-1"></i> Quick View
-    </button>
-
     <!-- Image -->
     <img class="card-img-top" [src]=product.coverImg.path *ngIf="product.coverImg" alt="Product Image">
     <img class="card-img-top" [src]=defaultImageUrl *ngIf="!product.coverImg" alt="Product Image Default">
 
   </div>
 
-  <!-- Body -->
-  <div class="card-body font-weight-bold text-center">
-    <a class="text-body" href="#!">{{product.name}}</a>
-    <div class="text-muted">$40.00</div>
-  </div>
+  <div class="card-body px-0">
 
+    <!-- Category -->
+    <div class="font-size-xs">
+      <a class="text-muted" routerLink="/base/shop" routerLinkActive="active">{{product.category.name}}</a>
+    </div>
+
+    <!-- Title -->
+    <div class="font-weight-bold">
+        {{product.name}}
+    </div>
+
+    <!-- Price -->
+    <div class="font-weight-bold text-muted">
+      {{product.rentalPrice | currency:'EUR'}} one-time-rental
+    </div>
+
+  </div>
 </div>
 
 

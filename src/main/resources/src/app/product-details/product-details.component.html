@@ -120,31 +120,38 @@
 
                   <div class="container">
 
-                    <div class="form-row mb-6">
-                      <div class="radio radio-danger radio-inline col-8 border border-dark">
-                        <div class="mt-3">
-                          <input type="radio" name="radio2" id="radio3" value="option1" checked>
-                          <label for="radio3">
+                    <div class="form-row mb-6" id="oneTimeRentalSection" *ngIf="this.freeMember">
+                      <div class="radio radio-danger radio-inline col-lg-8 border border-dark ">
+                        <div class="mt-3" (click)="onMembershipClick(false)">
+                          <input type="radio" name="rental" id="oneTimeRental" value="single" [checked]="this.freeMember" >
+                          <label for="oneTimeRental">
 
                             <p class="mb-0">ONE-TIME-RENTAL</p>
-                            <span class="ml-1 font-size-h5 font-weight-bolder text-primary">€23.00</span>
-                            <span class="font-size-sm ml-1">(Keep it for 7 days)</span>
+                            <span class="ml-1 font-size-h5 font-weight-bolder text-primary">{{product.rentalPrice | currency:'EUR'}}</span>
+                            <span class="font-size-xxs ml-1">( Keep it for 7 days )</span>
+
                           </label>
                         </div>
 
                       </div>
                     </div>
                     <div class="form-row mb-6">
-                      <div class="radio radio-danger radio-inline col-8 border border-dark">
-                        <div class="mt-3">
-                        <input type="radio" name="radio2" id="radio4" value="option2">
-                        <label for="radio4">
+                      <div class="radio radio-danger radio-inline col-lg-8 border border-dark">
+                        <div class="mt-3" (click)="onMembershipClick(true)">
+                        <input type="radio" name="rental" id="membershipRental" value="member" [checked]="!this.freeMember">
+                        <label for="membershipRental">
                           <p class="mb-0">MEMBERSHIP</p>
-                          <span class="font-size-lg font-weight-bold text-gray-350 text-decoration-line-through">€23.00</span>
-                          <span class="font-size-sm ml-1">(Membership starting at €48)</span>
+                          <span class="font-size-lg font-weight-bold text-gray-350 text-decoration-line-through">{{product.rentalPrice | currency:'EUR'}}</span>
+                          <span *ngIf="this.freeMember"  class="font-size-xxs ml-1">( Membership starting at €58 )</span>
+                          <span *ngIf="!this.freeMember" class="font-size-xxs ml-1">( You have 4 bookings available )</span>
+
                         </label>
                       </div>
                       </div>
+                      <button *ngIf="this.isMemberInfoBtnVis" class="btn btn-primary btn-sm col-lg-8 hide" id="showMemberShipInfoBtn">
+                        Find the membership that fits you
+                        <i-feather name="arrow-right" class=" text-white"></i-feather>
+                      </button>
                     </div>
                     <div class="form-row">
                       <div class="col-6">
@@ -215,7 +222,7 @@
                     <div class="col-12 col-lg">
 
                       <!-- Submit -->
-                      <button type="submit" class="btn btn-block btn-dark mb-2">
+                      <button type="submit" class="btn btn-block btn-dark mb-2" [disabled]="this.isMemberInfoBtnVis" >
                         Book it <i class="fe fe-shopping-cart ml-2"></i>
                       </button>
 

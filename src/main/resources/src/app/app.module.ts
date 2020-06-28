@@ -43,6 +43,7 @@ import {environment} from '../environments/environment';
 import { ProductDetailSizesComponent } from './product-detail-sizes/product-detail-sizes.component';
 import {FeatherModule} from "angular-feather";
 import {IconsModule} from "./icons/icons.module";
+import { MemberNotificationSlowDownComponent } from './modal/member-notification-slow-down/member-notification-slow-down.component';
 
 const keycloakService = new KeycloakService();
 
@@ -81,7 +82,8 @@ const keycloakService = new KeycloakService();
     ShopComponent,
     ShopFilterComponent,
     ProfileComponent,
-    ProductDetailSizesComponent
+    ProductDetailSizesComponent,
+    MemberNotificationSlowDownComponent
   ],
   imports: [
     BrowserModule,

@@ -2,11 +2,12 @@ import {Image} from './image';
 import {ProductSize} from './productSize';
 import {ProductCategory} from './productCategory';
 import {ProductMeasurement} from './productMeasurement';
-import {ProductOccasion} from "./productOccasion";
+import {ProductOccasion} from './productOccasion';
 
 export class Product {
   constructor(
     public id: number,
+    public rentalPrice: number,
     public name: string,
     public type: string,
     public quickDesc: string,

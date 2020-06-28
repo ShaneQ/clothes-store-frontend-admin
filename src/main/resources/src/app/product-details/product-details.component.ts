@@ -14,10 +14,13 @@ export class ProductDetailsComponent implements OnInit{
   public product: Product;
   public defaultImageUrl = 'assets/img/products/product-6.jpg';
   public productOccasions: string;
+  public freeMember: boolean;
+
 
 
   minDate: Date;
   maxDate: Date;
+  private isMemberInfoBtnVis: boolean;
 
   constructor(private _router: Router, private _route: ActivatedRoute, private _scriptLoader: ScriptService, private _app: ProductService) {
 
@@ -34,6 +37,27 @@ export class ProductDetailsComponent implements OnInit{
     const productId = this._route.snapshot.paramMap.get('productId');
     this.product = await this._app.getProduct(productId).toPromise();
     this.productOccasions = this.product.occasions.map(x => x.occasion.name).join(',');
+    this.freeMember = true;
 
+    if (!this.freeMember){
+      this.memberSelection();
+    }else{
+      this.freeMemberSelection();
+    }
+
+  }
+
+  freeMemberSelection(): void{
+
+  }
+
+  memberSelection(): void{
+
+  }
+
+  onMembershipClick(show){
+    if (this.freeMember){
+      this.isMemberInfoBtnVis = show;
+    }
   }
 }
