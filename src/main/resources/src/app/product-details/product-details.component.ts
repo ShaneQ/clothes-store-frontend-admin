@@ -21,6 +21,7 @@ export class ProductDetailsComponent implements OnInit{
   minDate: Date;
   maxDate: Date;
   private isMemberInfoBtnVis: boolean;
+  private remainingBookings: number;
 
   constructor(private _router: Router, private _route: ActivatedRoute, private _scriptLoader: ScriptService, private _app: ProductService) {
 
@@ -37,7 +38,8 @@ export class ProductDetailsComponent implements OnInit{
     const productId = this._route.snapshot.paramMap.get('productId');
     this.product = await this._app.getProduct(productId).toPromise();
     this.productOccasions = this.product.occasions.map(x => x.occasion.name).join(',');
-    this.freeMember = true;
+    this.freeMember = false;
+    this.remainingBookings = 1;
 
     if (!this.freeMember){
       this.memberSelection();

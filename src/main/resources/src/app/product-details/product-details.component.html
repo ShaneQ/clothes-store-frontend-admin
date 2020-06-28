@@ -1,4 +1,5 @@
 <div *ngIf="product">
+  <app-member-notification-slow-down></app-member-notification-slow-down>
   <!-- PRODUCT -->
   <section class="mt-5">
     <div class="container">
@@ -222,7 +223,12 @@
                     <div class="col-12 col-lg">
 
                       <!-- Submit -->
-                      <button type="submit" class="btn btn-block btn-dark mb-2" [disabled]="this.isMemberInfoBtnVis" >
+                      <button *ngIf="this.remainingBookings === 0" type="button" class="btn btn-block btn-dark mb-2" [disabled]="this.isMemberInfoBtnVis" data-toggle="modal" href="#modalMemberSlowDown" >
+                        Book it <i class="fe fe-shopping-cart ml-2"></i>
+                      </button>
+
+                      <!-- Submit -->
+                      <button *ngIf="this.remainingBookings > 0" type="button" class="btn btn-block btn-dark mb-2" [disabled]="this.isMemberInfoBtnVis" >
                         Book it <i class="fe fe-shopping-cart ml-2"></i>
                       </button>
 
