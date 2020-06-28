@@ -1,10 +1,11 @@
-<nav class="navbar navbar-expand-lg navbar-light @@classList">
+<nav class="navbar navbar-expand-lg navbar-light @@classList border-bottom">
   <div class="container">
 
     <!-- Brand -->
-    <a class="navbar-brand" href="@@webRoot/overview.html">
-      Shopper.
-    </a>
+
+    <img src="assets/img/custom/Logo.jpg" alt="logo" class="img-fluid img-logo" >
+
+
 
     <!-- Toggler -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,13 +24,6 @@
 
 
         </li>
-        <li class="nav-item dropdown position-static">
-
-          <!-- Toggle -->
-          <a class="nav-link" data-toggle="dropdown" href="#">Catalog</a>
-
-
-        </li>
         <li class="nav-item dropdown">
 
           <!-- Toggle -->
@@ -37,17 +31,25 @@
 
 
         </li>
+        <li class="nav-item dropdown position-static">
+
+          <!-- Toggle -->
+          <a class="nav-link" data-toggle="dropdown" href="#">FAQs</a>
+
+
+        </li>
+
         <li class="nav-item dropdown">
 
           <!-- Toggle -->
-          <a class="nav-link" data-toggle="dropdown" href="#">Pages</a>
+          <a class="nav-link" data-toggle="dropdown" href="#">Membership</a>
 
 
         </li>
         <li class="nav-item dropdown">
 
           <!-- Toggle -->
-          <a class="nav-link" data-toggle="dropdown" href="#">Blog</a>
+          <a class="nav-link" data-toggle="dropdown" href="#">Contact</a>
 
 
         </li>
@@ -58,11 +60,6 @@
 
       <!-- Nav -->
       <ul class="navbar-nav flex-row">
-        <li class="nav-item">
-          <a class="nav-link" data-toggle="modal" href="#modalSearch">
-            <i class="fe fe-search"></i>
-          </a>
-        </li>
         <li class="nav-item ml-lg-n4">
           <a class="nav-link"  routerLink="/base/profile" routerLinkActive="active" href="">
             <i class="fe fe-user"></i>
@@ -71,6 +68,12 @@
         <li class="nav-item ml-lg-n4">
           <a class="nav-link" href="@@webRoot/account-wishlist.html">
             <i class="fe fe-heart"></i>
+          </a>
+        </li>
+
+        <li class="nav-item ml-lg-n4">
+          <a class="nav-link" href="@@webRoot/account-wishlist.html">
+            <i class="fe fe-shopping-bag"></i>
           </a>
         </li>
       </ul>

@@ -41,6 +41,8 @@ import {KeycloakAngularModule, KeycloakService} from 'keycloak-angular';
 import { ProfileComponent } from './profile/profile.component';
 import {environment} from '../environments/environment';
 import { ProductDetailSizesComponent } from './product-detail-sizes/product-detail-sizes.component';
+import {FeatherModule} from "angular-feather";
+import {IconsModule} from "./icons/icons.module";
 
 const keycloakService = new KeycloakService();
 
@@ -89,8 +91,8 @@ const keycloakService = new KeycloakService();
     BrowserAnimationsModule,
     BsDatepickerModule.forRoot(),
     BsDropdownModule.forRoot(),
-    KeycloakAngularModule
-
+    KeycloakAngularModule,
+    IconsModule
   ],
   providers: [
     {

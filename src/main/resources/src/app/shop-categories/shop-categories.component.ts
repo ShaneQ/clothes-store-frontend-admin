@@ -7,9 +7,6 @@ import {ScriptService} from '../script.service';
   providers: [ScriptService]
 })
 export class ShopCategoriesComponent implements OnInit {
-  private loadAPI: Promise<unknown>;
-  private url = 'https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js';
-
 
   constructor(private _script: ScriptService) {
   }

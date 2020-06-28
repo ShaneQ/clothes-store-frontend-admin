@@ -13,6 +13,7 @@ export class ProductDetailsComponent implements OnInit{
   public id;
   public product: Product;
   public defaultImageUrl = 'assets/img/products/product-6.jpg';
+  public productOccasions: string;
 
 
   minDate: Date;
@@ -32,6 +33,7 @@ export class ProductDetailsComponent implements OnInit{
 
     const productId = this._route.snapshot.paramMap.get('productId');
     this.product = await this._app.getProduct(productId).toPromise();
+    this.productOccasions = this.product.occasions.map(x => x.occasion.name).join(',');
 
   }
 }

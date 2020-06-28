@@ -397,6 +397,14 @@ mark,
   max-width: 100%;
   height: auto; }
 
+/*.img-logo {*/
+/*  height:122px;*/
+/*  width:153px;}*/
+
+.img-logo {
+  height:112px;
+  width:140px;}
+
 .img-thumbnail {
   padding: 0.25rem;
   background-color: #fff;
@@ -2994,8 +3002,7 @@ input[type="button"].btn-block {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
-  padding: 1.5rem 1rem; }
+  justify-content: space-between }
   .navbar .container,
   .navbar .container-fluid, .navbar .container-sm, .navbar .container-md, .navbar .container-lg, .navbar .container-xl {
     display: flex;

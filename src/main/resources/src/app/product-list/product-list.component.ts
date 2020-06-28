@@ -28,7 +28,6 @@ export class ProductListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.displayAmount);
     this.getProducts();
   }
 

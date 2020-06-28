@@ -10,7 +10,6 @@ import {KeycloakService} from "keycloak-angular";
 })
 export class NavbarComponent implements OnInit {
 
-  public isLoggedIn = false;
 
   constructor(
     private _service: AppService, private _keycloak: KeycloakService){}
@@ -21,6 +20,5 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-   // this._keycloakAppService.getProductResource("http://localhost:8083/auth/realms/baeldung/account/");
   }
 }

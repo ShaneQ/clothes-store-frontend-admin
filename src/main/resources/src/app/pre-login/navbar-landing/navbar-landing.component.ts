@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {AppService} from '../../app.service';
 import {Router} from '@angular/router';
 import {Cookie} from 'ng2-cookies';
+import {KeycloakService} from 'keycloak-angular';
 
 @Component({
   selector: 'app-navbar-landing',
@@ -10,14 +11,17 @@ import {Cookie} from 'ng2-cookies';
 })
 export class NavbarLandingComponent implements OnInit {
 
-  public isLoggedIn = false;
-
   constructor(
     private _service: AppService,
-    private _router: Router
+    private _router: Router,
+    private _keycloak: KeycloakService
   ){}
 
   ngOnInit(){
 
+  }
+
+  register(): void{
+    this._keycloak.register();
   }
 }

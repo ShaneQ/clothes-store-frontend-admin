@@ -6,6 +6,7 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import {Product} from './model/product';
 import {Router} from '@angular/router';
+import {environment} from "../environments/environment";
 
 export class Foo {
   constructor(
@@ -15,7 +16,7 @@ export class Foo {
 
 @Injectable()
 export class AppService {
-  public clientId = 'newClient';
+  public clientId = environment.keycloakConfig.clientId;
   public redirectUri = 'http://localhost:8089/loading';
   public baseUri = 'http://localhost:8089/';
 

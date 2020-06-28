@@ -1,10 +1,10 @@
-<p class="mb-5">
-  Size: <strong><span id="sizeCaption">7.5</span> US</strong>
+
+<p class="mb-5 d-inline">
+  Size:
 </p>
 <div class="mb-2">
   <div *ngFor="let size of productSizes" class="custom-control custom-control-inline custom-control-size mb-2">
-    <input type="radio" class="custom-control-input" name="sizeRadio" id="{{'sizeRadio'+size.size.id}}" value="{{size.size.id}}" data-toggle="form-caption" data-target="#sizeCaption">
+    <input type="radio" class="custom-control-input" name="sizeRadio" id="{{'sizeRadio'+size.size.id}}" value="{{size.size.name}}" data-toggle="form-caption" data-target="#someThingDifferent">
     <label class="custom-control-label" for="{{'sizeRadio'+size.size.id}}">{{size.size.name}}</label>
   </div>
 </div>
-

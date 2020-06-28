@@ -9,10 +9,10 @@
 
 
   <!-- WELCOME -->
-<section class="py-14" id="welcome" data-jarallax data-speed=".8" [ngStyle]="{backgroundImage:'url(../../assets/img/covers/cover-18.jpg)'}">
+<section class="py-14" id="welcome" data-jarallax data-speed=".8" [ngStyle]="{'backgroundImage':'url(assets/img/custom/cover-22.jpg)'}">
   <div class="container">
     <div class="row">
-      <div class="col-12 col-md-7 col-lg-5 text-white">
+      <div class="col-12 col-md-7 col-lg-6 text-white">
 
         <!-- Heading -->
         <h1 class="display-6">
@@ -35,20 +35,31 @@
 </section>
 
 <!-- BEST SELLERS -->
-<section class="pt-12 pb-10">
+<section class="pt-12 pb-10 " id="products" href="#products">
   <div class="container">
     <div class="row">
-      <div class="col-12">
+      <div class="col-12 text-center">
+
+        <!-- Preheading -->
+        <h6 class="heading-xxs mb-3 text-gray-400">
+          PRODUCTS
+        </h6>
 
         <!-- Heading -->
-        <h2 class="mb-10 text-center">What will you find in our closet</h2>
+        <h2 class="text-center">Be a member and borrow any piece for FREE!</h2>
+
+        <!-- Subheading -->
+        <p class="mb-10 text-gray-500">
+          We want to give you the opportunity of playing with different styles and experiment the fun side of fashion without worrying about the price.
+          Your second closet adapts to multiple occasions, from work to holiday without forgetting quality and comfort.
+        </p>
 
         <!-- Slider -->
         <div class="flickity-buttons-lg flickity-buttons-offset px-lg-12" data-flickity='{"groupCells": true,"prevNextButtons": true}'>
 
           <!-- Item -->
           <div class="col pt-3 pb-7" style="max-width: 229px;">
-            <a class="card shadow-hover" href="product">
+            <a class="card shadow-hover" >
 
               <!-- Image -->
               <img src="assets/img/products/product-50.jpg" alt="..." class="card-img-top">
@@ -180,7 +191,7 @@
 </section>
 
 <!-- ABOUT -->
-<section class="py-12" id="about" data-jarallax data-speed=".8" style="background-image: url(assets/img/covers/cover-19.jpg);">
+<section class="py-12" id="about" data-jarallax data-speed=".8" style="background-image: url(assets/img/custom/cover-about.jpg);">
   <div class="container">
     <div class="row justify-content-end">
       <div class="col-12 col-md-7 col-lg-5">
@@ -259,12 +270,12 @@
 
             <!-- Back -->
             <div class="img-comp-back">
-              <img src="assets/img/products/product-104.jpg" alt="..." class="img-comp-img">
+              <img src="assets/img/custom/before.jpg" alt="..." class="img-comp-img">
             </div>
 
             <!-- Front -->
             <div class="img-comp-front">
-              <img src="assets/img/products/product-103.jpg" alt="..." class="img-comp-img">
+              <img src="assets/img/custom/after.jpg" alt="..." class="img-comp-img">
             </div>
 
             <!-- Handle -->
@@ -289,7 +300,7 @@
 <section class="bg-light">
   <div class="container">
     <div class="row no-gutters justify-content-between">
-      <div class="col-12 col-md-6 mt-12 mb-n12 bg-cover" style="background-image: url(assets/img/products/product-102.jpg);"></div>
+      <div class="col-12 col-md-6 mt-12 mb-n12 bg-cover" style="background-image: url(assets/img/custom/product-102.jpg);"></div>
       <div class="col-12 col-md-5 py-12">
 
         <!-- Heading -->
@@ -302,11 +313,11 @@
         <ul class="list-styled mb-7">
           <li class="list-styled-item">
             <i class="fe fe-check mr-2 text-primary"></i>
-            <span>Select stylish good quality pieces that will last.</span>
+            <span>Good quality pieces that will last.</span>
           </li>
           <li class="list-styled-item">
             <i class="fe fe-check mr-2 text-primary"></i>
-            <span>Support local designers adding their work to our inventory.</span>
+            <span>Support local designers displayed in our inventory.</span>
           </li>
           <li class="list-styled-item">
             <i class="fe fe-check mr-2 text-primary"></i>
@@ -314,7 +325,7 @@
           </li>
           <li class="list-styled-item">
             <i class="fe fe-check mr-2 text-primary"></i>
-            <span>Wash the clothes correctly making them last longer.</span>
+            <span>Maintain the garments correctly making them last longer.</span>
           </li>
           <li class="list-styled-item">
             <i class="fe fe-check mr-2 text-primary"></i>
@@ -332,7 +343,7 @@
 </div>
 
 <!-- HOW IT WORKS -->
-<section class="pt-12" style="background: #b8ae9f" id="howItWorks">
+<section class="pt-12" style="background: #b8ae9f" id="howItWorks" href="#howItWorks" >
   <div class="container">
     <div class="row">
       <div class="col-12">
@@ -349,20 +360,19 @@
 
       </div>
     </div>
-    <div class="row">
-      <div class="col-12 col-md-4">
+    <div class="row pb-10">
+      <div class="col-lg-4 text-center">
 
         <!-- Card -->
         <div class="card bg-none mb-7 mb-md-0">
 
-          <!-- Image -->
+          <!-- Icon -->
           <div class="card-img-top position-relative mx-auto" style="max-width: 120px;">
 
-            <!-- Circle -->
-            <div class="card-circle card-circle-sm card-circle-top-right">2</div>
 
-            <!-- Image -->
-            <img class="img-fluid rounded-circle" src="assets/img/products/product-100.jpg" alt="...">
+          <!-- Feather Icon-->
+          <i-feather name="heart" class="big text-white"></i-feather>
+
 
           </div>
 
@@ -384,19 +394,16 @@
         </div>
 
       </div>
-      <div class="col-12 col-md-4">
+      <div class="col-lg-4 text-center">
 
         <!-- Card -->
         <div class="card bg-none mb-7 mb-md-0">
 
-          <!-- Image -->
+          <!-- Icon -->
           <div class="card-img-top position-relative mx-auto" style="max-width: 120px;">
 
-            <!-- Circle -->
-            <div class="card-circle card-circle-sm card-circle-top-right">3</div>
-
-            <!-- Image -->
-            <img class="img-fluid rounded-circle" src="assets/img/products/product-101.jpg" alt="...">
+            <!-- Feather Icon-->
+            <i-feather name="calendar" class="big text-white" ></i-feather>
 
           </div>
 
@@ -404,7 +411,7 @@
           <div class="card-body text-center">
 
             <!-- Heading -->
-            <h6 class="mb-4 text-white ">
+            <h6 class="mb-4 text-white pl-10 pr-10">
               Book what you want to wear
             </h6>
 
@@ -420,19 +427,17 @@
         </div>
 
       </div>
-      <div class="col-12 col-md-4">
+      <div class="col-lg-4  text-center">
 
         <!-- Card -->
         <div class="card bg-none mb-7 mb-md-0">
 
-          <!-- Image -->
+          <!-- Icon -->
           <div class="card-img-top position-relative mx-auto" style="max-width: 120px;">
 
-            <!-- Circle -->
-            <div class="card-circle card-circle-sm card-circle-top-right">1</div>
 
-            <!-- Image -->
-            <img class="img-fluid rounded-circle" src="assets/img/products/product-99.jpg" alt="...">
+            <!-- Feather Icon-->
+            <i-feather name="corner-left-up" class="big text-white"></i-feather>
 
           </div>
 
@@ -440,7 +445,7 @@
           <div class="card-body text-center">
 
             <!-- Heading -->
-            <h6 class="mb-4 text-white">
+            <h6 class="mb-4 text-white pl-8 pr-8">
               Enjoy your new look them return
             </h6>
 
@@ -460,7 +465,7 @@
 </section>
 
 <!-- PRICING -->
-<section class="py-12 bg-light" id="pricing">
+<section class="py-12 bg-light" id="membership">
   <div class="container">
     <div class="row">
       <div class="col-12 text-center">
@@ -483,11 +488,11 @@
           <div class="card-body border-bottom text-center">
 
             <!-- Subheading -->
-            <h5>Petite</h5>
+            <h5>Join the club for</h5>
 
             <!-- Heading -->
             <h2 class="mb-0 font-weight-bolder">
-              €29.00 <span class="font-size-lg font-weight-bold">/ month</span>
+              FREE
             </h2>
 
           </div>
@@ -495,16 +500,19 @@
 
             <!-- Text -->
             <p class="text-muted">
-              Spice up your wardrobe trying something new every week. Rent <b>ONE PIECE</b> every 7 days.
+              Spice up your wardrobe with <b>ONE-TIME RENTAL</b>. You can book and enjoy one piece at a time for a week.
             </p>
 
             <!-- List -->
             <ul class="list-styled mb-8">
               <li class="list-styled-item">
-                <i class="fe fe-check mr-2 text-primary"></i> Up to 4 pieces a month.
+                <i class="fe fe-check mr-2"></i>Keep it upto 7 days.
+              </li>
+              <li class="list-styled-item">
+                <i class="fe fe-check mr-2"></i>Free Laundry.
               </li>
               <li class="list-styled-item text-muted">
-                <i class="fe fe-check mr-2 text-muted"></i> Cleaning on us.
+                <i class="fe fe-x mr-2"></i>Swap.
               </li>
             </ul>
 
@@ -533,11 +541,11 @@
           <div class="card-body border-bottom text-center">
 
             <!-- Subheading -->
-            <h5>Medium</h5>
+            <h5>Casual</h5>
 
             <!-- Heading -->
             <h2 class="mb-0 font-weight-bolder text-primary">
-              €59.00 <span class="font-size-lg font-weight-bold">/ month</span>
+              €58.00 <span class="font-size-lg font-weight-bold">/ month</span>
             </h2>
 
           </div>
@@ -545,16 +553,19 @@
 
             <!-- Text -->
             <p class="text-muted">
-              Rent up to <b>TWO PIECE</b> every week, combine them with your wardrobe to create new styles.
+              Pick <b>ONE PIECE</b>, enjoy it, mix and match with your wardrobe and then swap for a new piece.
             </p>
 
             <!-- List -->
             <ul class="list-styled mb-8">
               <li class="list-styled-item">
-                <i class="fe fe-check mr-2 text-primary"></i> Up to 8 pieces a month.
+                <i class="fe fe-check mr-2 text-primary"></i>Keep it for up to 30 days.
               </li>
               <li class="list-styled-item">
-                <i class="fe fe-check mr-2 text-primary"></i> Cleaning is on us.
+                <i class="fe fe-check mr-2 text-primary"></i>Free laundry.
+              </li>
+              <li class="list-styled-item">
+                <i class="fe fe-check mr-2 text-primary"></i>Book up to 4 pieces every month.
               </li>
             </ul>
 
@@ -589,16 +600,20 @@
 
             <!-- Text -->
             <p class="text-muted">
-              Never get bored of your wardrobe. Make full looks renting up to <b>THREE PIECE</b> every week.
+              Never get bored of your wardrobe.
+              Pick <b>TWO PIECES</b> at a time and make full new looks every week.
             </p>
 
             <!-- List -->
             <ul class="list-styled mb-8">
               <li class="list-styled-item">
-                <i class="fe fe-check mr-2 text-primary"></i> Up to 12 pieces a month.
+                <i class="fe fe-check mr-2 text-primary"></i>Keep it for up to 30 days.
               </li>
               <li class="list-styled-item">
-                <i class="fe fe-check mr-2 text-primary"></i> Cleaning is on us.
+                <i class="fe fe-check mr-2 text-primary"></i>Free laundry.
+              </li>
+              <li class="list-styled-item">
+                <i class="fe fe-check mr-2 text-primary"></i>Book up to 4 pieces every month.
               </li>
             </ul>
 
@@ -617,322 +632,6 @@
   </div>
 </section>
 
-<!-- REVIEWS -->
-<section class="py-12 border-bottom" id="reviews">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-12 col-md-8 col-lg-6 col-xl-4">
-
-        <!-- Heading -->
-        <h2 class="mb-12 text-center">
-          A positive Experience in many ways.
-        </h2>
-
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12 col-md-6 col-lg-4">
-
-        <!-- Card -->
-        <div class="card card-lg mb-11">
-          <div class="card-body text-center bg-light">
-
-            <!-- Avatar -->
-            <img src="assets/img/avatars/avatar-1.jpg" alt="..." class="img-fluid rounded-circle mb-7 mt-n11" style="max-width: 100px;">
-
-            <!-- Text -->
-            <blockquote class="blockquote mb-0">
-
-              <!-- Text -->
-              <p class="font-size-lg font-style-normal">
-                From creepeth said moved given
-                divide make multiply of him shall itself
-                also above second doesn't unto
-                created saying land herb sea midst
-                night wherein.
-              </p>
-
-              <!-- Rating -->
-              <div class="rating font-size-xs text-warning mb-2" data-value="5">
-                <div class="rating-item">
-                  <i class="fas fa-star"></i>
-                </div>
-                <div class="rating-item">
-                  <i class="fas fa-star"></i>
-                </div>
-                <div class="rating-item">
-                  <i class="fas fa-star"></i>
-                </div>
-                <div class="rating-item">
-                  <i class="fas fa-star"></i>
-                </div>
-                <div class="rating-item">
-                  <i class="fas fa-star"></i>
-                </div>
-              </div>
-
-              <!-- Footer -->
-              <footer class="blockquote-footer">
-                Catherine Hicks, 21 Jul 2019
-              </footer>
-
-            </blockquote>
-
-          </div>
-        </div>
-
-        <!-- Card -->
-        <div class="card card-lg mb-11">
-          <div class="card-body text-center bg-light">
-
-            <!-- Avatar -->
-            <img src="assets/img/avatars/avatar-4.jpg" alt="..." class="img-fluid rounded-circle mb-7 mt-n11" style="max-width: 100px;">
-
-            <!-- Text -->
-            <blockquote class="blockquote mb-0">
-
-              <!-- Text -->
-              <p class="font-size-lg font-style-normal">
-                Creeping his under doesn't.
-                Above two fourth dry open blessed
-                our creeping, made great.
-              </p>
-
-              <!-- Rating -->
-              <div class="rating font-size-xs text-warning mb-2" data-value="5">
-                <div class="rating-item">
-                  <i class="fas fa-star"></i>
-                </div>
-                <div class="rating-item">
-                  <i class="fas fa-star"></i>
-                </div>
-                <div class="rating-item">
-                  <i class="fas fa-star"></i>
-                </div>
-                <div class="rating-item">
-                  <i class="fas fa-star"></i>
-                </div>
-                <div class="rating-item">
-                  <i class="fas fa-star"></i>
-                </div>
-              </div>
-
-              <!-- Footer -->
-              <footer class="blockquote-footer">
-                Jason Griffith, 05 Jul 2019
-              </footer>
-
-            </blockquote>
-
-          </div>
-        </div>
-
-      </div>
-      <div class="col-12 col-md-7 col-lg-4">
-
-        <!-- Card -->
-        <div class="card card-lg mb-11">
-          <div class="card-body text-center bg-light">
-
-            <!-- Avatar -->
-            <img src="assets/img/avatars/avatar-2.jpg" alt="..." class="img-fluid rounded-circle mb-7 mt-n11" style="max-width: 100px;">
-
-            <!-- Text -->
-            <blockquote class="blockquote mb-0">
-
-              <!-- Text -->
-              <p class="font-size-lg font-style-normal">
-                Gathered to were female. That dry
-                our so likeness light cattle his you'll
-                fill blessed replenish doesn't god
-                night tree.
-              </p>
-
-              <!-- Rating -->
-              <div class="rating font-size-xs text-warning mb-2" data-value="5">
-                <div class="rating-item">
-                  <i class="fas fa-star"></i>
-                </div>
-                <div class="rating-item">
-                  <i class="fas fa-star"></i>
-                </div>
-                <div class="rating-item">
-                  <i class="fas fa-star"></i>
-                </div>
-                <div class="rating-item">
-                  <i class="fas fa-star"></i>
-                </div>
-                <div class="rating-item">
-                  <i class="fas fa-star"></i>
-                </div>
-              </div>
-
-              <!-- Footer -->
-              <footer class="blockquote-footer">
-                Daisy Turner, 18 Jul 2019
-              </footer>
-
-            </blockquote>
-
-          </div>
-        </div>
-
-        <!-- Card -->
-        <div class="card card-lg mb-11">
-          <div class="card-body text-center bg-light">
-
-            <!-- Avatar -->
-            <img src="assets/img/avatars/avatar-5.jpg" alt="..." class="img-fluid rounded-circle mb-7 mt-n11" style="max-width: 100px;">
-
-            <!-- Text -->
-            <blockquote class="blockquote mb-0">
-
-              <!-- Text -->
-              <p class="font-size-lg font-style-normal">
-                Yielding place upon heaven
-                created sea So fly you'll had years
-                which good herb hath moveth for
-                grass. Created. Wherein, had every
-                were, face you'll made from.
-              </p>
-
-              <!-- Rating -->
-              <div class="rating font-size-xs text-warning mb-2" data-value="5">
-                <div class="rating-item">
-                  <i class="fas fa-star"></i>
-                </div>
-                <div class="rating-item">
-                  <i class="fas fa-star"></i>
-                </div>
-                <div class="rating-item">
-                  <i class="fas fa-star"></i>
-                </div>
-                <div class="rating-item">
-                  <i class="fas fa-star"></i>
-                </div>
-                <div class="rating-item">
-                  <i class="fas fa-star"></i>
-                </div>
-              </div>
-
-              <!-- Footer -->
-              <footer class="blockquote-footer">
-                Katrina Willis, 30 Jun 2019
-              </footer>
-
-            </blockquote>
-
-          </div>
-        </div>
-
-      </div>
-      <div class="col-12 col-lg-4">
-        <div class="row">
-          <div class="col-12 col-md-6 col-lg-12">
-
-            <!-- Card -->
-            <div class="card card-lg mb-11">
-              <div class="card-body text-center bg-light">
-
-                <!-- Avatar -->
-                <img src="assets/img/avatars/avatar-3.jpg" alt="..." class="img-fluid rounded-circle mb-7 mt-n11" style="max-width: 100px;">
-
-                <!-- Text -->
-                <blockquote class="blockquote mb-0">
-
-                  <!-- Text -->
-                  <p class="font-size-lg font-style-normal">
-                    Abundantly behold. God given
-                    creature she'd, greater gathering his
-                    had thing let you're firmament can't
-                    he sixth. Without evening. Given
-                    appear days signs abundantly and
-                    brought female bring.
-                  </p>
-
-                  <!-- Rating -->
-                  <div class="rating font-size-xs text-warning mb-2" data-value="4">
-                    <div class="rating-item">
-                      <i class="fas fa-star"></i>
-                    </div>
-                    <div class="rating-item">
-                      <i class="fas fa-star"></i>
-                    </div>
-                    <div class="rating-item">
-                      <i class="fas fa-star"></i>
-                    </div>
-                    <div class="rating-item">
-                      <i class="fas fa-star"></i>
-                    </div>
-                    <div class="rating-item">
-                      <i class="fas fa-star"></i>
-                    </div>
-                  </div>
-
-                  <!-- Footer -->
-                  <footer class="blockquote-footer">
-                    Logan Edwards, 11 Jul 2019
-                  </footer>
-
-                </blockquote>
-
-              </div>
-            </div>
-
-          </div>
-          <div class="col-12 col-md-6 col-lg-12">
-
-            <!-- Card -->
-            <div class="card card-lg mb-11">
-              <div class="card-body text-center bg-light">
-
-                <!-- Avatar -->
-                <img src="assets/img/avatars/avatar-6.jpg" alt="..." class="img-fluid rounded-circle mb-7 mt-n11" style="max-width: 100px;">
-
-                <!-- Text -->
-                <blockquote class="blockquote mb-0">
-
-                  <!-- Text -->
-                  <p class="font-size-lg font-style-normal">
-                    Place whose a give upon seed
-                    Yielding don't cattle living.
-                  </p>
-
-                  <!-- Rating -->
-                  <div class="rating font-size-xs text-warning mb-2" data-value="5">
-                    <div class="rating-item">
-                      <i class="fas fa-star"></i>
-                    </div>
-                    <div class="rating-item">
-                      <i class="fas fa-star"></i>
-                    </div>
-                    <div class="rating-item">
-                      <i class="fas fa-star"></i>
-                    </div>
-                    <div class="rating-item">
-                      <i class="fas fa-star"></i>
-                    </div>
-                    <div class="rating-item">
-                      <i class="fas fa-star"></i>
-                    </div>
-                  </div>
-
-                  <!-- Footer -->
-                  <footer class="blockquote-footer">
-                    George Sanders, 17 Jun 2019
-                  </footer>
-
-                </blockquote>
-
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- GET STARTED -->
 <section class="pt-12 pb-6" id="getStarted">
@@ -944,7 +643,7 @@
         <h2 class="mb-8">Want to join the club?</h2>
 
         <!-- Button -->
-        <a href="#!" class="btn btn-primary mb-10">
+        <a href="#!" class="btn btn-primary mb-10" (click)="register()">
           I want to be a member
         </a>
 
@@ -956,31 +655,31 @@
       <div class="col">
 
         <!-- Image -->
-        <img src="assets/img/products/product-105.jpg" alt="..." class="img-fluid">
+        <img src="assets/img/custom/product-105.jpg" alt="..." class="img-fluid">
 
       </div>
       <div class="col d-none d-md-block">
 
         <!-- Image -->
-        <img src="assets/img/products/product-106.jpg" alt="..." class="img-fluid">
+        <img src="assets/img/custom/product-106.jpg" alt="..." class="img-fluid">
 
       </div>
       <div class="col">
 
         <!-- Image -->
-        <img src="assets/img/products/product-107.jpg" alt="..." class="img-fluid">
+        <img src="assets/img/custom/product-107.jpg" alt="..." class="img-fluid">
 
       </div>
       <div class="col d-none d-md-block">
 
         <!-- Image -->
-        <img src="assets/img/products/product-108.jpg" alt="..." class="img-fluid">
+        <img src="assets/img/custom/product-108.jpg" alt="..." class="img-fluid">
 
       </div>
       <div class="col">
 
         <!-- Image -->
-        <img src="assets/img/products/product-109.jpg" alt="..." class="img-fluid">
+        <img src="assets/img/custom/product-109.jpg" alt="..." class="img-fluid">
 
       </div>
     </div>
