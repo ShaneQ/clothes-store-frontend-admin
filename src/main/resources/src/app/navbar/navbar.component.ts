@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {AppService} from "../app.service";
-import {KeycloakService} from "keycloak-angular";
+import {AppService} from '../app.service';
+import {KeycloakService} from 'keycloak-angular';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss'],
   providers: [AppService]
 })
 export class NavbarComponent implements OnInit {
