@@ -40,10 +40,11 @@ import {BsDropdownModule} from 'ngx-bootstrap/dropdown';
 import {KeycloakAngularModule, KeycloakService} from 'keycloak-angular';
 import { ProfileComponent } from './profile/profile.component';
 import {environment} from '../environments/environment';
-import { ProductDetailSizesComponent } from './product-detail-sizes/product-detail-sizes.component';
-import {FeatherModule} from "angular-feather";
-import {IconsModule} from "./icons/icons.module";
+import {IconsModule} from './icons/icons.module';
 import { MemberNotificationSlowDownComponent } from './modal/member-notification-slow-down/member-notification-slow-down.component';
+import { BookingSummaryComponent } from './modal/booking-summary/booking-summary.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 const keycloakService = new KeycloakService();
 
@@ -82,8 +83,8 @@ const keycloakService = new KeycloakService();
     ShopComponent,
     ShopFilterComponent,
     ProfileComponent,
-    ProductDetailSizesComponent,
-    MemberNotificationSlowDownComponent
+    MemberNotificationSlowDownComponent,
+    BookingSummaryComponent
   ],
   imports: [
     BrowserModule,
@@ -94,7 +95,10 @@ const keycloakService = new KeycloakService();
     BsDatepickerModule.forRoot(),
     BsDropdownModule.forRoot(),
     KeycloakAngularModule,
-    IconsModule
+    IconsModule,
+    NgbModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     {
@@ -102,7 +106,7 @@ const keycloakService = new KeycloakService();
       useValue: keycloakService,
     },
   ],
-  entryComponents: [AppComponent],
+  entryComponents: [AppComponent, BookingSummaryComponent],
 
 })
 export class AppModule  implements DoBootstrap  {

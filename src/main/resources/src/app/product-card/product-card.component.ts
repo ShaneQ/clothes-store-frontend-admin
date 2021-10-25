@@ -20,8 +20,4 @@ export class ProductCardComponent implements OnInit {
   ngOnInit() {
   }
 
-  onProductSelected(){
-    this.productEmitter.emit(this.product);
-  }
-
 }

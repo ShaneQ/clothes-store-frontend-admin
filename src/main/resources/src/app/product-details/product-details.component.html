@@ -1,5 +1,4 @@
 <div *ngIf="product">
-  <app-member-notification-slow-down></app-member-notification-slow-down>
   <!-- PRODUCT -->
   <section class="mt-5">
     <div class="container">
@@ -95,14 +94,21 @@
               <p class="mb-2">{{product.quickDesc}}</p>
 
               <!-- Form -->
-              <form>
+              <form [formGroup]="orderForm" (ngSubmit)="onSubmit()">
                 <div class="form-group">
-
-
+                  <label>Size:</label>
                   <!-- Radio -->
-                  <app-product-detail-sizes [productSizes]="product.sizes"></app-product-detail-sizes>
+                  <div class="mb-2">
+                    <div *ngIf="submitted">
+                      <div>Size is required</div>
+                    </div>
+                    <div *ngFor="let size of product.sizes" class="custom-control custom-control-inline custom-control-size mb-2">
+                      <input type="radio"  name="size" formControlName="size"  class="custom-control-input form-control"  [ngClass]="{ 'is-invalid': this.submitted && f.size.errors }"id="{{'sizeRadio'+size.size.id}}" value="{{size.size.name}}" data-toggle="form-caption">
 
-
+                      <label class="custom-control-label" for="{{'sizeRadio'+size.size.id}}">{{size.size.name}}</label>
+                    </div>
+                  </div>
+                </div>
                   <!-- Size chart -->
                   <div class="row mb-3">
                     <div class="col-4">
@@ -121,10 +127,10 @@
 
                   <div class="container">
 
-                    <div class="form-row mb-6" id="oneTimeRentalSection" *ngIf="this.freeMember">
+                    <div class="form-row mb-6" id="oneTimeRentalSection" *ngIf="this.member">
                       <div class="radio radio-danger radio-inline col-lg-8 border border-dark ">
-                        <div class="mt-3" (click)="onMembershipClick(false)">
-                          <input type="radio" name="rental" id="oneTimeRental" value="single" [checked]="this.freeMember" >
+                        <div class="mt-3" (click)="onMembershipClick(true)">
+                          <input type="radio" formControlName="rental" name="rental"  id="oneTimeRental" value="single" [checked]="!this.rentalPreferenceMembership" >
                           <label for="oneTimeRental">
 
                             <p class="mb-0">ONE-TIME-RENTAL</p>
@@ -138,13 +144,13 @@
                     </div>
                     <div class="form-row mb-6">
                       <div class="radio radio-danger radio-inline col-lg-8 border border-dark">
-                        <div class="mt-3" (click)="onMembershipClick(true)">
-                        <input type="radio" name="rental" id="membershipRental" value="member" [checked]="!this.freeMember">
+                        <div class="mt-3" (click)="onMembershipClick(false)">
+                        <input type="radio" formControlName="rental" name="rental"  id="membershipRental" value="member" checked>
                         <label for="membershipRental">
                           <p class="mb-0">MEMBERSHIP</p>
                           <span class="font-size-lg font-weight-bold text-gray-350 text-decoration-line-through">{{product.rentalPrice | currency:'EUR'}}</span>
-                          <span *ngIf="this.freeMember"  class="font-size-xxs ml-1">( Membership starting at €58 )</span>
-                          <span *ngIf="!this.freeMember" class="font-size-xxs ml-1">( You have 4 bookings available )</span>
+                          <span *ngIf="!this.member" class="font-size-xxs ml-1">( Membership starting at €58 )</span>
+                          <span *ngIf="this.member" class="font-size-xxs ml-1">( You have 4 bookings available )</span>
 
                         </label>
                       </div>
@@ -160,6 +166,7 @@
                           <div class="row ">
                             <div class="form-group">
                               <input
+                                formControlName="orderDate"
                                 type="text"
                                 placeholder="PICKUP DATE"
                                 class="form-control border-dark"
@@ -181,30 +188,30 @@
                           </button>
 
                           <!-- Menu -->
-                          <form class="dropdown-menu">
+                          <div class="dropdown-menu">
                             <div class="card">
                               <div class="card-body">
 
                                 <!-- Form group -->
                                 <div class="form-group-overflow">
                                   <div class="custom-control custom-radio mb-3">
-                                    <input class="custom-control-input" id="categoryOne" name="category" type="radio">
+                                    <input class="custom-control-input" formControlName="dispatch" id="categoryOne" type="radio" value="smithfield">
                                     <label class="custom-control-label" for="categoryOne">SMITHFIELD MARKET</label>
                                   </div>
                                   <div class="custom-control custom-radio mb-3">
-                                    <input class="custom-control-input" id="categoryTwo" name="category" type="radio">
+                                    <input class="custom-control-input" formControlName="dispatch" id="categoryTwo"  type="radio" value="meeting">
                                     <label class="custom-control-label" for="categoryTwo">NEXT CLUB MEETING</label>
                                   </div>
                                   <div class="custom-control custom-radio mb-3">
-                                    <input class="custom-control-input" id="categoryThree" name="category" type="radio">
-                                    <label class="custom-control-label" for="categoryThree">AN POST</label>
+                                    <input class="custom-control-input" formControlName="dispatch" id="categoryThree" type="radio" value="shipping">
+                                    <label class="custom-control-label" for="categoryThree">PARCEL MOTEL</label>
                                   </div>
                                 </div>
 
                               </div>
 
                             </div>
-                          </form>
+                          </div>
 
                         </div>
                       </div>
@@ -223,19 +230,17 @@
                     <div class="col-12 col-lg">
 
                       <!-- Submit -->
-                      <button *ngIf="this.remainingBookings === 0" type="button" class="btn btn-block btn-dark mb-2" [disabled]="this.isMemberInfoBtnVis" data-toggle="modal" href="#modalMemberSlowDown" >
+                      <button *ngIf="this.remainingBookings === 0" type="submit"  class="btn btn-block btn-dark mb-2"  [disabled]="this.isMemberInfoBtnVis" data-toggle="modal" href="#modalMemberSlowDown" >
                         Book it <i class="fe fe-shopping-cart ml-2"></i>
                       </button>
 
                       <!-- Submit -->
-                      <button *ngIf="this.remainingBookings > 0" type="button" class="btn btn-block btn-dark mb-2" [disabled]="this.isMemberInfoBtnVis" >
+                      <button *ngIf="this.remainingBookings > 0" type="submit" class="btn btn-block btn-dark mb-2"  [disabled]="this.isMemberInfoBtnVis" data-toggle="modal" href="#modalMemberSlowDown" >
                         Book it <i class="fe fe-shopping-cart ml-2"></i>
                       </button>
 
                     </div>
                   </div>
-
-                </div>
               </form>
 
             </div>

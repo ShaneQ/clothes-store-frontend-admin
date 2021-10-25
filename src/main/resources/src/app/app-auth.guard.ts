@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 import { KeycloakAuthGuard, KeycloakService } from 'keycloak-angular';
 import * as jwt_decode from 'jwt-decode';
+import {environment} from "../environments/environment";
 
 @Injectable({
   providedIn: 'root'
@@ -11,10 +12,12 @@ export class CanAuthenticationGuard extends KeycloakAuthGuard implements CanActi
     super(router, keycloakAngular);
   }
 
+  private baseUrl = environment.baseUrl
+
   isAccessAllowed(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean> {
     let location = window.location.href;
-    if (location === 'http://localhost:8089/'){
-      location = 'http://localhost:8089/base/home';
+    if (location === this.baseUrl){
+      location = this.baseUrl+ '/base/home';
     }
     return new Promise((resolve, reject) => {
       if (!this.authenticated) {
