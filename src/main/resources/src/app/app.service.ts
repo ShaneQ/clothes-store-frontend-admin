@@ -17,8 +17,8 @@ export class Foo {
 @Injectable()
 export class AppService {
   public clientId = environment.keycloakConfig.clientId;
-  public redirectUri = 'http://localhost:8089/loading';
-  public baseUri = 'http://localhost:8089/';
+  public redirectUri = environment.baseUrl + '/loading';
+  public baseUri = environment.baseUrl
 
   constructor(
     private _http: HttpClient,

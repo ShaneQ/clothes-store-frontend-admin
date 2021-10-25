@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import {Observable} from 'rxjs';
 import {AppService} from './app.service';
 import {Product} from './model/product';
+import {environment} from "../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
 
-  private productUrl = 'http://localhost:8081/resource-server/api/product';
+  private productUrl = environment.resourceUrl +'/api/product';
 
   constructor(private _service: AppService) { }
 

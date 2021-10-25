@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AppService} from '../app.service';
 import {KeycloakService} from 'keycloak-angular';
+import {environment} from "../../environments/environment";
 
 @Component({
   selector: 'app-navbar',
@@ -15,7 +16,7 @@ export class NavbarComponent implements OnInit {
 
   logout() {
     console.log('Logged Out');
-    this._keycloak.logout('http://localhost:8089/');
+    this._keycloak.logout(environment.baseUrl);
   }
 
   ngOnInit(): void {

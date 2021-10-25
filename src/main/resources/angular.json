@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Clothes-Store-Frontend-Three": {
+    "Clothes-Store-Frontend": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/Clothes-Store-Frontend-Three",
+            "outputPath": "dist/Clothes-Store-Frontend",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -69,8 +69,8 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "6kb",
-                  "maximumError": "10kb"
+                  "maximumWarning": "150kb",
+                  "maximumError": "160kb"
                 }
               ]
             }
@@ -79,18 +79,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "Clothes-Store-Frontend-Three:build"
+            "browserTarget": "Clothes-Store-Frontend:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "Clothes-Store-Frontend-Three:build:production"
+              "browserTarget": "Clothes-Store-Frontend:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Clothes-Store-Frontend-Three:build"
+            "browserTarget": "Clothes-Store-Frontend:build"
           }
         },
         "test": {
@@ -129,18 +129,18 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "Clothes-Store-Frontend-Three:serve"
+            "devServerTarget": "Clothes-Store-Frontend:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "Clothes-Store-Frontend-Three:serve:production"
+              "devServerTarget": "Clothes-Store-Frontend:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "Clothes-Store-Frontend-Three",
+  "defaultProject": "Clothes-Store-Frontend",
   "schematics": {
     "@schematics/angular:component": {
       "styleext": "scss"
