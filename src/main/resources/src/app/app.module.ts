@@ -45,6 +45,7 @@ import { MemberNotificationSlowDownComponent } from './modal/member-notification
 import { BookingSummaryComponent } from './modal/booking-summary/booking-summary.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { ProductCreationComponent } from './product-creation/product-creation.component';
 
 const keycloakService = new KeycloakService();
 
@@ -84,7 +85,8 @@ const keycloakService = new KeycloakService();
     ShopFilterComponent,
     ProfileComponent,
     MemberNotificationSlowDownComponent,
-    BookingSummaryComponent
+    BookingSummaryComponent,
+    ProductCreationComponent
   ],
   imports: [
     BrowserModule,
