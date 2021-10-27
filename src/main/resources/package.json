@@ -1,9 +1,9 @@
 {
-  "name": "clothes-store-frontend",
+  "name": "clothes-store-frontend-admin",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --port 8089",
+    "start": "ng serve --port 8090",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",

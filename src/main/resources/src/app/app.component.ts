@@ -14,9 +14,4 @@ export class AppComponent {
   constructor(
     private _service: AppService){}
 
-  login() {
-    window.location.href = 'http://localhost:8083/auth/realms/baeldung/protocol/openid-connect/auth?response_type=code&&scope=write%20read&client_id=' +
-      this._service.clientId + '&redirect_uri=' + this._service.redirectUri;
-  }
-
 }

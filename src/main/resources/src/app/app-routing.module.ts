@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+ import { NgModule } from '@angular/core';
 import {BaseComponent} from './base/base.component';
 import {RouterModule, Routes} from '@angular/router';
 import {LandingComponent} from './pre-login/landing/landing.component';
@@ -7,6 +7,7 @@ import {HomeComponent} from './home/home.component';
 import {ShopComponent} from './shop/shop.component';
 import {CanAuthenticationGuard} from './app-auth.guard';
 import {ProfileComponent} from './profile/profile.component';
+ import {ProductCreationComponent} from "./product-creation/product-creation.component";
 
 const routes: Routes = [
   { path: '', component: LandingComponent, pathMatch: 'full' },
@@ -16,7 +17,12 @@ const routes: Routes = [
       {
         path: '',
         redirectTo: 'home',
-        pathMatch: 'full'},
+        pathMatch: 'full'
+      },
+      {
+        path: 'product',
+        component: ProductCreationComponent,
+      },
       {
         path: 'product/:productId',
         component: ProductDetailsComponent,
@@ -24,14 +30,6 @@ const routes: Routes = [
       {
         path: 'home',
         component: HomeComponent,
-      },
-      {
-        path: 'shop',
-        component: ShopComponent,
-      },
-      {
-        path: 'profile',
-        component: ProfileComponent,
       }
     ]}
     ];

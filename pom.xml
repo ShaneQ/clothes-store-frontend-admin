@@ -3,10 +3,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <name>oauth-ui-authorization-code-angular</name>
+    <name>clothing-store-frontend-admin</name>
     <packaging>war</packaging>
     <groupId>com.shanequaid</groupId>
-    <artifactId>second-closet-club</artifactId>
+    <artifactId>second-closet-club-admin</artifactId>
     <version>1.0.0</version>
 
     <build>

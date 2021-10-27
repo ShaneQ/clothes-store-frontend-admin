@@ -17,22 +17,23 @@ export class CanAuthenticationGuard extends KeycloakAuthGuard implements CanActi
   isAccessAllowed(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean> {
     let location = window.location.href;
     if (location === this.baseUrl){
-      location = this.baseUrl+ '/base/home';
+      location = this.baseUrl+ 'base/home';
     }
     return new Promise((resolve, reject) => {
       if (!this.authenticated) {
-        this.keycloakAngular.login({scope: 'read', redirectUri: location})
+        this.keycloakAngular.login({ redirectUri: location})
           .catch(e => console.error(e));
         return reject(false);
       }
 
-      const requiredRoles: string[] = route.data.roles;
+      const requiredRoles: string[] = ["scc_admin_role"];
       if (!requiredRoles || requiredRoles.length === 0) {
         return resolve(true);
       } else {
         if (!this.roles || this.roles.length === 0) {
           resolve(false);
         }
+        console.log("Roles -" +this.roles)
         resolve(requiredRoles.every(role => this.roles.indexOf(role) > -1));
       }
     });

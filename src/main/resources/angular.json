@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Clothes-Store-Frontend": {
+    "Clothes-Store-Frontend-Admin": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/Clothes-Store-Frontend",
+            "outputPath": "dist/Clothes-Store-Frontend-Admin",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -79,18 +79,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "Clothes-Store-Frontend:build"
+            "browserTarget": "Clothes-Store-Frontend-Admin:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "Clothes-Store-Frontend:build:production"
+              "browserTarget": "Clothes-Store-Frontend-Admin:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Clothes-Store-Frontend:build"
+            "browserTarget": "Clothes-Store-Frontend-Admin:build"
           }
         },
         "test": {
@@ -133,14 +133,14 @@
           },
           "configurations": {
             "production": {
-              "devServerTarget": "Clothes-Store-Frontend:serve:production"
+              "devServerTarget": "Clothes-Store-Frontend-Admin:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "Clothes-Store-Frontend",
+  "defaultProject": "Clothes-Store-Frontend-Admin",
   "schematics": {
     "@schematics/angular:component": {
       "styleext": "scss"

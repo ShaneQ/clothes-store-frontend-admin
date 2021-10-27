@@ -24,7 +24,7 @@ export class AppService {
     private _http: HttpClient,
     private _router: Router){}
 
-  retrieveToken(code){
+/*  retrieveToken(code){
     const params = new URLSearchParams();
     params.append('grant_type', 'authorization_code');
     params.append('client_id', this.clientId);
@@ -45,7 +45,7 @@ export class AppService {
     Cookie.set('access_token', token.access_token, expireDate);
     console.log('Obtained Access token');
     this._router.navigate(['/base/home']);
-  }
+  }*/
 
   getResource(resourceUrl): Observable<any>{
     let headers: HttpHeaders;
