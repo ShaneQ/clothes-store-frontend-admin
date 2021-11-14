@@ -58,7 +58,6 @@ export class ProductDetailsComponent implements OnInit{
 
     const productId = this._route.snapshot.paramMap.get('productId');
     this.product = await this._app.getProduct(productId).toPromise();
-    this.productOccasions = this.product.occasions.map(x => x.occasion.name).join(',');
     this.member = true;
     this.rentalPreferenceMembership = this.member;
     this.remainingBookings = 0;

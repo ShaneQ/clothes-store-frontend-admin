@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import { Cookie } from 'ng2-cookies';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpXsrfTokenExtractor} from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
@@ -22,7 +22,8 @@ export class AppService {
 
   constructor(
     private _http: HttpClient,
-    private _router: Router){}
+    private _router: Router,
+    private tokenExtractor: HttpXsrfTokenExtractor){}
 
 /*  retrieveToken(code){
     const params = new URLSearchParams();
@@ -67,6 +68,17 @@ export class AppService {
       .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
   }
 
+  postProductsResource(product :Product, resourceUrl) : Observable<any>{
+    let headers: HttpHeaders;
+    headers = new HttpHeaders({
+      'content-type': 'application/json',
+      Authorization: 'Bearer ' + Cookie.get('access_token'),
+    });
+    const body=JSON.stringify(product);
+
+    return this._http.post<any>(resourceUrl, body,{ 'headers': headers });
+  }
+
   getProductResource(resourceUrl): Observable<Product>{
     let headers: HttpHeaders;
     headers = new HttpHeaders({
@@ -81,7 +93,7 @@ export class AppService {
     let headers: HttpHeaders;
     headers = new HttpHeaders({
       'Content-type': 'application/x-www-form-urlencoded; charset=utf-8',
-      Authorization: 'Bearer ' + Cookie.get('access_token')
+      Authorization: 'Bearer ' + Cookie.get('access_token'),
     });
     return this._http.get(resourceUrl, { headers })
       .catch((error: any) => Observable.throw(error.json().error || 'Server error'));

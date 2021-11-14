@@ -10,12 +10,18 @@ import {environment} from "../environments/environment";
 export class ProductService {
 
   private productUrl = environment.resourceUrl +'public/product';
+  private adminProductUrl = environment.resourceUrl +'private/product';
 
   constructor(private _service: AppService) { }
 
   loadProducts(): Observable<Product[]>{
     return this._service.getProductsResource(this.productUrl);
 
+  }
+
+  postProduct(product: Product){
+    this._service.postProductsResource(product, this.adminProductUrl).subscribe(data => {
+    })
   }
 
   getProduct(productId): Observable<Product> {
