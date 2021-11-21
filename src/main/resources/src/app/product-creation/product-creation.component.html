@@ -1,0 +1,61 @@
+<div class="container" xmlns="http://www.w3.org/1999/html">
+  <form [formGroup]="productForm" (ngSubmit)="submit()">
+    <div class="col-6">
+      <div class="form-group">
+        <label for="name">Product Name</label>
+        <input type="text" class="form-control" id="name" formControlName="name" required>
+      </div>
+      <div class="form-group">
+        <label for="quickDesc">Quick Description</label>
+        <input type="text" class="form-control" id="quickDesc" formControlName="quickDesc" required>
+      </div>
+      <div class="form-group">
+        <label for="fittingInfo">Fitting Info</label>
+        <input type="text" class="form-control" id="fittingInfo" formControlName="fittingInfo" required>
+      </div>
+      <div class="form-group">
+        <label for="washInfo">Wash Info</label>
+        <input type="text" class="form-control" id="washInfo" formControlName="washInfo" required>
+      </div>
+      <div class="form-group">
+        <label for="material">Material</label>
+        <input type="text" class="form-control" id="material" formControlName="material" required>
+      </div>
+      <div class="form-group" formGroupName="imgCover">
+        <label for="url">Cover Image</label>
+        <input type="text" class="form-control" id="url" formControlName="url" required>
+      </div>
+
+      <div class="form-group">
+        <label>Images:</label>
+        <div formArrayName="images">
+          <div *ngFor="let image of images.controls; let i=index">
+            <div [formGroupName]="i">
+              <div class="t">
+                <input type="text" class="form-control" formControlName="url" required>
+              </div>
+              <button type="button" class="btn btn-danger" (click)="removeImage(i)">Remove</button>
+
+            </div>
+          </div>
+        </div>
+        <button type="button" class="btn btn-success" (click)="addImage()">Add</button>
+      </div>
+
+
+      <h4> Select Sizes available</h4>
+      <div *ngFor="let data of Sizes; let i=index">
+        <label>
+          <input type="checkbox" [value]="data.value" (change)="onCheckboxChange($event)"/>
+          {{data.name}}
+        </label>
+      </div>
+      <h4> Is this to be drycleaned?</h4>
+
+      <label>Yes?</label>
+      <input formControlName="dryClean" id="dryClean" type="checkbox">
+      <br>
+      <button type="submit" class="btn btn-primary">Create Product</button>
+    </div>
+  </form>
+</div>
