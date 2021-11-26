@@ -3,28 +3,62 @@
     <div class="col-6">
       <div class="form-group">
         <label for="name">Product Name</label>
-        <input type="text" class="form-control" id="name" formControlName="name" required>
+        <input type="text" class="form-control" id="name" formControlName="name" >
       </div>
       <div class="form-group">
         <label for="quickDesc">Quick Description</label>
-        <input type="text" class="form-control" id="quickDesc" formControlName="quickDesc" required>
+        <textarea id="quickDesc" name="description" rows="4" formControlName="quickDesc" cols="50"></textarea>
       </div>
       <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description" formControlName="description" name="description" rows="4" cols="50"></textarea>
+      </div>
+
+      <div class="form-group">
         <label for="fittingInfo">Fitting Info</label>
-        <input type="text" class="form-control" id="fittingInfo" formControlName="fittingInfo" required>
+        <input type="text" class="form-control" id="fittingInfo" formControlName="fittingInfo" >
       </div>
       <div class="form-group">
         <label for="washInfo">Wash Info</label>
-        <input type="text" class="form-control" id="washInfo" formControlName="washInfo" required>
+        <textarea id="washInfo" formControlName="washInfo" name="washInfo" rows="4" cols="50"></textarea>
+
       </div>
       <div class="form-group">
         <label for="material">Material</label>
-        <input type="text" class="form-control" id="material" formControlName="material" required>
+        <input type="text" class="form-control" id="material" formControlName="material" >
+      </div>
+      <div class="form-group">
+        <label for="retailPrice">Retail Price</label>
+        <input type="number" class="form-control" id="retailPrice" formControlName="retailPrice" >
       </div>
       <div class="form-group" formGroupName="imgCover">
         <label for="url">Cover Image</label>
         <input type="text" class="form-control" id="url" formControlName="url" required>
       </div>
+
+      <div class="form-group" formGroupName="measurements">
+        <div class="side-by-side">
+          <label for="chest">Bust/Chest</label>
+          <input type="number" name="chest" id="chest" class="form-control" formControlName="chest">
+          <p>cm</p>
+        </div>
+        <div class="side-by-side">
+          <label for="hips">Hips</label>
+          <input type="number" name="hips" id="hips" class="form-control" formControlName="hips">
+          <p>cm</p>
+        </div>
+        <div class="side-by-side">
+          <label for="waist">Waist</label>
+          <input type="number" name="waist" id="waist" class="form-control" formControlName="waist">
+          <p>cm</p>
+        </div>
+        <div class="side-by-side">
+          <label for="length">Length</label>
+          <input type="number" name="length" id="length" class="form-control" formControlName="length">
+          <p>cm</p>
+        </div>
+      </div>
+
 
       <div class="form-group">
         <label>Images:</label>
@@ -42,15 +76,45 @@
         <button type="button" class="btn btn-success" (click)="addImage()">Add</button>
       </div>
 
+      <div class="form-group" formGroupName="productCategory">
 
-      <h4> Select Sizes available</h4>
-      <div *ngFor="let data of Sizes; let i=index">
-        <label>
-          <input type="checkbox" [value]="data.value" (change)="onCheckboxChange($event)"/>
-          {{data.name}}
-        </label>
       </div>
-      <h4> Is this to be drycleaned?</h4>
+
+      <label for="productCategory">Product Category:</label>
+      <select class="custom-select form-control" formControlName="productCategory" id="productCategory">
+        <option *ngFor="let category of productCategories" [value]="category.id">
+          {{category.name}}
+        </option>
+      </select>
+
+      <label for="color">Color:</label>
+      <select class="custom-select form-control" formControlName="color" id="color">
+        <option *ngFor="let color of colors" [value]="color.id">
+          {{color.name}}
+        </option>
+      </select>
+
+      <label for="season">Season:</label>
+      <select class="custom-select form-control" formControlName="season" id="season">
+        <option *ngFor="let season of seasons" [value]="season.id">
+          {{season.name}}
+        </option>
+      </select>
+
+      <h5> Select Sizes available</h5>
+      <ul class="checkbox">
+        <div *ngFor="let data of sizes; let i=index">
+          <li>
+
+            <label>
+              <input type="checkbox" [value]="data.value"
+                     (change)="onCheckboxChange($event)"/>
+              {{data.name}}
+            </label>
+          </li>
+        </div>
+      </ul>
+      <h5> Is this to be drycleaned?</h5>
 
       <label>Yes?</label>
       <input formControlName="dryClean" id="dryClean" type="checkbox">
