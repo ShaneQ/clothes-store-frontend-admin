@@ -19,9 +19,12 @@ export class ProductService {
 
   }
 
-  postProduct(product: Product){
-    this._service.postProductsResource(product, this.adminProductUrl).subscribe(data => {
-    })
+  createProduct(product: Product): Observable<any>{
+    return this._service.postProductResource(product, this.adminProductUrl)
+  }
+
+  updateProduct(product: Product): Observable<any>{
+    return this._service.putProductResource(product, this.adminProductUrl)
   }
 
   getProduct(productId): Observable<Product> {

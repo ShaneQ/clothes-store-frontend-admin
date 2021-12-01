@@ -2,6 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {Product} from "../model/product";
 import {ProductService} from "../product.service";
+import {ActivatedRoute, Router} from "@angular/router";
+import {Observable} from "rxjs";
+import {Size} from "../model/size";
 
 @Component({
   selector: 'app-product-creation',
@@ -11,39 +14,78 @@ import {ProductService} from "../product.service";
 })
 export class ProductCreationComponent implements OnInit {
   productForm: FormGroup
-
-  sizes: Array<any> = [
-    {name: 'One Size', value: '1'},
-    {name: 'XS', value: '2'},
-    {name: 'S', value: '3'},
-    {name: 'M', value: '4'},
-    {name: 'L', value: '5'},
-    {name: 'XL', value: '6'}
-
-  ];
-
   productCategories = []
-  colors = []
   seasons = []
   imageUrl: string;
+  public product$ :Observable<Product>
+  public submitted: boolean;
+  public saved: boolean;
+  public hidden: boolean = false;
+  public update: boolean = false;
 
-  constructor(private fb: FormBuilder, private _app: ProductService,) {
+  constructor(private fb: FormBuilder, private _app: ProductService, private _route: ActivatedRoute, protected router: Router) {
   }
 
   ngOnInit(): void {
-    this.initializeForm();
+    const productId = this._route.snapshot.paramMap.get('productId');
+    this.product$ = this._app.getProduct(productId)
+    if(productId){
+      this.product$.subscribe(data => this.populateForm(data))
+    }else{
+      this.initializeEmptyForm();
+    }
   }
 
-  submit() {
-    let product: Product;
-    product = this.productForm.value;
-    product.dryClean = this.productForm.get("dryClean").value
-    this._app.postProduct(product)
-  }
-
-  private initializeForm() {
-
+  private populateForm(product : Product) {
+    this.update = true
+    this.hidden = product.hidden
+    console.log(product)
+    console.log(this.hidden)
+    this.productCategories = this.getProductCategories()
+    this.seasons = this.getSeasons()
     this.productForm = this.fb.group({
+      ignore:[],
+      id: [product.id],
+      name:[product.name, [Validators.required]],
+      quickDesc: [product.quickDesc, [Validators.required]],
+      description: [product.description, [Validators.required]],
+      fittingInfo: [product.fittingInfo, [Validators.required]],
+      washInfo: [product.washInfo, [Validators.required]],
+      material: [product.material, [Validators.required]],
+      imgCover: this.fb.group({
+        url: product.imgCover.url,
+        id: product.imgCover.id
+      }),
+      dryClean: product.dryClean,
+      productCategory: [product.productCategory],
+      color: [product.color],
+      season: [product.season],
+      retailPrice: [product.retailPrice, [Validators.required]],
+      measurements: this.fb.group({
+        chest: [product.measurements.chest, [Validators.required]],
+        hips: [product.measurements.hips, [Validators.required]],
+        waist: [product.measurements.waist, [Validators.required]],
+        length: [product.measurements.length, [Validators.required]]
+      }),
+      sizes: this.fb.group({
+        size1: [product.sizes.filter(size => size.id ==1).length == 1],
+        size2: [product.sizes.filter(size => size.id ==2).length == 1],
+        size3: [product.sizes.filter(size => size.id ==3).length == 1],
+        size4: [product.sizes.filter(size => size.id ==4).length == 1],
+        size5: [product.sizes.filter(size => size.id ==5).length == 1],
+        size6: [product.sizes.filter(size => size.id ==6).length == 1]
+      }),
+      images: this.fb.array([])
+    })
+    product.images.forEach( img => this.populateImage(img.id, img.url))
+
+  }
+
+  private initializeEmptyForm() {
+    this.hidden = true
+    this.productForm = this.fb.group({
+      id: [],
+      ignore:[],
       name: ['Testing', [Validators.required]],
       quickDesc: ['Testing', [Validators.required]],
       description: ['Testing', [Validators.required]],
@@ -52,7 +94,7 @@ export class ProductCreationComponent implements OnInit {
       material: ['Testing', [Validators.required]],
       imgCover: this.fb.group({
         url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1kUVuAjGZ8a6N1Tz9m0i0zKXVkk0CTJnJslJu6Z3Pk17XqOdSyQ&s',
-        id: 0
+        id: []
       }),
       dryClean: false,
       productCategory: [1],
@@ -60,28 +102,87 @@ export class ProductCreationComponent implements OnInit {
       season: [1],
       retailPrice: [0, [Validators.required]],
       measurements: this.fb.group({
+        id: [],
         chest: [0, [Validators.required]],
         hips: [0, [Validators.required]],
         waist: [0, [Validators.required]],
         length: [0, [Validators.required]]
       }),
-      sizes: this.fb.array([]),
+      sizes: this.fb.group({
+        size1: [false],
+        size2: [false],
+        size3: [false],
+        size4: [false],
+        size5: [false],
+        size6: [false]
+      }),
       images: this.fb.array([])
     })
     this.productCategories = this.getProductCategories()
-    this.colors = this.getColors()
     this.seasons = this.getSeasons()
   }
 
+  submit() {
+    this.submitted = true
+    let f = this.productForm.value as Product
+    let sizes = this.convertSizes(this.productForm.value.sizes)
+    if (this.productForm.invalid || sizes.length == 0 || f.images.length == 0 ) {
+      console.log("Invalid Form")
+      return;
+    }
+
+    let product = new Product(f.id, f.name, f.quickDesc, f.material,f.fittingInfo,f.washInfo,f.description,f.dryClean,f.measurements,f.imgCover,f.images,sizes,f.retailPrice, f.color,f.season,f.productCategory, this.hidden)
+    if(this.productForm.get("id").value){
+      this._app.updateProduct(product).subscribe(data => this.saved = true)
+    }else{
+      this._app.createProduct(product).subscribe(data => {this.saved = true;
+      })
+    }
+  }
+
+  newImage(id: number, url: string): FormGroup {
+    return this.fb.group({
+      id: id,
+      url: 'https://media.geeksforgeeks.org/wp-content/uploads/20190506164011/logo3.png'
+    })
+  }
+
+  get images() {
+    return this.productForm.get('images') as FormArray
+  }
+
+  addImage() {
+    this.images.push(this.newImage(null, 'https://media.geeksforgeeks.org/wp-content/uploads/20190506164011/logo3.png'));
+  }
+
+  populateImage(id: number, url: string) {
+    this.images.push(this.newImage(id,url));
+  }
+
+  removeImage(i: number) {
+    this.images.removeAt(i)
+  }
+
+  sizes: Array<any> = [
+    {name: 'One Size', value: 1},
+    {name: 'XS', value: 2},
+    {name: 'S', value: 3},
+    {name: 'M', value: 4},
+    {name: 'L', value: 5},
+    {name: 'XL', value: 6}
+
+  ];
+
+
   getProductCategories() {
     return [
-      {name: 'Dresses', id: '1'},
-      {name: 'Tops', id: '2'},
-      {name: 'Pants', id: '3'},
-      {name: 'Skirts', id: '4'},
-      {name: 'Jumpsuits & Rompers', id: '5'},
-      {name: 'Jackets & Coats', id: '6'},
-      {name: 'Bags', id: '7'},
+      {name: 'Dresses', id: 1},
+      {name: 'Tops', id: 2},
+      {name: 'Pants', id: 3},
+      {name: 'Skirts', id: 4},
+      {name: 'Jumpsuits & Rompers', id: 5},
+      {name: 'Jackets & Coats', id: 6},
+      {name: 'Bags', id: 7},
     ];
   }
   getSeasons() {
@@ -92,8 +193,7 @@ export class ProductCreationComponent implements OnInit {
       {name: 'Summer', id: '4'}
     ];
   }
-  getColors() {
-    return [
+  colors = [
       {name: 'black', id: 1},
       {name: 'white', id: 2},
       {name: 'grey', id: 3},
@@ -111,41 +211,40 @@ export class ProductCreationComponent implements OnInit {
       {name: 'print', id: 15},
 
     ];
-  }
 
-
-  onCheckboxChange(e) {
-    const checkArray: FormArray = this.productForm.get('sizes') as FormArray;
-
-    if (e.target.checked) {
-      checkArray.push(new FormControl(e.target.value));
-    } else {
-      let i: number = 0;
-      checkArray.controls.forEach((item: FormControl) => {
-        if (item.value == e.target.value) {
-          checkArray.removeAt(i);
-          return;
-        }
-        i++;
-      });
+  private convertSizes(value):Size[] {
+    let sizes = [];
+    if(value.size1){
+      sizes.push(new Size(1,null))
     }
+    if(value.size2){
+      sizes.push(new Size(2,null))
+    }
+    if(value.size3){
+      sizes.push(new Size(3,null))
+    }
+    if(value.size4){
+      sizes.push(new Size(4,null))
+    }
+    if(value.size5){
+      sizes.push(new Size(5,null))
+    }
+    if(value.size6){
+      sizes.push(new Size(6,null))
+    }
+    return sizes
+
   }
 
-  newImage(): FormGroup {
-    return this.fb.group({
-      url: 'https://media.geeksforgeeks.org/wp-content/uploads/20190506164011/logo3.png'
-    })
+  hideProduct() {
+
   }
 
-  get images() {
-    return this.productForm.get('images') as FormArray
+  showProduct() {
+
   }
 
-  addImage() {
-    this.images.push(this.newImage());
-  }
-
-  removeImage(i: number) {
-    this.images.removeAt(i)
+  deleteProduct() {
+    this.router.navigate(['base/shop'])
   }
 }

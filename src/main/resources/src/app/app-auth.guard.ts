@@ -30,11 +30,15 @@ export class CanAuthenticationGuard extends KeycloakAuthGuard implements CanActi
       if (!requiredRoles || requiredRoles.length === 0) {
         return resolve(true);
       } else {
-        if (!this.roles || this.roles.length === 0) {
-          resolve(false);
+        let hasRequiredRole = requiredRoles.every(role => this.roles.indexOf(role) > -1)
+        if(!hasRequiredRole){
+          this.router.navigate(['/'], {
+            queryParams: {
+              userMissingPrivilege: true
+            }
+          });
         }
-        console.log("Roles -" +this.roles)
-        resolve(requiredRoles.every(role => this.roles.indexOf(role) > -1));
+        resolve(hasRequiredRole);
       }
     });
   }

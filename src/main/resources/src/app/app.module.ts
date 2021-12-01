@@ -35,7 +35,7 @@ import { ShopLoadMoreComponent } from './shop-load-more/shop-load-more.component
 import { ShopComponent } from './shop/shop.component';
 import { ShopFilterComponent } from './shop-filter/shop-filter.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {BsDatepickerModule} from 'ngx-bootstrap/datepicker';
+import {BsDatepickerModule, DatepickerModule} from 'ngx-bootstrap/datepicker';
 import {BsDropdownModule} from 'ngx-bootstrap/dropdown';
 import {KeycloakAngularModule, KeycloakService} from 'keycloak-angular';
 import { ProfileComponent } from './profile/profile.component';
@@ -88,20 +88,21 @@ const keycloakService = new KeycloakService();
     BookingSummaryComponent,
     ProductCreationComponent
   ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    AppRoutingModule,
-    RouterModule,
-    BrowserAnimationsModule,
-    BsDatepickerModule.forRoot(),
-    BsDropdownModule.forRoot(),
-    KeycloakAngularModule,
-    IconsModule,
-    NgbModule,
-    FormsModule,
-    ReactiveFormsModule
-  ],
+    imports: [
+        BrowserModule,
+        HttpClientModule,
+        AppRoutingModule,
+        RouterModule,
+        BrowserAnimationsModule,
+        BsDatepickerModule.forRoot(),
+        BsDropdownModule.forRoot(),
+        KeycloakAngularModule,
+        IconsModule,
+        NgbModule,
+        FormsModule,
+        ReactiveFormsModule,
+        DatepickerModule
+    ],
   providers: [
     {
       provide: KeycloakService,

@@ -3,6 +3,8 @@ import {ProductSize} from './productSize';
 import {ProductCategory} from './productCategory';
 import {ProductMeasurement} from './productMeasurement';
 import {ProductOccasion} from './productOccasion';
+import {Size} from "./size";
+
 
 export class Product {
   constructor(
@@ -14,8 +16,15 @@ export class Product {
     public washInfo: string,
     public description: string,
     public dryClean: boolean,
-    public coverImg: Image,
+    public measurements: ProductMeasurement,
+    public imgCover: Image,
     public images: Image[],
-    public sizes: string
+    public sizes: Size[],
+    public retailPrice: number,
+    public color: number,
+    public season: number,
+    public productCategory: number,
+    public hide: boolean
   ) { }
+
 }

@@ -25,11 +25,15 @@ const routes: Routes = [
       },
       {
         path: 'product/:productId',
-        component: ProductDetailsComponent,
+        component: ProductCreationComponent,
       },
       {
         path: 'home',
         component: HomeComponent,
+      },
+      {
+        path: 'shop',
+        component: ShopComponent,
       }
     ]}
     ];

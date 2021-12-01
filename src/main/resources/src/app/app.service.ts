@@ -68,7 +68,7 @@ export class AppService {
       .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
   }
 
-  postProductsResource(product :Product, resourceUrl) : Observable<any>{
+  postProductResource(product :Product, resourceUrl) : Observable<any>{
     let headers: HttpHeaders;
     headers = new HttpHeaders({
       'content-type': 'application/json',
@@ -77,6 +77,17 @@ export class AppService {
     const body=JSON.stringify(product);
 
     return this._http.post<any>(resourceUrl, body,{ 'headers': headers });
+  }
+
+  putProductResource(product :Product, resourceUrl) : Observable<any>{
+    let headers: HttpHeaders;
+    headers = new HttpHeaders({
+      'content-type': 'application/json',
+      Authorization: 'Bearer ' + Cookie.get('access_token'),
+    });
+    const body=JSON.stringify(product);
+
+    return this._http.put<any>(resourceUrl, body,{ 'headers': headers });
   }
 
   getProductResource(resourceUrl): Observable<Product>{
