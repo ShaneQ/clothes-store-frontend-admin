@@ -30,4 +30,16 @@ export class ProductService {
   getProduct(productId): Observable<Product> {
     return this._service.getProductResource(this.productUrl + '/' + productId);
   }
+
+  hide(productId: number): Observable<any> {
+    return this._service.putProductHideChangeResource(this.adminProductUrl + '/hide/' + productId)
+  }
+
+  unhide(productId: number): Observable<any> {
+    return this._service.putProductHideChangeResource(this.adminProductUrl + '/unhide/' + productId)
+  }
+
+  delete(productId: number): Observable<any> {
+    return this._service.deleteProductResource(this.adminProductUrl + '/' + productId)
+  }
 }

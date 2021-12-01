@@ -22,7 +22,7 @@ export class ProductCreationComponent implements OnInit {
   public saved: boolean;
   public hidden: boolean = false;
   public update: boolean = false;
-
+  public productId: number;
   constructor(private fb: FormBuilder, private _app: ProductService, private _route: ActivatedRoute, protected router: Router) {
   }
 
@@ -30,17 +30,30 @@ export class ProductCreationComponent implements OnInit {
     const productId = this._route.snapshot.paramMap.get('productId');
     this.product$ = this._app.getProduct(productId)
     if(productId){
+      this.productId = +productId
       this.product$.subscribe(data => this.populateForm(data))
     }else{
       this.initializeEmptyForm();
     }
   }
 
+  hideProduct() {
+    this._app.hide(this.productId).subscribe(data => this.hidden = true)
+
+  }
+
+  showProduct() {
+    this._app.unhide(this.productId).subscribe(data => this.hidden = false)
+
+  }
+
+  deleteProduct() {
+    this._app.delete(this.productId).subscribe(data => this.router.navigate(['base/shop']))
+
+  }
+
   private populateForm(product : Product) {
     this.update = true
-    this.hidden = product.hidden
-    console.log(product)
-    console.log(this.hidden)
     this.productCategories = this.getProductCategories()
     this.seasons = this.getSeasons()
     this.productForm = this.fb.group({
@@ -82,7 +95,6 @@ export class ProductCreationComponent implements OnInit {
   }
 
   private initializeEmptyForm() {
-    this.hidden = true
     this.productForm = this.fb.group({
       id: [],
       ignore:[],
@@ -234,17 +246,5 @@ export class ProductCreationComponent implements OnInit {
     }
     return sizes
 
-  }
-
-  hideProduct() {
-
-  }
-
-  showProduct() {
-
-  }
-
-  deleteProduct() {
-    this.router.navigate(['base/shop'])
   }
 }

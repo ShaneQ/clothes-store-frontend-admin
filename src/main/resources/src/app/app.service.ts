@@ -100,6 +100,25 @@ export class AppService {
       .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
   }
 
+  deleteProductResource(resourceUrl): Observable<any>{
+    let headers: HttpHeaders;
+    headers = new HttpHeaders({
+      'Content-type': 'application/x-www-form-urlencoded; charset=utf-8',
+      Authorization: 'Bearer ' + Cookie.get('access_token')
+    });
+    return this._http.delete(resourceUrl, { headers })
+  }
+
+  putProductHideChangeResource(resourceUrl): Observable<any>{
+    let headers: HttpHeaders;
+    headers = new HttpHeaders({
+      'Content-type': 'application/x-www-form-urlencoded; charset=utf-8',
+      Authorization: 'Bearer ' + Cookie.get('access_token')
+    });
+
+    return this._http.put(resourceUrl, { headers })
+  }
+
   getSecurityFreeResource(resourceUrl): Observable<any>{
     let headers: HttpHeaders;
     headers = new HttpHeaders({

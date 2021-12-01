@@ -24,7 +24,7 @@ export class Product {
     public color: number,
     public season: number,
     public productCategory: number,
-    public hide: boolean
+    public hidden: boolean
   ) { }
 
 }
