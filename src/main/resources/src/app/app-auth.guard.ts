@@ -20,6 +20,7 @@ export class CanAuthenticationGuard extends KeycloakAuthGuard implements CanActi
       location = this.baseUrl+ 'base/home';
     }
     return new Promise((resolve, reject) => {
+      console.log("HERE")
       if (!this.authenticated) {
         this.keycloakAngular.login({ redirectUri: location})
           .catch(e => console.error(e));
@@ -31,7 +32,10 @@ export class CanAuthenticationGuard extends KeycloakAuthGuard implements CanActi
         return resolve(true);
       } else {
         let hasRequiredRole = requiredRoles.every(role => this.roles.indexOf(role) > -1)
+
         if(!hasRequiredRole){
+          console.log(this.roles)
+          this.keycloakAngular.logout(environment.baseUrl);
           this.router.navigate(['/'], {
             queryParams: {
               userMissingPrivilege: true
