@@ -174,8 +174,18 @@
   <div class="container py-5">
     <div class="row">
 
-      <button type="submit" class="btn btn-primary">Create Product</button>
-
+      <div *ngIf="this.productId">
+        <button type="submit" class="btn btn-success">Update Product</button>
+      </div>
+      <div *ngIf="!this.productId">
+        <button type="submit" class="btn btn-success">Create Product</button>
+      </div>
+      <div *ngIf="this.saved" class="text-success">
+        <div ><small>Product Updated</small></div>
+      </div>
+      <div *ngIf="this.created" class="text-success">
+        <div ><small>Product Created</small></div>
+      </div>
     </div>
   </div>
 </form>

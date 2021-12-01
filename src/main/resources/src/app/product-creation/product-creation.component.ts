@@ -23,6 +23,7 @@ export class ProductCreationComponent implements OnInit {
   public hidden: boolean = false;
   public update: boolean = false;
   public productId: number;
+  public created: boolean;
   constructor(private fb: FormBuilder, private _app: ProductService, private _route: ActivatedRoute, protected router: Router) {
   }
 
@@ -147,7 +148,7 @@ export class ProductCreationComponent implements OnInit {
     if(this.productForm.get("id").value){
       this._app.updateProduct(product).subscribe(data => this.saved = true)
     }else{
-      this._app.createProduct(product).subscribe(data => {this.saved = true;
+      this._app.createProduct(product).subscribe(data => {this.created = true;
       })
     }
   }
