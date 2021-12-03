@@ -7,6 +7,7 @@ import 'rxjs/add/operator/map';
 import {Product} from './model/product';
 import {Router} from '@angular/router';
 import {environment} from "../environments/environment";
+import {User} from "./model/user";
 
 export class Foo {
   constructor(
@@ -100,6 +101,16 @@ export class AppService {
       .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
   }
 
+  getUsersResource(resourceUrl): Observable<User[]>{
+    let headers: HttpHeaders;
+    headers = new HttpHeaders({
+      'Content-type': 'application/x-www-form-urlencoded; charset=utf-8',
+      Authorization: 'Bearer ' + Cookie.get('access_token')
+    });
+    return this._http.get<User[]>(resourceUrl, { headers })
+    .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+  }
+
   deleteProductResource(resourceUrl): Observable<any>{
     let headers: HttpHeaders;
     headers = new HttpHeaders({
@@ -140,5 +151,15 @@ export class AppService {
 
   redirectToLogin(): void {
     window.location.href = this.baseUri;
+  }
+
+  activateUser(resourceUrl): Observable<any>{
+    let headers: HttpHeaders;
+    headers = new HttpHeaders({
+      'Content-type': 'application/x-www-form-urlencoded; charset=utf-8',
+      Authorization: 'Bearer ' + Cookie.get('access_token')
+    });
+
+    return this._http.put(resourceUrl, { headers })
   }
 }

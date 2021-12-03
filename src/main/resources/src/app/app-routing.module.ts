@@ -8,6 +8,7 @@ import {ShopComponent} from './shop/shop.component';
 import {CanAuthenticationGuard} from './app-auth.guard';
 import {ProfileComponent} from './profile/profile.component';
  import {ProductCreationComponent} from "./product-creation/product-creation.component";
+ import {UsersComponent} from "./users/users.component";
 
 const routes: Routes = [
   { path: '', component: LandingComponent, pathMatch: 'full' },
@@ -34,6 +35,10 @@ const routes: Routes = [
       {
         path: 'shop',
         component: ShopComponent,
+      },
+      {
+        path: 'users',
+        component: UsersComponent
       }
     ]}
     ];
