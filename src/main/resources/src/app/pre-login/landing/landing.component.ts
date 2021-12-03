@@ -15,13 +15,5 @@ export class LandingComponent implements OnInit {
     ){}
 
   ngOnInit(){
-    this._script.load('flickity').then(data => {
-      console.log('script loaded ', data);
-    }).catch(error => console.log(error));
-
-  }
-
-  register(): void{
-    this._keycloak.register();
   }
 }
