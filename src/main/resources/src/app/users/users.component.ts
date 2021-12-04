@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import {Observable} from "rxjs";
+import {Component, OnInit} from '@angular/core';
 import {User} from "../model/user";
 import {UsersService} from "../users.service";
 
@@ -10,11 +9,10 @@ import {UsersService} from "../users.service";
 
 })
 export class UsersComponent implements OnInit {
-
+  memberships = {1: "Casual", 2: "Chic"}
   title = 'datatables';
   dtOptions: DataTables.Settings = {};
   posts;
-  public users$: Observable<User[]>;
   public users: User[]
   private hasUsers: boolean =false
 
@@ -26,18 +24,20 @@ export class UsersComponent implements OnInit {
       pageLength: 5,
       processing: true
     };
-    this.users$ = this._service.getUsers()
-    this.users$.subscribe(data => this.users = data)
+    this._service.getUsers().subscribe(data => this.users = data)
 
   }
 
   activate(id: number) {
-    this._service.activateUser(id).subscribe()
+
+    this._service.activateUser(id).subscribe(() => this._service.getUsers().subscribe(data => this.users = data))
+
+
   }
 
   deactivate(id: number) {
+    this._service.getUsers().subscribe(data => this.users = data)
+
     console.log("WILL BUILD DEACTIVATE LATER")
   }
-
-  memberships = {1: "Casual", 2: "Chic"}
 }
