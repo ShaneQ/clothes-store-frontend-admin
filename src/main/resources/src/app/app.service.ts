@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import { Cookie } from 'ng2-cookies';
-import {HttpClient, HttpHeaders, HttpXsrfTokenExtractor} from '@angular/common/http';
+import {HttpClient, HttpEvent, HttpHeaders, HttpRequest, HttpXsrfTokenExtractor} from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
@@ -78,6 +78,30 @@ export class AppService {
     const body=JSON.stringify(product);
 
     return this._http.post<any>(resourceUrl, body,{ 'headers': headers });
+  }
+  postImageResource(formData :FormData, resourceUrl) : Observable<any>{
+    let headers: HttpHeaders;
+    headers = new HttpHeaders({
+      'content-type': 'application/json',
+      Authorization: 'Bearer ' + Cookie.get('access_token'),
+    });
+
+    return this._http.post<any>(resourceUrl, formData,{ 'headers': headers });
+  }
+
+  pushFileToStorage(file: File, resourceUrl): Observable<HttpEvent<{}>> {
+    let headers: HttpHeaders;
+    headers = new HttpHeaders({
+      Authorization: 'Bearer ' + Cookie.get('access_token'),
+    });
+    const data: FormData = new FormData();
+    data.append('file', file);
+    const newRequest = new HttpRequest('POST', resourceUrl, data, {
+      headers: headers,
+      reportProgress: true,
+      responseType: 'text'
+    });
+    return this._http.request(newRequest);
   }
 
   putProductResource(product :Product, resourceUrl) : Observable<any>{

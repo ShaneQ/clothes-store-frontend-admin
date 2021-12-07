@@ -5,6 +5,7 @@ import {ProductService} from "../product.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Observable} from "rxjs";
 import {Size} from "../model/size";
+import type {Image} from '../model/image';
 
 @Component({
   selector: 'app-product-creation',
@@ -156,7 +157,7 @@ export class ProductCreationComponent implements OnInit {
   newImage(id: number, url: string): FormGroup {
     return this.fb.group({
       id: id,
-      url: 'https://media.geeksforgeeks.org/wp-content/uploads/20190506164011/logo3.png'
+      url: url
     })
   }
 
@@ -164,8 +165,9 @@ export class ProductCreationComponent implements OnInit {
     return this.productForm.get('images') as FormArray
   }
 
-  addImage() {
-    this.images.push(this.newImage(null, 'https://media.geeksforgeeks.org/wp-content/uploads/20190506164011/logo3.png'));
+  addImage(image: Image) {
+    console.log(image)
+    this.images.push(this.newImage(image.id, image.url));
   }
 
   populateImage(id: number, url: string) {
@@ -246,6 +248,15 @@ export class ProductCreationComponent implements OnInit {
       sizes.push(new Size(6,null))
     }
     return sizes
+
+  }
+
+  onImageAdded(image: Image) {
+    let formGroup = this.productForm.get("imgCover") as FormGroup
+    formGroup.patchValue({
+      id: image.id,
+      url:image.url
+    });
 
   }
 }

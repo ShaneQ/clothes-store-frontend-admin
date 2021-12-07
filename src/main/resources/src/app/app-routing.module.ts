@@ -9,6 +9,7 @@ import {CanAuthenticationGuard} from './app-auth.guard';
 import {ProfileComponent} from './profile/profile.component';
  import {ProductCreationComponent} from "./product-creation/product-creation.component";
  import {UsersComponent} from "./users/users.component";
+ import {ImageUploadComponent} from "./image-upload/image-upload.component";
 
 const routes: Routes = [
   { path: '', component: LandingComponent, pathMatch: 'full' },

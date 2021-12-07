@@ -48,6 +48,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ProductCreationComponent} from './product-creation/product-creation.component';
 import {DataTablesModule} from "angular-datatables";
 import { UsersComponent } from './users/users.component';
+import { ImageUploadComponent } from './image-upload/image-upload.component';
 
 const keycloakService = new KeycloakService();
 
@@ -89,7 +90,8 @@ const keycloakService = new KeycloakService();
     MemberNotificationSlowDownComponent,
     BookingSummaryComponent,
     ProductCreationComponent,
-    UsersComponent
+    UsersComponent,
+    ImageUploadComponent
   ],
   imports: [
     BrowserModule,
