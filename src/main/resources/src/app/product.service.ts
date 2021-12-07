@@ -10,7 +10,7 @@ import {environment} from "../environments/environment";
 export class ProductService {
 
   private productUrl = environment.resourceUrl +'public/product';
-  private adminProductUrl = environment.resourceUrl +'private/product';
+  private adminProductUrl = environment.resourceUrl +'admin/product';
 
   constructor(private _service: AppService) { }
 

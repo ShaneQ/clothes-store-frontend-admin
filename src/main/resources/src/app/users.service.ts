@@ -9,17 +9,17 @@ import {environment} from "../environments/environment";
 })
 export class UsersService {
 
-  private privateUrl = environment.resourceUrl +'private/users';
+  private adminUrl = environment.resourceUrl +'admin/users';
 
   constructor(private _service: AppService) { }
 
 
   getUsers(): Observable<User[]>{
-    return this._service.getUsersResource(this.privateUrl);
+    return this._service.getUsersResource(this.adminUrl);
 
   }
 
   activateUser(id: number): Observable<any>{
-    return this._service.activateUser(this.privateUrl+"/user/"+id)
+    return this._service.activateUser(this.adminUrl+"/user/"+id)
   }
 }
