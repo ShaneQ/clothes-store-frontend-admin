@@ -145,7 +145,7 @@
   "defaultProject": "Clothes-Store-Frontend-Admin",
   "schematics": {
     "@schematics/angular:component": {
-      "styleext": "scss"
+      "style": "scss"
     }
   }
 }
