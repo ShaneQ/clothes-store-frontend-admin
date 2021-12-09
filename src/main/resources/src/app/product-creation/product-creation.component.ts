@@ -67,6 +67,7 @@ export class ProductCreationComponent implements OnInit {
       fittingInfo: [product.fittingInfo, [Validators.required]],
       washInfo: [product.washInfo, [Validators.required]],
       material: [product.material, [Validators.required]],
+      brand: [product.brand, Validators.required],
       imgCover: this.fb.group({
         url: product.imgCover.url,
         id: product.imgCover.id
@@ -106,6 +107,7 @@ export class ProductCreationComponent implements OnInit {
       fittingInfo: ['Testing', [Validators.required]],
       washInfo: ['Testing', [Validators.required]],
       material: ['Testing', [Validators.required]],
+      brand: ['Some Brand', Validators.required],
       imgCover: this.fb.group({
         url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1kUVuAjGZ8a6N1Tz9m0i0zKXVkk0CTJnJslJu6Z3Pk17XqOdSyQ&s',
         id: []
@@ -145,7 +147,7 @@ export class ProductCreationComponent implements OnInit {
       return;
     }
 
-    let product = new Product(f.id, f.name, f.quickDesc, f.material,f.fittingInfo,f.washInfo,f.description,f.dryClean,f.measurements,f.imgCover,f.images,sizes,f.retailPrice, f.color,f.season,f.productCategory, this.hidden)
+    let product = new Product(f.id, f.name, f.quickDesc, f.material,f.fittingInfo,f.washInfo,f.description,f.dryClean,f.measurements,f.imgCover,f.images,sizes,f.retailPrice, f.color,f.season,f.productCategory, this.hidden, f.brand)
     if(this.productForm.get("id").value){
       this._app.updateProduct(product).subscribe(data => this.saved = true)
     }else{
