@@ -50,6 +50,7 @@ import {DataTablesModule} from "angular-datatables";
 import { UsersComponent } from './users/users.component';
 import { ImageUploadComponent } from './image-upload/image-upload.component';
 import {initializeKeycloak} from "./init/keycloak-init.factory";
+import { UserComponent } from './user/user.component';
 
 const keycloakService = new KeycloakService();
 
@@ -92,7 +93,8 @@ const keycloakService = new KeycloakService();
     BookingSummaryComponent,
     ProductCreationComponent,
     UsersComponent,
-    ImageUploadComponent
+    ImageUploadComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,

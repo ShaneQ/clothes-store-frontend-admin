@@ -4,9 +4,9 @@
   <table datatable [dtOptions]="dtOptions" class="row-border hover">
     <thead>
     <tr>
-      <th>ID</th>
       <th>First Name</th>
       <th>Last Name</th>
+      <th>email</th>
       <th>Phone Number</th>
       <th>Status</th>
       <th>Membership</th>
@@ -25,11 +25,13 @@
       <td>{{ this.memberships[user.membership] }}</td>
       <td>
         <div *ngIf="user.status === 'REQUESTED'">
-        <button class="btn  btn-success btn-sm" (click)="activate(user.id)">Activate</button>
+        <button class="btn  btn-success btn-xxs" (click)="activate(user.id)">Activate</button>
         </div>
         <div *ngIf="user.status === 'ACTIVATED'">
-          <button class="btn btn-danger btn-sm " (click)="deactivate(user.id)">Deactivate</button>
+          <button class="btn btn-danger btn-xxs" (click)="deactivate(user.id)">Deactivate</button>
         </div>
+        <button class="btn  btn-success btn-xxs" [routerLink]="['/base/user', user.id]">View</button>
+
       </td>
     </tr>
     </tbody>

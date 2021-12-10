@@ -10,6 +10,7 @@ import {ProfileComponent} from './profile/profile.component';
  import {ProductCreationComponent} from "./product-creation/product-creation.component";
  import {UsersComponent} from "./users/users.component";
  import {ImageUploadComponent} from "./image-upload/image-upload.component";
+ import {UserComponent} from "./user/user.component";
 
 const routes: Routes = [
   { path: '', component: LandingComponent, pathMatch: 'full' },
@@ -40,7 +41,11 @@ const routes: Routes = [
       {
         path: 'users',
         component: UsersComponent
-      }
+      },
+      {
+        path: 'user/:userId',
+        component: UserComponent,
+      },
     ]}
     ];
 
