@@ -8,6 +8,7 @@ import {Product} from './model/product';
 import {Router} from '@angular/router';
 import {environment} from "../environments/environment";
 import {User} from "./model/user";
+import {BookingRequest} from "./model/bookingRequest";
 
 export class Foo {
   constructor(
@@ -131,6 +132,26 @@ export class AppService {
       Authorization: 'Bearer ' + Cookie.get('access_token')
     });
     return this._http.get<User[]>(resourceUrl, { headers })
+    .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+  }
+
+  getBookingsResource(resourceUrl): Observable<BookingRequest[]>{
+    let headers: HttpHeaders;
+    headers = new HttpHeaders({
+      'Content-type': 'application/x-www-form-urlencoded; charset=utf-8',
+      Authorization: 'Bearer ' + Cookie.get('access_token')
+    });
+    return this._http.get<BookingRequest[]>(resourceUrl, { headers })
+    .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+  }
+
+  getBookingResource(resourceUrl): Observable<BookingRequest>{
+    let headers: HttpHeaders;
+    headers = new HttpHeaders({
+      'Content-type': 'application/x-www-form-urlencoded; charset=utf-8',
+      Authorization: 'Bearer ' + Cookie.get('access_token')
+    });
+    return this._http.get<BookingRequest>(resourceUrl, { headers })
     .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
   }
 

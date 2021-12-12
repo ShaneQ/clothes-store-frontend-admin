@@ -11,6 +11,8 @@ import {ProfileComponent} from './profile/profile.component';
  import {UsersComponent} from "./users/users.component";
  import {ImageUploadComponent} from "./image-upload/image-upload.component";
  import {UserComponent} from "./user/user.component";
+ import {BookingsComponent} from "./bookings/bookings.component";
+ import {BookingComponent} from "./booking/booking.component";
 
 const routes: Routes = [
   { path: '', component: LandingComponent, pathMatch: 'full' },
@@ -45,6 +47,14 @@ const routes: Routes = [
       {
         path: 'user/:userId',
         component: UserComponent,
+      },
+      {
+        path: 'bookings',
+        component: BookingsComponent
+      },
+      {
+        path: 'booing/:bookingId',
+        component: BookingComponent,
       },
     ]}
     ];
