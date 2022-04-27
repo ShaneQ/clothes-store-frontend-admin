@@ -5,25 +5,36 @@
     <thead>
     <tr>
       <th>User</th>
-      <th>Start Date</th>
-      <th>Collection Place</th>
       <th>Product</th>
-      <th>Product Size</th>
+      <th>Size</th>
+      <th>Pickup Date</th>
+      <th>Collection</th>
+      <th>Return</th>
       <th>Status</th>
-      <th>Activities</th>
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let item of bookings">
-      <td><button type="button" class="btn btn-success btn-xxs"[routerLink]="['/base/user', item.userId]" >User</button></td>
-      <td>{{ item.startDate | date:'dd/MM/yyyy' }}</td>
-      <td>{{ item.collectionPlace }}</td>
-      <td>{{ item.productId }}</td>
-      <td>{{ item.productSize }}</td>
-      <td>{{ item.status }}</td>
+    <tr *ngFor="let booking of bookings">
       <td>
-
-      </td>
+        <button type="button" class="btn btn-success btn-xxs" [routerLink]="['/base/user', booking.userId]">View</button>
+        {{booking.userName}}</td>
+      <td>
+        <button type="button" class="btn btn-success btn-xxs" [routerLink]="['/base/product', booking.productId]">View
+        </button>
+        {{booking.productName}}</td>
+      <td>{{ sizes[booking.productSize].name }}</td>
+      <td>{{ booking.startDate | date:'dd/MM/yyyy' }}</td>
+      <td>{{ booking.collectionPlace }}</td>
+      <td>{{ booking.returnDate | date:'dd/MM/yyyy' }}
+      <td><select class="form-control" id="DropdownOptions" (change)="updateStatus($event, booking.id)">
+        <option
+          *ngFor="let statusName of status.keys() "
+          [selected]="statusName === booking.status"
+          [value]="statusName"
+        >
+          {{ statusName }}
+        </option>
+      </select></td>
     </tr>
     </tbody>
   </table>

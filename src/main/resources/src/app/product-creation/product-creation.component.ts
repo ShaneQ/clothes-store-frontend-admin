@@ -17,7 +17,6 @@ export class ProductCreationComponent implements OnInit {
   productForm: FormGroup
   productCategories = []
   seasons = []
-  imageUrl: string;
   public product$ :Observable<Product>
   public submitted: boolean;
   public saved: boolean;
@@ -189,7 +188,6 @@ export class ProductCreationComponent implements OnInit {
     {name: 'XL', value: 6}
 
   ];
-
 
   getProductCategories() {
     return [

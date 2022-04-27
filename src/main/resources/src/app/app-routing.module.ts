@@ -13,6 +13,7 @@ import {ProfileComponent} from './profile/profile.component';
  import {UserComponent} from "./user/user.component";
  import {BookingsComponent} from "./bookings/bookings.component";
  import {BookingComponent} from "./booking/booking.component";
+ import {ProductsComponent} from "./products/products.component";
 
 const routes: Routes = [
   { path: '', component: LandingComponent, pathMatch: 'full' },
@@ -55,6 +56,10 @@ const routes: Routes = [
       {
         path: 'booing/:bookingId',
         component: BookingComponent,
+      },
+      {
+        path: 'products',
+        component: ProductsComponent
       },
     ]}
     ];

@@ -1,6 +1,13 @@
 import {Injectable} from '@angular/core';
 import { Cookie } from 'ng2-cookies';
-import {HttpClient, HttpEvent, HttpHeaders, HttpRequest, HttpXsrfTokenExtractor} from '@angular/common/http';
+import {
+  HttpClient,
+  HttpEvent,
+  HttpHeaders,
+  HttpParams,
+  HttpRequest,
+  HttpXsrfTokenExtractor
+} from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
@@ -145,14 +152,15 @@ export class AppService {
     .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
   }
 
-  getBookingResource(resourceUrl): Observable<BookingRequest>{
+  updateBookingStatus(resourceUrl){
     let headers: HttpHeaders;
     headers = new HttpHeaders({
-      'Content-type': 'application/x-www-form-urlencoded; charset=utf-8',
-      Authorization: 'Bearer ' + Cookie.get('access_token')
+      'content-type': 'application/json',
+      Authorization: 'Bearer ' + Cookie.get('access_token'),
     });
-    return this._http.get<BookingRequest>(resourceUrl, { headers })
-    .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+    console.log(resourceUrl);
+    this._http.post<any>(resourceUrl, {},{ 'headers': headers }).subscribe(event => {});
+    console.log("GETS HERE");
   }
 
   getUserResource(resourceUrl): Observable<User>{
@@ -216,4 +224,26 @@ export class AppService {
 
     return this._http.put(resourceUrl, { headers })
   }
+
+  getFilteredProductResource(url: string, myparams: HttpParams): Observable<Product[]> {
+    let headers: HttpHeaders;
+    headers = new HttpHeaders({
+      'Content-type': 'application/x-www-form-urlencoded; charset=utf-8'
+    });
+    const options = {params: myparams, headers: headers};
+    return this._http.get<Product[]>(url, options)
+    .catch((e: any) => Observable.throw(this.errorHandler(e)));
+  }
+
+  errorHandler(error: any): void {
+    if (error.status === 0) {
+      console.log("SHOULD I LOG OUT");
+    } else if (error.status === 404) {
+
+    } else {
+      console.log(error)
+
+    }
+  }
+
 }

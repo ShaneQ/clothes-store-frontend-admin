@@ -3,6 +3,7 @@ import {Observable} from 'rxjs';
 import {AppService} from './app.service';
 import {Product} from './model/product';
 import {environment} from "../environments/environment";
+import {HttpParams} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
@@ -41,5 +42,29 @@ export class ProductService {
 
   delete(productId: number): Observable<any> {
     return this._service.deleteProductResource(this.adminProductUrl + '/' + productId)
+  }
+
+  filterProducts(filterBySizes: string, filterByColors: string, filterBySeason: string, filterByCategory: string, filterByName: string): Observable<Product[]>{
+    let url = this.productUrl+"/query"
+    let params = new HttpParams();
+    if(filterBySizes != null && filterBySizes != ''){
+      params=params.set('filterBySize', filterBySizes);
+    }
+    if(filterByColors != null && filterByColors != ''){
+      params=params.set('filterByColor', filterByColors);
+    }
+
+    if(filterBySeason != null && filterBySeason != ''){
+      params=params.set('filterBySeason', filterBySeason);
+    }
+
+    if(filterByCategory != null && filterByCategory != ''){
+      params=params.set('filterByCategory', filterByCategory);
+    }
+    if(filterByName != null && filterByName != ''){
+      params=params.set('filterByName', filterByName);
+    }
+    return this._service.getFilteredProductResource(url, params);
+
   }
 }

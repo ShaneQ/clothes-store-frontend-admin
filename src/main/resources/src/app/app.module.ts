@@ -53,6 +53,7 @@ import {initializeKeycloak} from "./init/keycloak-init.factory";
 import { UserComponent } from './user/user.component';
 import { BookingComponent } from './booking/booking.component';
 import { BookingsComponent } from './bookings/bookings.component';
+import { ProductsComponent } from './products/products.component';
 
 const keycloakService = new KeycloakService();
 
@@ -98,7 +99,8 @@ const keycloakService = new KeycloakService();
     ImageUploadComponent,
     UserComponent,
     BookingComponent,
-    BookingsComponent
+    BookingsComponent,
+    ProductsComponent
   ],
   imports: [
     BrowserModule,
