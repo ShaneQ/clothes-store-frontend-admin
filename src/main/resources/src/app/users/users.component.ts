@@ -14,7 +14,6 @@ export class UsersComponent implements OnInit {
   dtOptions: DataTables.Settings = {};
   posts;
   public users: User[]
-  private hasUsers: boolean =false
 
   constructor(private _service: UsersService) { }
 
@@ -29,15 +28,11 @@ export class UsersComponent implements OnInit {
   }
 
   activate(id: number) {
-
     this._service.activateUser(id).subscribe(() => this._service.getUsers().subscribe(data => this.users = data))
-
 
   }
 
-  deactivate(id: number) {
-    this._service.getUsers().subscribe(data => this.users = data)
-
-    console.log("WILL BUILD DEACTIVATE LATER")
+  updateUserSettings(id: number) {
+    this._service.deactivateUser(id).subscribe(() => this._service.getUsers().subscribe(data => this.users = data))
   }
 }

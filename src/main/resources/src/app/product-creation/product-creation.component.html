@@ -1,4 +1,7 @@
 <div *ngIf="this.update">
+  <div *ngIf="this.productId">
+    <app-bookings productId="{{this.product.id}}"></app-bookings>
+  </div>
   <div class="container py-5 pt-10">
     <div class="row">
       <div class="col-6">

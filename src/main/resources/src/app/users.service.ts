@@ -3,6 +3,7 @@ import {AppService} from "./app.service";
 import {User} from "./model/user";
 import {Observable} from "rxjs";
 import {environment} from "../environments/environment";
+import {UserSettings} from "./model/userSettings";
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,6 @@ export class UsersService {
 
   constructor(private _service: AppService) { }
 
-
   getUsers(): Observable<User[]>{
     return this._service.getUsersResource(this.adminUrl+"/users");
 
@@ -23,6 +23,14 @@ export class UsersService {
   }
 
   activateUser(id: number): Observable<any>{
-    return this._service.activateUser(this.adminUrl+"/users/user/"+id)
+    return this._service.updateUserStatus(this.adminUrl+"/users/user/"+id+"/activate")
+  }
+
+  deactivateUser(id: number) {
+    return this._service.updateUserStatus(this.adminUrl+"/users/user/"+id+"/deactivate")
+  }
+
+  updateSettings(id: number, settings: UserSettings) {
+    return this._service.updateSettings(this.adminUrl+"/users/user/"+id, settings).subscribe();
   }
 }

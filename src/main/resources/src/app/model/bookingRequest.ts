@@ -1,3 +1,5 @@
+import {Size} from "./size";
+
 export class BookingRequest {
   public id: number;
   public startDate: Date;
@@ -5,7 +7,7 @@ export class BookingRequest {
   public collectionPlace: string;
   public productId: number;
   public productName: string;
-  public productSize: number;
+  public productSize: Size;
   public status: string;
   public userId: string;
   public userName: string;

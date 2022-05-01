@@ -11,8 +11,6 @@
       <th>Status</th>
       <th>Membership</th>
       <th>Activities</th>
-
-
     </tr>
     </thead>
     <tbody>
@@ -24,14 +22,7 @@
       <td>{{ user.status }}</td>
       <td>{{ this.memberships[user.membership] }}</td>
       <td>
-        <div *ngIf="user.status === 'REQUESTED'">
-        <button class="btn  btn-success btn-xxs" (click)="activate(user.id)">Activate</button>
-        </div>
-        <div *ngIf="user.status === 'ACTIVATED'">
-          <button class="btn btn-danger btn-xxs" (click)="deactivate(user.id)">Deactivate</button>
-        </div>
         <button class="btn  btn-success btn-xxs" [routerLink]="['/base/user', user.id]">View</button>
-
       </td>
     </tr>
     </tbody>

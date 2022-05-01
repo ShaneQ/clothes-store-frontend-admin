@@ -14,14 +14,17 @@ export class BookingService {
   constructor(private _service: AppService) {
   }
 
-
   getBookings(): Observable<BookingRequest[]> {
     return this._service.getBookingsResource(this.adminUrl + "/bookings");
 
   }
 
   getBookingsForUser(userId: string): Observable<BookingRequest[]> {
-    return this._service.getBookingsResource(this.adminUrl + "/bookings/" + userId);
+    return this._service.getBookingsResource(this.adminUrl + "/bookings/user/" + userId);
+  }
+
+  getBookingsForProduct(productId: number): Observable<BookingRequest[]> {
+    return this._service.getBookingsResource(this.adminUrl + "/bookings/product/" + productId);
   }
 
   updateBookingStatus(value: string, id: number) {

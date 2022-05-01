@@ -5,8 +5,8 @@ import {BookingService} from "../booking.service";
 export enum Status {
   WAITING_COLLECTION,
   ACTIVE,
-  WAITING_RETURN,
-  COMPLETE
+  COMPLETE,
+  LATE_RETURN
 }
 
 export namespace Status {
@@ -33,6 +33,9 @@ export class BookingsComponent implements OnInit {
   @Input()
   userId: string;
 
+  @Input()
+  productId: number;
+
   sizes: Array<any> = [
     {name: 'One Size', value: 1},
     {name: 'XS', value: 2},
@@ -53,9 +56,11 @@ export class BookingsComponent implements OnInit {
       processing: true
     };
     if (this.userId!!) {
-      this._service.getBookingsForUser(this.userId).subscribe(data => this.bookings = data)
+      this._service.getBookingsForUser(this.userId).subscribe(data => this.bookings = data);
+    } else if (this.productId!!) {
+      this._service.getBookingsForProduct(this.productId).subscribe(data => this.bookings = data);
     } else {
-      this._service.getBookings().subscribe(data => this.bookings = data)
+      this._service.getBookings().subscribe(data => this.bookings = data);
     }
   }
 

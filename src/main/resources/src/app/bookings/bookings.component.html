@@ -1,10 +1,11 @@
-<div *ngIf="this.bookings?.length > 0" class="container py-10">
+<div *ngIf="this.bookings?.length > 0" class="container pb-10">
 
 
   <table datatable [dtOptions]="dtOptions" class="row-border hover">
     <thead>
     <tr>
-      <th>User</th>
+      <th>Id</th>
+      <th *ngIf="!this.userId!!">User</th>
       <th>Product</th>
       <th>Size</th>
       <th>Pickup Date</th>
@@ -14,15 +15,17 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let booking of bookings">
-      <td>
-        <button type="button" class="btn btn-success btn-xxs" [routerLink]="['/base/user', booking.userId]">View</button>
+    <tr *ngFor="let booking of bookings" class="text-center">
+      <td>{{booking.id}}</td>
+      <td *ngIf="!this.userId!!">
+        <button type="button" class="btn btn-success btn-xxs" [routerLink]="['/base/user', booking.userId]">View
+        </button>
         {{booking.userName}}</td>
       <td>
         <button type="button" class="btn btn-success btn-xxs" [routerLink]="['/base/product', booking.productId]">View
         </button>
         {{booking.productName}}</td>
-      <td>{{ sizes[booking.productSize].name }}</td>
+      <td>{{ sizes[booking.productSize.id_size].name }}</td>
       <td>{{ booking.startDate | date:'dd/MM/yyyy' }}</td>
       <td>{{ booking.collectionPlace }}</td>
       <td>{{ booking.returnDate | date:'dd/MM/yyyy' }}
