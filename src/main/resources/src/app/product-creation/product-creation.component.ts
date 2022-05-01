@@ -6,6 +6,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {Observable} from "rxjs";
 import {Size} from "../model/size";
 import type {Image} from '../model/image';
+import {ProductSize} from "../model/productSize";
 
 @Component({
   selector: 'app-product-creation',
@@ -17,7 +18,8 @@ export class ProductCreationComponent implements OnInit {
   productForm: FormGroup
   productCategories = []
   seasons = []
-  public product$ :Observable<Product>
+  public product$ :Observable<Product>;
+  public product :Product;
   public submitted: boolean;
   public saved: boolean;
   public hidden: boolean = false;
@@ -54,6 +56,7 @@ export class ProductCreationComponent implements OnInit {
   }
 
   private populateForm(product : Product) {
+    this.product = product;
     this.update = true
     this.productCategories = this.getProductCategories()
     this.seasons = this.getSeasons()
@@ -83,12 +86,12 @@ export class ProductCreationComponent implements OnInit {
         length: [product.measurements.length, [Validators.required]]
       }),
       sizes: this.fb.group({
-        size1: [product.sizes.filter(size => size.id ==1).length == 1],
-        size2: [product.sizes.filter(size => size.id ==2).length == 1],
-        size3: [product.sizes.filter(size => size.id ==3).length == 1],
-        size4: [product.sizes.filter(size => size.id ==4).length == 1],
-        size5: [product.sizes.filter(size => size.id ==5).length == 1],
-        size6: [product.sizes.filter(size => size.id ==6).length == 1]
+        size1: [product.sizes.filter(size => size.id_size ==1).length == 1],
+        size2: [product.sizes.filter(size => size.id_size ==2).length == 1],
+        size3: [product.sizes.filter(size => size.id_size ==3).length == 1],
+        size4: [product.sizes.filter(size => size.id_size ==4).length == 1],
+        size5: [product.sizes.filter(size => size.id_size ==5).length == 1],
+        size6: [product.sizes.filter(size => size.id_size ==6).length == 1]
       }),
       images: this.fb.array([])
     })
@@ -226,27 +229,28 @@ export class ProductCreationComponent implements OnInit {
       {name: 'print', id: 15},
 
     ];
+  private addSize(selectedSize: boolean, sizeInt: number,  sizesArr){
+    if(selectedSize){
+      if(this.product!!){
+        const foundSize =  this.product.sizes.filter(size => size.id_size ==sizeInt)[0];
+        if(foundSize!!){
+          console.log(foundSize)
+          sizesArr.push(new Size(foundSize.id_size,sizeInt, null))
+        }else{
+          sizesArr.push(new Size(null,sizeInt, null))
+        }
+      }
+    }
+  }
 
   private convertSizes(value):Size[] {
     let sizes = [];
-    if(value.size1){
-      sizes.push(new Size(1,null))
-    }
-    if(value.size2){
-      sizes.push(new Size(2,null))
-    }
-    if(value.size3){
-      sizes.push(new Size(3,null))
-    }
-    if(value.size4){
-      sizes.push(new Size(4,null))
-    }
-    if(value.size5){
-      sizes.push(new Size(5,null))
-    }
-    if(value.size6){
-      sizes.push(new Size(6,null))
-    }
+    this.addSize(value.size1, 1, sizes);
+    this.addSize(value.size2, 2, sizes);
+    this.addSize(value.size3, 3, sizes);
+    this.addSize(value.size4, 4, sizes);
+    this.addSize(value.size5, 5, sizes);
+    this.addSize(value.size6, 6, sizes);
     return sizes
 
   }
