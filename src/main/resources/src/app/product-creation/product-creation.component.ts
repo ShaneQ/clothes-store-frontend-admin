@@ -235,11 +235,11 @@ export class ProductCreationComponent implements OnInit {
       if(this.product!!) {
         const foundSize = this.product.sizes.filter(size => size.id_size == sizeInt)[0];
         if (foundSize!!) {
-          sizesArr.push(new Size(foundSize.id, sizeInt, null))
+          sizesArr.push(new Size(foundSize.id, sizeInt, null, foundSize.status))
           return
         }
       }
-      sizesArr.push(new Size(null,sizeInt, null))
+      sizesArr.push(new Size(null,sizeInt, null, "STORED"))
     }
   }
 

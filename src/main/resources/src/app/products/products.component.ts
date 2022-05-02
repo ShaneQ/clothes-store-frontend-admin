@@ -28,6 +28,10 @@ export class ProductsComponent implements OnInit {
 
   }
 
+  updateStatus(event: any, id: number, productId: number) {
+    this._service.updateInventoryStatus(event.target.value, id, productId)
+  }
+
   public inventoryStatus =
     ["BOOKED",
       "IN_USE",
@@ -65,7 +69,5 @@ export class ProductsComponent implements OnInit {
 
   ];
 
-  updateStatus(event: any, id: number, productId: number) {
-    this._service.updateInventoryStatus(event.target.value, id, productId)
-  }
+
 }

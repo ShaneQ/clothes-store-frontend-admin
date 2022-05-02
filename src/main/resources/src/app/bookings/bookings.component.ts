@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {BookingRequest} from "../model/bookingRequest";
 import {BookingService} from "../booking.service";
+import {ProductService} from "../product.service";
 
 export enum Status {
   WAITING_COLLECTION,
@@ -20,7 +21,7 @@ export namespace Status {
 @Component({
   selector: 'app-bookings',
   templateUrl: './bookings.component.html',
-  providers: [BookingService]
+  providers: [BookingService, ProductService]
 })
 export class BookingsComponent implements OnInit {
 
@@ -46,7 +47,7 @@ export class BookingsComponent implements OnInit {
 
   ];
 
-  constructor(private _service: BookingService) {
+  constructor(private _service: BookingService, private _productService: ProductService) {
   }
 
   ngOnInit(): void {
@@ -70,4 +71,16 @@ export class BookingsComponent implements OnInit {
     console.log("UPDATED STATUS")
 
   }
+
+  updateInventoryStatus(event: any, id: number, productId: number) {
+    this._productService.updateInventoryStatus(event.target.value, id, productId)
+  }
+
+  public inventoryStatus =
+    ["BOOKED",
+      "IN_USE",
+      "WAITING_RETURN",
+      "STORED",
+      "WASH",
+      "DEACTIVATED"];
 }
