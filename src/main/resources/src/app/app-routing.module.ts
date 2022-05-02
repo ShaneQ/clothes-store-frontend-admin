@@ -38,8 +38,8 @@ const routes: Routes = [
         component: HomeComponent,
       },
       {
-        path: 'shop',
-        component: ShopComponent,
+        path: 'inventory',
+        component: ProductsComponent,
       },
       {
         path: 'users',

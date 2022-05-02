@@ -6,7 +6,6 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {Observable} from "rxjs";
 import {Size} from "../model/size";
 import type {Image} from '../model/image';
-import {ProductSize} from "../model/productSize";
 
 @Component({
   selector: 'app-product-creation',
@@ -145,7 +144,9 @@ export class ProductCreationComponent implements OnInit {
     let f = this.productForm.value as Product
     let sizes = this.convertSizes(this.productForm.value.sizes)
     if (this.productForm.invalid || sizes.length == 0 || f.images.length == 0 ) {
-      console.log("Invalid Form")
+      console.log("Invalid form :" + this.productForm.invalid )
+      console.log("Sizes Length "+ sizes.length)
+      console.log("Images length :" + f.images.length)
       return;
     }
 
@@ -170,7 +171,6 @@ export class ProductCreationComponent implements OnInit {
   }
 
   addImage(image: Image) {
-    console.log(image)
     this.images.push(this.newImage(image.id, image.url));
   }
 
@@ -211,7 +211,7 @@ export class ProductCreationComponent implements OnInit {
       {name: 'Summer', id: '4'}
     ];
   }
-  colors = [
+  public colors = [
       {name: 'black', id: 1},
       {name: 'white', id: 2},
       {name: 'grey', id: 3},
@@ -229,17 +229,17 @@ export class ProductCreationComponent implements OnInit {
       {name: 'print', id: 15},
 
     ];
-  private addSize(selectedSize: boolean, sizeInt: number,  sizesArr){
+
+  private addSize(selectedSize: boolean, sizeInt: number,  sizesArr: Array<any>){
     if(selectedSize){
-      if(this.product!!){
-        const foundSize =  this.product.sizes.filter(size => size.id_size ==sizeInt)[0];
-        if(foundSize!!){
-          console.log(foundSize)
-          sizesArr.push(new Size(foundSize.id_size,sizeInt, null))
-        }else{
-          sizesArr.push(new Size(null,sizeInt, null))
+      if(this.product!!) {
+        const foundSize = this.product.sizes.filter(size => size.id_size == sizeInt)[0];
+        if (foundSize!!) {
+          sizesArr.push(new Size(foundSize.id, sizeInt, null))
+          return
         }
       }
+      sizesArr.push(new Size(null,sizeInt, null))
     }
   }
 

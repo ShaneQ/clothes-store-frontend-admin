@@ -57,7 +57,6 @@ import { ProductsComponent } from './products/products.component';
 
 const keycloakService = new KeycloakService();
 
-
 @NgModule({
   declarations: [
     AppComponent,

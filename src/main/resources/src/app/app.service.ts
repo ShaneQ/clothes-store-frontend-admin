@@ -16,6 +16,7 @@ import {environment} from "../environments/environment";
 import {User} from "./model/user";
 import {BookingRequest} from "./model/bookingRequest";
 import {UserSettings} from "./model/userSettings";
+import {Inventory} from "./model/inventory";
 
 @Injectable()
 export class AppService {
@@ -130,10 +131,8 @@ export class AppService {
       'content-type': 'application/json',
       Authorization: 'Bearer ' + Cookie.get('access_token'),
     });
-    console.log(resourceUrl);
     this._http.post<any>(resourceUrl, {}, {'headers': headers}).subscribe(event => {
     });
-    console.log("GETS HERE");
   }
 
   getUserResource(resourceUrl): Observable<User> {
@@ -229,5 +228,25 @@ export class AppService {
     const body = JSON.stringify(settings);
 
     return this._http.put<any>(resourceUrl, body, {'headers': headers});
+  }
+
+  getInventoryResource(resourceUrl: string): Observable<Inventory[]> {
+      let headers: HttpHeaders;
+    headers = new HttpHeaders({
+      'Content-type': 'application/x-www-form-urlencoded; charset=utf-8',
+      Authorization: 'Bearer ' + Cookie.get('access_token')
+    });
+    return this._http.get<Inventory[]>(resourceUrl, {headers})
+    .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+  }
+
+  updateInventoryStatus(resourceUrl) {
+    let headers: HttpHeaders;
+    headers = new HttpHeaders({
+      'content-type': 'application/json',
+      Authorization: 'Bearer ' + Cookie.get('access_token'),
+    });
+    this._http.post<any>(resourceUrl, {}, {'headers': headers}).subscribe(event => {
+    });
   }
 }

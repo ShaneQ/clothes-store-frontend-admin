@@ -20,7 +20,7 @@ export class UsersComponent implements OnInit {
   ngOnInit(): void {
     this.dtOptions = {
       pagingType: 'full_numbers',
-      pageLength: 5,
+      pageLength: 15,
       processing: true
     };
     this._service.getUsers().subscribe(data => this.users = data)
