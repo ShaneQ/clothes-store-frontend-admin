@@ -2,7 +2,6 @@ import {BrowserModule} from '@angular/platform-browser';
 import {APP_INITIALIZER, ApplicationRef, DoBootstrap, NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
-import {HomeComponent} from './home/home.component';
 import {ProductListComponent} from './product-list/product-list.component';
 import {ProductCardComponent} from './product-card/product-card.component';
 import {HttpClientModule} from '@angular/common/http';
@@ -30,10 +29,6 @@ import {SizeChartComponent} from './partials/modal/size-chart/size-chart.compone
 import {WaitListComponent} from './partials/modal/wait-list/wait-list.component';
 import {PromoComponent} from './partials/promo/promo.component';
 import {NavbarLandingComponent} from './pre-login/navbar-landing/navbar-landing.component';
-import {ShopCategoriesComponent} from './shop-categories/shop-categories.component';
-import {ShopLoadMoreComponent} from './shop-load-more/shop-load-more.component';
-import {ShopComponent} from './shop/shop.component';
-import {ShopFilterComponent} from './shop-filter/shop-filter.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {BsDatepickerModule, DatepickerModule} from 'ngx-bootstrap/datepicker';
 import {BsDropdownModule} from 'ngx-bootstrap/dropdown';
@@ -60,10 +55,8 @@ const keycloakService = new KeycloakService();
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
     ProductListComponent,
     ProductCardComponent,
-    HomeComponent,
     LandingComponent,
     BaseComponent,
     ProductDetailsComponent,
@@ -86,10 +79,6 @@ const keycloakService = new KeycloakService();
     WaitListComponent,
     PromoComponent,
     NavbarLandingComponent,
-    ShopCategoriesComponent,
-    ShopLoadMoreComponent,
-    ShopComponent,
-    ShopFilterComponent,
     ProfileComponent,
     MemberNotificationSlowDownComponent,
     BookingSummaryComponent,

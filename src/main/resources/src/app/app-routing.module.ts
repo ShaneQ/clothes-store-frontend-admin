@@ -2,14 +2,9 @@
 import {BaseComponent} from './base/base.component';
 import {RouterModule, Routes} from '@angular/router';
 import {LandingComponent} from './pre-login/landing/landing.component';
-import {ProductDetailsComponent} from './product-details/product-details.component';
-import {HomeComponent} from './home/home.component';
-import {ShopComponent} from './shop/shop.component';
 import {CanAuthenticationGuard} from './app-auth.guard';
-import {ProfileComponent} from './profile/profile.component';
  import {ProductCreationComponent} from "./product-creation/product-creation.component";
  import {UsersComponent} from "./users/users.component";
- import {ImageUploadComponent} from "./image-upload/image-upload.component";
  import {UserComponent} from "./user/user.component";
  import {BookingsComponent} from "./bookings/bookings.component";
  import {BookingComponent} from "./booking/booking.component";
@@ -22,7 +17,7 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'home',
+        redirectTo: 'users',
         pathMatch: 'full'
       },
       {
@@ -32,10 +27,6 @@ const routes: Routes = [
       {
         path: 'product/:productId',
         component: ProductCreationComponent,
-      },
-      {
-        path: 'home',
-        component: HomeComponent,
       },
       {
         path: 'inventory',
