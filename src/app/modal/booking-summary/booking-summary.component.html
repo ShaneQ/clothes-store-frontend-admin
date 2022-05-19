@@ -1,0 +1,18 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-basic-title">Review your Booking</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <!--<img [src]="order.product.coverImg.path">-->
+  <p><strong>{{order.product.name}}</strong></p>
+  <p>Size: {{this.order.selectedSize}}</p>
+  <p></p>
+  <p>Pickup Date: {{this.order.date}}</p>
+  <p></p>
+  <p>Return Date: </p>
+  <p></p>
+  <p>Collection Place: {{this.order.dispatch}}</p>
+  <button  type="button" class="btn btn-dark w-100">Confirm</button>
+</div>
