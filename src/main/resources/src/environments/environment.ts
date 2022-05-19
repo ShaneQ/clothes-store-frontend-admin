@@ -4,5 +4,6 @@ export const environment = {
     dotaImages: 'https://cdn-keycloak-angular.herokuapp.com/assets/images/dota-heroes/'
   },
   resourceUrl: 'http://localhost:8084/resource-server/api/',
-  baseUrl: 'http://localhost:8090/'
+  baseUrl: 'http://localhost:8090/',
+  authUrl: 'https://localhost:8083/auth'
 };
