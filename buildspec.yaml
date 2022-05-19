@@ -1,0 +1,26 @@
+
+version: 0.1
+
+phases:
+  install:
+    commands:
+      - echo installing nodejs...
+      - curl -sL https://deb.nodesource.com/setup_14.x | bash -
+      - apt-get install -y nodejs  #aws code build use ubuntu environement
+  pre_build:
+    commands:
+      - echo installing dependencies...
+      - npm i -g @angular/cli
+      - npm install
+  build:
+    commands:
+      # - echo testing...
+      # - echo building...
+      - pwd
+      - ls -ltr
+      - ng build --configuration production
+artifacts:
+  files:
+    - "**/*"
+  discard-paths: no
+  base-directory: dist/Clothes-Store-Frontend-Admin
